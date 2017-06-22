@@ -88,6 +88,8 @@ void loop() {
 
 		if (daisy_counter < 0) return;
 
+		// TODO(sparky): this is where we could add code that would use the 0th daisy_counter byte to have a latch count down to avoid flicker
+
 		if (daisy_counter == 0) {
 			// load the data from the first byte into our configuration (e.g. en1-6)
 			copyTriple(&states[0].en, incomingByte, 0);
