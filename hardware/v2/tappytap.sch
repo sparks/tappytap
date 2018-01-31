@@ -2518,32 +2518,32 @@ Source: AVX .. aphvc.pdf</description>
 
 http://smallbutdigital.com</description>
 <packages>
-<package name="24-SSOP">
+<package name="SSOP-24">
 <description>24-SSOP package</description>
-<smd name="1" x="-2.64" y="3.575" dx="1.12" dy="0.42" layer="1"/>
-<smd name="2" x="-2.64" y="2.925" dx="1.12" dy="0.42" layer="1"/>
-<smd name="3" x="-2.64" y="2.275" dx="1.12" dy="0.42" layer="1"/>
-<smd name="4" x="-2.64" y="1.625" dx="1.12" dy="0.42" layer="1"/>
-<smd name="5" x="-2.64" y="0.975" dx="1.12" dy="0.42" layer="1"/>
-<smd name="6" x="-2.64" y="0.325" dx="1.12" dy="0.42" layer="1"/>
-<smd name="7" x="-2.64" y="-0.325" dx="1.12" dy="0.42" layer="1"/>
-<smd name="8" x="-2.64" y="-0.975" dx="1.12" dy="0.42" layer="1"/>
-<smd name="9" x="-2.64" y="-1.625" dx="1.12" dy="0.42" layer="1"/>
-<smd name="10" x="-2.64" y="-2.275" dx="1.12" dy="0.42" layer="1"/>
-<smd name="11" x="-2.64" y="-2.925" dx="1.12" dy="0.42" layer="1"/>
-<smd name="12" x="-2.64" y="-3.575" dx="1.12" dy="0.42" layer="1"/>
-<smd name="13" x="2.64" y="-3.575" dx="1.12" dy="0.42" layer="1"/>
-<smd name="14" x="2.64" y="-2.925" dx="1.12" dy="0.42" layer="1"/>
-<smd name="15" x="2.64" y="-2.275" dx="1.12" dy="0.42" layer="1"/>
-<smd name="16" x="2.64" y="-1.625" dx="1.12" dy="0.42" layer="1"/>
-<smd name="17" x="2.64" y="-0.975" dx="1.12" dy="0.42" layer="1"/>
-<smd name="18" x="2.64" y="-0.325" dx="1.12" dy="0.42" layer="1"/>
-<smd name="19" x="2.64" y="0.325" dx="1.12" dy="0.42" layer="1"/>
-<smd name="20" x="2.64" y="0.975" dx="1.12" dy="0.42" layer="1"/>
-<smd name="21" x="2.64" y="1.625" dx="1.12" dy="0.42" layer="1"/>
-<smd name="23" x="2.64" y="2.925" dx="1.12" dy="0.42" layer="1"/>
-<smd name="22" x="2.64" y="2.275" dx="1.12" dy="0.42" layer="1"/>
-<smd name="24" x="2.64" y="3.575" dx="1.12" dy="0.42" layer="1"/>
+<smd name="1" x="-2.68" y="3.575" dx="1.2" dy="0.35" layer="1"/>
+<smd name="2" x="-2.68" y="2.925" dx="1.2" dy="0.35" layer="1"/>
+<smd name="3" x="-2.68" y="2.275" dx="1.2" dy="0.35" layer="1"/>
+<smd name="4" x="-2.68" y="1.625" dx="1.2" dy="0.35" layer="1"/>
+<smd name="5" x="-2.68" y="0.975" dx="1.2" dy="0.35" layer="1"/>
+<smd name="6" x="-2.68" y="0.325" dx="1.2" dy="0.35" layer="1"/>
+<smd name="7" x="-2.68" y="-0.325" dx="1.2" dy="0.35" layer="1"/>
+<smd name="8" x="-2.68" y="-0.975" dx="1.2" dy="0.35" layer="1"/>
+<smd name="9" x="-2.68" y="-1.625" dx="1.2" dy="0.35" layer="1"/>
+<smd name="10" x="-2.68" y="-2.275" dx="1.2" dy="0.35" layer="1"/>
+<smd name="11" x="-2.68" y="-2.925" dx="1.2" dy="0.35" layer="1"/>
+<smd name="12" x="-2.68" y="-3.575" dx="1.2" dy="0.35" layer="1"/>
+<smd name="13" x="2.68" y="-3.575" dx="1.2" dy="0.35" layer="1"/>
+<smd name="14" x="2.68" y="-2.925" dx="1.2" dy="0.35" layer="1"/>
+<smd name="15" x="2.68" y="-2.275" dx="1.2" dy="0.35" layer="1"/>
+<smd name="16" x="2.68" y="-1.625" dx="1.2" dy="0.35" layer="1"/>
+<smd name="17" x="2.68" y="-0.975" dx="1.2" dy="0.35" layer="1"/>
+<smd name="18" x="2.68" y="-0.325" dx="1.2" dy="0.35" layer="1"/>
+<smd name="19" x="2.68" y="0.325" dx="1.2" dy="0.35" layer="1"/>
+<smd name="20" x="2.68" y="0.975" dx="1.2" dy="0.35" layer="1"/>
+<smd name="21" x="2.68" y="1.625" dx="1.2" dy="0.35" layer="1"/>
+<smd name="23" x="2.68" y="2.925" dx="1.2" dy="0.35" layer="1"/>
+<smd name="22" x="2.68" y="2.275" dx="1.2" dy="0.35" layer="1"/>
+<smd name="24" x="2.68" y="3.575" dx="1.2" dy="0.35" layer="1"/>
 <text x="-3.175" y="4.445" size="0.6096" layer="25">&gt;NAME</text>
 <text x="-3.175" y="-5.08" size="0.6096" layer="27">&gt;VALUE</text>
 <wire x1="-1.95" y1="4.325" x2="-1.95" y2="-4.325" width="0.127" layer="21"/>
@@ -2608,7 +2608,7 @@ and are daisy chain compatible.</description>
 <gate name="G$1" symbol="NCV7718" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="24-SSOP">
+<device name="" package="SSOP-24">
 <connects>
 <connect gate="G$1" pin="CSB" pad="19"/>
 <connect gate="G$1" pin="EN" pad="8"/>
@@ -2620,7 +2620,7 @@ and are daisy chain compatible.</description>
 <connect gate="G$1" pin="OUT4" pad="11"/>
 <connect gate="G$1" pin="OUT5" pad="3"/>
 <connect gate="G$1" pin="OUT6" pad="10"/>
-<connect gate="G$1" pin="RSRV(GND)" pad="17 18"/>
+<connect gate="G$1" pin="RSRV(GND)" pad="17 18" route="any"/>
 <connect gate="G$1" pin="SCLK" pad="20"/>
 <connect gate="G$1" pin="SI" pad="5"/>
 <connect gate="G$1" pin="SO" pad="7"/>
