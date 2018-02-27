@@ -3,6 +3,7 @@
 #include <SPI.h>
 
 #define NUM_BOARDS 10
+#define SERIAL_DEBUG false
 
 // Struct representing the state of one NCV7718 chip which contains 3 hbridges:
 //  * bits 0,1,2 of en represent if hbridges 0,1,2 are enabled
@@ -100,14 +101,20 @@ void loop() {
 
 		// We use use the 7th bit [mark1] as a latch command
 		if ((incomingByte & 0x40) != 0) {
+			if (SERIAL_DEBUG) Serial.println("L");
 			write(states, NUM_BOARDS);
-			
 			return;
 		}
 
 		// We use the MSB [mark2] as a marker for the start of a new command, reset the counter then
-		if ((incomingByte & 0x80) != 0) daisy_counter = 0;
-		if (daisy_counter < 0) return;
+		if ((incomingByte & 0x80) != 0) {
+			if (SERIAL_DEBUG) Serial.println("D");
+			daisy_counter = 0;
+		}
+		if (daisy_counter < 0) {
+			if (SERIAL_DEBUG) Serial.println("-1");
+			return;
+		}
 
 		uint8_t board_num = daisy_counter / 3;
 		uint8_t sequence_num = daisy_counter % 3;
@@ -121,15 +128,32 @@ void loop() {
 			// load the data from the first byte into our configuration (e.g. en1-6)
 			copyTriple(&states[board_num].en, incomingByte, 0);
 			copyTriple(&states[board_num+1].en, incomingByte, 3);
+			if (SERIAL_DEBUG) {
+				Serial.print("B");
+				Serial.print(board_num, DEC);
+				Serial.println("1");
+			}
 		} else if (sequence_num == 1) {
 			// load the data from the second byte into our configuration (e.g. en7-9 and dir1-3)
 			copyTriple(&states[board_num+2].en, incomingByte, 0);
 			copyTriple(&states[board_num].dir, incomingByte, 3);
+			if (SERIAL_DEBUG) {
+				Serial.print("B");
+				Serial.print(board_num, DEC);
+				Serial.println("2");
+			}
 		} else if(sequence_num == 2) {
 			// load the data from the second byte into our configuration (e.g. dir4-9)
 			copyTriple(&states[board_num+1].dir, incomingByte, 0);
 			copyTriple(&states[board_num+2].dir, incomingByte, 3);
+			if (SERIAL_DEBUG) {
+				Serial.print("B");
+				Serial.print(board_num, DEC);
+				Serial.println("3");
+			}
 		}
+
+		daisy_counter++;
 	}
 }
 
