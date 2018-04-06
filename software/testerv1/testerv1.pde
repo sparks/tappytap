@@ -171,8 +171,8 @@ public void pushStates() {
 				int baseX = (i * 3) % tapDimX;
 				int baseY = floor((i * 3) / tapDimX) * 3;
 
-				int bitIndex = (j*3 + k) % 8;
-				int outIndex = j*3 + k < 8 ? 0 : 1;
+				int bitIndex = (j*3 + k) % 7;
+				int outIndex = j*3 + k < 7 ? 0 : 1;
 				if (states[baseX+j][baseY+k]) {
 					out[outIndex] = setBit(out[outIndex], bitIndex);
 				}
