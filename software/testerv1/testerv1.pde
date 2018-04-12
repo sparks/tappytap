@@ -18,12 +18,27 @@ boolean showConf = false;
 public void setup() {
 	size(500, 500);
 
-	println(Serial.list());
+	int targetIndex = 0;
 
-	arduinoMaster = new Serial(this, Serial.list()[0], 115200);
+	String[] ports = Serial.list();
+
+	println("Serial ports:");
+	for (int i = 0; i < ports.length; i++) {
+		print(" >");
+		println(ports[i]);
+
+		if (ports[i].indexOf("usbmodem") != -1) {
+			targetIndex = i;
+		}
+	}
+
+	print("Using: ");
+	println(ports[targetIndex]);
+
+	arduinoMaster = new Serial(this, Serial.list()[targetIndex], 115200);
+	arduinoMaster.bufferUntil(10);
+
 	tapConf = new TapConf(arduinoMaster, 5, 5, 5, 5);
-
-	tapConf.sendConf();
 }
 
 public void draw() {
