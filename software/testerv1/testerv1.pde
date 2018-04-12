@@ -2,7 +2,7 @@ import processing.serial.*;
 
 float borderPct = 0.2;
 
-boolean debugSerial = true;
+boolean debugSerial = false;
 
 int tapDimX = 3;
 int tapDimY = 3;

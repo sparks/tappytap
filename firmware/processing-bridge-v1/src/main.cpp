@@ -2,7 +2,7 @@
 #include <Arduino.h>
 #include <SPI.h>
 
-#define NUM_BOARDS 10
+#define NUM_BOARDS 1
 #define NCV_CHIPS NUM_BOARDS*3
 #define BRIDGE_PER_BOARD 9
 #define TOTAL_BRIDGES NUM_BOARDS*9
