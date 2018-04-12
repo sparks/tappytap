@@ -50,7 +50,7 @@ int serial_byte_count = 0;
 // Pulse configuration variables
 
 uint16_t tmpUpPulseLen, tmpInterPulseDelay, tmpDownPulseLen, tmpPauseLen = 0;
-uint16_t upPulseLen, interPulseDelay, downPulseLen, pauseLen = 0;
+uint16_t upPulseLen, interPulseDelay, downPulseLen, pauseLen = 5;
 
 void setup() {
 	// Clear the states array
