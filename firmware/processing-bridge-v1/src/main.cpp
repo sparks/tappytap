@@ -39,6 +39,8 @@ void drive(const bool*);
 // We init them off by setting en = 0 and dir = 0 for each
 state_t states[NCV_CHIPS];
 
+int phase = 0;
+
 // The high level one off state as seen graphically in processing
 bool bstates[TOTAL_BRIDGES];
 
@@ -50,7 +52,7 @@ int serial_byte_count = 0;
 // Pulse configuration variables
 
 uint16_t tmpUpPulseLen, tmpInterPulseDelay, tmpDownPulseLen, tmpPauseLen = 0;
-uint16_t upPulseLen, interPulseDelay, downPulseLen, pauseLen = 5;
+uint16_t upPulseLen, interPulseDelay, downPulseLen, pauseLen = 10;
 
 void setup() {
 	// Clear the states array
@@ -221,24 +223,34 @@ void loop() {
 }
 
 void drive(const bool* bstates) {
-	unsigned long cur_time = millis();
+	unsigned long cur_time = micros()/100;
 	unsigned long period = upPulseLen+interPulseDelay+downPulseLen+pauseLen;
 	unsigned long cur_period = cur_time % period;
 
 	for (int i = 0; i < TOTAL_BRIDGES; i++) {
-		if (cur_period < upPulseLen) {
+		if (cur_period < upPulseLen && phase == 0) {
 			// pulse fwd
 			set(states, NCV_CHIPS, i, bstates[i], false);
-		} else if (cur_period < upPulseLen+interPulseDelay) {
+			write(states, NCV_CHIPS);
+			phase++;
+		} else if (cur_period < upPulseLen+interPulseDelay && phase == 1) {
 			// idle
 			set(states, NCV_CHIPS, i, false, false);
-		} else if (cur_period < upPulseLen+interPulseDelay+downPulseLen) {
+			write(states, NCV_CHIPS);
+			phase++;
+		} else if (cur_period < upPulseLen+interPulseDelay+downPulseLen && phase == 2) {
 			// pulse back
 			set(states, NCV_CHIPS, i, bstates[i], true);
-		} else {
+			write(states, NCV_CHIPS);
+			phase++;
+		} else if (phase == 3) {
 			// idle
 			set(states, NCV_CHIPS, i, false, false);
+			write(states, NCV_CHIPS);
+			phase++;
 		}
+
+		phase = phase % 4;
 	}
 }
 

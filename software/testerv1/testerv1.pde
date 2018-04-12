@@ -14,6 +14,7 @@ boolean[][] states = new boolean[tapDimX][tapDimY];
 Serial arduinoMaster;
 
 boolean showConf = false;
+boolean draggable = true;
 
 public void setup() {
 	size(500, 500);
@@ -38,7 +39,7 @@ public void setup() {
 	arduinoMaster = new Serial(this, Serial.list()[targetIndex], 115200);
 	arduinoMaster.bufferUntil(10);
 
-	tapConf = new TapConf(arduinoMaster, 5, 5, 5, 5);
+	tapConf = new TapConf(arduinoMaster, 10, 10, 10, 10);
 }
 
 public void draw() {
@@ -123,6 +124,12 @@ public void keyPressed() {
 
 		case 'z': {
 			showConf = !showConf;
+			break;
+		}
+
+		case 'x': {
+			draggable = !draggable;
+			break;
 		}
 	}
 }
@@ -131,12 +138,15 @@ public void keyPressed() {
 
 public void mouseDragged() {
 	if (isInterstitial()) return;
-	setState(mouseXToX(mouseX), mouseYToY(mouseY), true);
+	if (draggable) {
+		setState(mouseXToX(mouseX), mouseYToY(mouseY), true);
+	} else {
+		setSingleEnabled(mouseXToX(mouseX), mouseYToY(mouseY));
+	}
 }
 
 public void mousePressed() {
-	if (isInterstitial()) return;
-	setState(mouseXToX(mouseX), mouseYToY(mouseY), true);
+	mouseDragged();
 }
 
 public void mouseReleased() {
@@ -159,6 +169,22 @@ public int mouseYToY(int mouseY) {
 }
 
 // States
+
+public void setSingleEnabled(int x, int y) {
+	boolean changed = true;
+	for (int i = 0; i < tapDimX; i++) {
+		for (int j = 0; j < tapDimY; j++) {
+			if (i == x && j == y) {
+				if (states[i][j] != true) changed = true;
+				states[i][j] = true;
+			} else {
+				if (states[i][j] != false) changed = true;
+				states[i][j] = false;
+			}
+		}
+	}
+	if (changed) pushStates();
+}
 
 public void setState(int x, int y, boolean state) {
 	boolean changed = states[x][y] != state;
