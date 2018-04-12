@@ -224,6 +224,13 @@ public void writeArduinoMaster(byte[] bytes) {
 	arduinoMaster.write(bytes);
 }
 
+void serialEvent(Serial port) {
+	if (!debugSerial) return;
+
+	print(port.readString());
+}
+
+
 // Conf
 
 class TapConf {
@@ -253,7 +260,6 @@ class TapConf {
 
 		writeArduinoMaster((byte)(pauseLen & 0xFF));
 		writeArduinoMaster((byte)((pauseLen & 0xFF00) >> 8));
-
 	}
 
 }
