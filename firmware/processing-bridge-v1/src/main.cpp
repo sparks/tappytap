@@ -81,11 +81,15 @@ void loop() {
 		// Read uart 
 		uint8_t incomingByte = Serial.read();
 		
-		if (SERIAL_DEBUG) Serial.println(serial_byte_count);
+		if (SERIAL_DEBUG) {
+			Serial.print("serial_byte_count: ");
+			Serial.println(serial_byte_count);
+		}
 
 		switch(mode) {
 			case MODE_CONF: {
-				if (SERIAL_DEBUG) Serial.println("C");
+				if (SERIAL_DEBUG) Serial.println("Conf started");
+
 				switch(serial_byte_count) {
 					case 0: {
 						tmpUpPulseLen |= incomingByte;
@@ -125,6 +129,18 @@ void loop() {
 						interPulseDelay = tmpInterPulseDelay;
 						downPulseLen = tmpDownPulseLen;
 						pauseLen = tmpPauseLen;
+						if (SERIAL_DEBUG) {
+							Serial.println("Conf done");
+							Serial.print("  >upPulseLen: ");
+							Serial.println(upPulseLen);
+							Serial.print("  >interPulseDelay: ");
+							Serial.println(interPulseDelay);
+							Serial.print("  >downPulseLen: ");
+							Serial.println(downPulseLen);
+							Serial.print("  >pauseLen: ");
+							Serial.println(pauseLen);
+							Serial.println();
+						}
 
 						mode = MODE_NONE;
 						break;
@@ -134,22 +150,37 @@ void loop() {
 				serial_byte_count++;
 				break;
 			}
+
 			case MODE_STATE: {
-				if (SERIAL_DEBUG) Serial.println("S");
+				if (SERIAL_DEBUG) Serial.println("State started");
 				if (incomingByte == 0x82) {
+					if (SERIAL_DEBUG) {
+						if (SERIAL_DEBUG) {
+							Serial.println("State done");
+							for (int i = 0; i < TOTAL_BRIDGES; i++) {
+								if (i % 3 == 0) Serial.print("  >");
+								Serial.print(bstates[(i / BRIDGE_PER_BOARD) * BRIDGE_PER_BOARD + (i % BRIDGE_PER_BOARD) / 3 + (i%3)*3]);
+								Serial.print(" ");
+								if (i % 3 == 2) Serial.println();
+								if (i % 9 == 8) Serial.println();
+							}
+						}
+					}
+
 					// We just latch as we go, there's not really risk to that
 					mode = MODE_NONE;
+					break;
 				}
 
 				int base_offset = serial_byte_count/2*BRIDGE_PER_BOARD;
 
 				if (serial_byte_count % 2 == 0) {
 					for (int i = 0; i < 7; i++) {
-						bstates[base_offset+i] = incomingByte & (1 << i) > 0;
+						bstates[base_offset+i] = (incomingByte & (1 << i)) > 0;
 					}
 				} else {
 					for (int i = 0; i < 2; i++) {
-						bstates[base_offset+7+i] = incomingByte & (1 << i) > 0;
+						bstates[base_offset+7+i] = (incomingByte & (1 << i)) > 0;
 					}
 				}
 				serial_byte_count++;
@@ -157,10 +188,11 @@ void loop() {
 			}
 			default:
 			case MODE_NONE: {
-				if (SERIAL_DEBUG) Serial.println("N");
+				if (SERIAL_DEBUG) Serial.println("None start");
 				serial_byte_count = 0;
 				switch(incomingByte) {
 					case 0x80: {
+						if (SERIAL_DEBUG) Serial.println("  >Conf");
 						mode = MODE_CONF;
 
 						tmpUpPulseLen = 0;
@@ -170,10 +202,12 @@ void loop() {
 						break;
 					}
 					case 0x81: {
+						if (SERIAL_DEBUG) Serial.println("  >State");
 						mode = MODE_STATE;
 						break;
 					}
 					default: {
+						if (SERIAL_DEBUG) Serial.println("  >?");
 						mode = MODE_NONE;
 						break;
 					}
