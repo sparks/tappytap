@@ -3,8 +3,16 @@
 #include <SPI.h>
 
 #define NUM_BOARDS 10
-#define PER_BOARD 9
+#define NCV_CHIPS NUM_BOARDS*3
+#define BRIDGE_PER_BOARD 9
+#define TOTAL_BRIDGES NUM_BOARDS*9
+
 #define SERIAL_DEBUG false
+
+// Slave select PIN for SPI (attached to all the NCV7718 chips) (active low)
+#define SS_PIN 10
+// Enable PIN for all the NCV7718 chips (active high)
+#define NCV_EN_PIN 9
 
 // Struct representing the state of one NCV7718 chip which contains 3 hbridges:
 //  * bits 0,1,2 of en represent if hbridges 0,1,2 are enabled
@@ -25,19 +33,14 @@ typedef enum _serial_mode_t {
 
 void set(state_t*, uint8_t, uint8_t, bool, bool);
 void write(const state_t*, uint8_t);
-void drive();
-
-// Slave select PIN for SPI (attached to all the NCV7718 chips) (active low)
-#define SS_PIN 10
-// Enable PIN for all the NCV7718 chips (active high)
-#define NCV_EN_PIN 9
+void drive(const bool*);
 
 // There are three NCV7718 chips on each board, hence we have three state_t structs
 // We init them off by setting en = 0 and dir = 0 for each
-state_t states[NUM_BOARDS];
+state_t states[NCV_CHIPS];
 
 // The high level one off state as seen graphically in processing
-bool bstates[NUM_BOARDS*PER_BOARD];
+bool bstates[TOTAL_BRIDGES];
 
 // Serial comm variables
 
@@ -46,15 +49,16 @@ int serial_byte_count = 0;
 
 // Pulse configuration variables
 
-int upPulseLen, interPulseDelay, downPulseLen, pauseLen = 0;
+uint16_t tmpUpPulseLen, tmpInterPulseDelay, tmpDownPulseLen, tmpPauseLen = 0;
+uint16_t upPulseLen, interPulseDelay, downPulseLen, pauseLen = 0;
 
 void setup() {
 	// Clear the states array
-	for (int i = 0; i < NUM_BOARDS; i++) {
+	for (int i = 0; i < NCV_CHIPS; i++) {
 		states[i] = {0, 0};
 	}
 
-	for (int i = 0; i < NUM_BOARDS*PER_BOARD; i++) {
+	for (int i = 0; i < TOTAL_BRIDGES; i++) {
 		bstates[i] = false;
 	}
 
@@ -84,39 +88,44 @@ void loop() {
 				if (SERIAL_DEBUG) Serial.println("C");
 				switch(serial_byte_count) {
 					case 0: {
-						upPulseLen |= incomingByte;
+						tmpUpPulseLen |= incomingByte;
 						break;
 					}
 					case 1: {
-						upPulseLen |= incomingByte << 8;
+						tmpUpPulseLen |= incomingByte << 8;
 						break;
 					}
 					case 2: {
-						interPulseDelay |= incomingByte;
+						tmpInterPulseDelay |= incomingByte;
 						break;
 					}
 					case 3: {
-						interPulseDelay |= incomingByte << 8;
+						tmpInterPulseDelay |= incomingByte << 8;
 						break;
 					}
 					case 4: {
-						downPulseLen |= incomingByte;
+						tmpDownPulseLen |= incomingByte;
 						break;
 					}
 					case 5: {
-						downPulseLen |= incomingByte << 8;
+						tmpDownPulseLen |= incomingByte << 8;
 						break;
 					}
 					case 6: {
-						pauseLen |= incomingByte;
+						tmpPauseLen |= incomingByte;
 						break;
 					}
 					case 7: {
-						pauseLen |= incomingByte << 8;
-						mode = MODE_NONE;
+						tmpPauseLen |= incomingByte << 8;
 						// falls through to default now
 					}
 					default: {
+						// latches
+						upPulseLen = tmpUpPulseLen;
+						interPulseDelay = tmpInterPulseDelay;
+						downPulseLen = tmpDownPulseLen;
+						pauseLen = tmpPauseLen;
+
 						mode = MODE_NONE;
 						break;
 					}
@@ -128,10 +137,13 @@ void loop() {
 			case MODE_STATE: {
 				if (SERIAL_DEBUG) Serial.println("S");
 				if (incomingByte == 0x82) {
+					// We just latch as we go, there's not really risk to that
 					mode = MODE_NONE;
 				}
-				int base_offset = serial_byte_count/2*PER_BOARD;
-				if (serial_byte_count & 2 == 0) {
+
+				int base_offset = serial_byte_count/2*BRIDGE_PER_BOARD;
+
+				if (serial_byte_count % 2 == 0) {
 					for (int i = 0; i < 7; i++) {
 						bstates[base_offset+i] = incomingByte & (1 << i) > 0;
 					}
@@ -150,10 +162,11 @@ void loop() {
 				switch(incomingByte) {
 					case 0x80: {
 						mode = MODE_CONF;
-						upPulseLen = 0;
-						interPulseDelay = 0;
-						downPulseLen = 0;
-						pauseLen = 0;
+
+						tmpUpPulseLen = 0;
+						tmpInterPulseDelay = 0;
+						tmpDownPulseLen = 0;
+						tmpPauseLen = 0;
 						break;
 					}
 					case 0x81: {
@@ -170,68 +183,29 @@ void loop() {
 		}		
 	}
 
-	drive();
-
-	// 	// We use use the 7th bit [mark1] as a latch command
-	// 	if ((incomingByte & 0x40) != 0) {
-	// 		if (SERIAL_DEBUG) Serial.println("L");
-	// 		write(states, NUM_BOARDS);
-	// 		return;
-	// 	}
-
-	// 	// We use the MSB [mark2] as a marker for the start of a new command, reset the counter then
-	// 	if ((incomingByte & 0x80) != 0) {
-	// 		if (SERIAL_DEBUG) Serial.println("D");
-	// 		daisy_counter = 0;
-	// 	}
-	// 	if (daisy_counter < 0) {
-	// 		if (SERIAL_DEBUG) Serial.println("-1");
-	// 		return;
-	// 	}
-
-	// 	uint8_t board_num = daisy_counter / 3;
-	// 	uint8_t sequence_num = daisy_counter % 3;
-
-	// 	if (board_num >= NUM_BOARDS) {
-	// 		Serial.println("Error: too many bytes transfered. You need to increase the NUM_BOARDS #define");
-	// 		return; // Out of bounds you've sent too much data
-	// 	}
-
-	// 	if (sequence_num == 0) {
-	// 		// load the data from the first byte into our configuration (e.g. en1-6)
-	// 		copyTriple(&states[board_num].en, incomingByte, 0);
-	// 		copyTriple(&states[board_num+1].en, incomingByte, 3);
-	// 		if (SERIAL_DEBUG) {
-	// 			Serial.print("B");
-	// 			Serial.print(board_num, DEC);
-	// 			Serial.println("1");
-	// 		}
-	// 	} else if (sequence_num == 1) {
-	// 		// load the data from the second byte into our configuration (e.g. en7-9 and dir1-3)
-	// 		copyTriple(&states[board_num+2].en, incomingByte, 0);
-	// 		copyTriple(&states[board_num].dir, incomingByte, 3);
-	// 		if (SERIAL_DEBUG) {
-	// 			Serial.print("B");
-	// 			Serial.print(board_num, DEC);
-	// 			Serial.println("2");
-	// 		}
-	// 	} else if(sequence_num == 2) {
-	// 		// load the data from the second byte into our configuration (e.g. dir4-9)
-	// 		copyTriple(&states[board_num+1].dir, incomingByte, 0);
-	// 		copyTriple(&states[board_num+2].dir, incomingByte, 3);
-	// 		if (SERIAL_DEBUG) {
-	// 			Serial.print("B");
-	// 			Serial.print(board_num, DEC);
-	// 			Serial.println("3");
-	// 		}
-	// 	}
-
-	// 	daisy_counter++;
-	// }
+	drive(bstates);
 }
 
-void drive() {
+void drive(const bool* bstates) {
+	unsigned long cur_time = millis();
+	unsigned long period = upPulseLen+interPulseDelay+downPulseLen+pauseLen;
+	unsigned long cur_period = cur_time % period;
 
+	for (int i = 0; i < TOTAL_BRIDGES; i++) {
+		if (cur_period < upPulseLen) {
+			// pulse fwd
+			set(states, NCV_CHIPS, i, bstates[i], false);
+		} else if (cur_period < upPulseLen+interPulseDelay) {
+			// idle
+			set(states, NCV_CHIPS, i, false, false);
+		} else if (cur_period < upPulseLen+interPulseDelay+downPulseLen) {
+			// pulse back
+			set(states, NCV_CHIPS, i, bstates[i], true);
+		} else {
+			// idle
+			set(states, NCV_CHIPS, i, false, false);
+		}
+	}
 }
 
 // Helper function if you want to set the en and dir for a particular hbridge manually
