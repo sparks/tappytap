@@ -13,8 +13,18 @@ boolean[][] states = new boolean[tapDimX][tapDimY];
 
 Serial arduinoMaster;
 
-boolean showConf = false;
 boolean draggable = true;
+
+public enum PulseDragPoint {
+	UP_END, DOWN_START, DOWN_END
+}
+
+public enum Mode {
+	TAP_INTERACTION, WAVE_AND_CONF
+}
+
+Mode mode = Mode.TAP_INTERACTION;
+PulseDragPoint pdp = PulseDragPoint.UP_END;
 
 public void setup() {
 	size(500, 500);
@@ -45,6 +55,19 @@ public void setup() {
 public void draw() {
 	background(0);
 
+	switch (mode) {
+		case TAP_INTERACTION: {
+			drawTapInteraction();
+			break;
+		}
+		case WAVE_AND_CONF: {
+			drawWaveAndConf();
+			break;
+		}
+	}
+}
+
+public void drawTapInteraction() {
 	for (int i = 0; i < tapDimX; i++) {
 		for (int j = 0; j < tapDimY; j++) {
 			strokeWeight(4);
@@ -53,23 +76,30 @@ public void draw() {
 			rect((i+borderPct) * width / tapDimX, (j+borderPct) * height / tapDimY, (width / tapDimX) * (1.0 - borderPct * 2), (height / tapDimY) * (1.0 - borderPct * 2));
 		}
 	}
+}
 
-	if (showConf) {
+public void drawWaveAndConf() {
+	stroke(255);
+	strokeWeight(5);
+	
+	line(0, 2*height/4, 0, height/4);
+	line(0, height/4, tapConf.upEndPixel(), height/4);
+	line(tapConf.upEndPixel(), height/4, tapConf.upEndPixel(), 2*height/4);
+	line(tapConf.upEndPixel(), 2*height/4, tapConf.downStartPixel(), 2*height/4);
+	line(tapConf.downStartPixel(), 2*height/4, tapConf.downStartPixel(), 3*height/4);
+	line(tapConf.downStartPixel(), 3*height/4, tapConf.downEndPixel(), 3*height/4);
+	line(tapConf.downEndPixel(), 3*height/4, tapConf.downEndPixel(), 2*height/4);
+	line(tapConf.downEndPixel(), 2*height/4, width, 2*height/4);
 
-		fill(100);
-		noStroke();
-		rect(15, 5, 130, 70);
+	fill(255);
+	stroke(255);
 
-		fill(255);
-		stroke(255);
+	int spacing = 15;
 
-		int spacing = 15;
-
-		text(String.format("upPulseLen : %d", tapConf.upPulseLen), 20, 20+spacing*0);
-		text(String.format("interPulseDelay : %d", tapConf.interPulseDelay), 20, 20+spacing*1);
-		text(String.format("downPulseLen : %d", tapConf.downPulseLen), 20, 20+spacing*2);
-		text(String.format("pauseLen : %d", tapConf.pauseLen), 20, 20+spacing*3);
-	}
+	text(String.format("upPulseLen : %d", tapConf.upPulseLen), 20, 20+spacing*0);
+	text(String.format("interPulseDelay : %d", tapConf.interPulseDelay), 20, 20+spacing*1);
+	text(String.format("downPulseLen : %d", tapConf.downPulseLen), 20, 20+spacing*2);
+	text(String.format("pauseLen : %d", tapConf.pauseLen), 20, 20+spacing*3);
 }
 
 // keypress
@@ -123,7 +153,7 @@ public void keyPressed() {
 		}
 
 		case 'z': {
-			showConf = !showConf;
+			mode = Mode.values()[(mode.ordinal() + 1) % Mode.values().length];
 			break;
 		}
 
@@ -136,8 +166,9 @@ public void keyPressed() {
 
 // Mouse
 
-public void mouseDragged() {
+public void mouseDraggedTapInteraction() {
 	if (isInterstitial()) return;
+
 	if (draggable) {
 		setState(mouseXToX(mouseX), mouseYToY(mouseY), true);
 	} else {
@@ -145,12 +176,43 @@ public void mouseDragged() {
 	}
 }
 
+public void mouseDragged() {
+	switch (mode) {
+		case TAP_INTERACTION: {
+			mouseDraggedTapInteraction();
+			break;
+		}
+		case WAVE_AND_CONF: {
+			tapConf.setPoint(pdp, mouseX);
+			break;
+		}
+	}
+}
+
 public void mousePressed() {
-	mouseDragged();
+	switch (mode) {
+		case TAP_INTERACTION: {
+			mouseDragged();
+			break;
+		}
+		case WAVE_AND_CONF: {
+			pdp = tapConf.closesDragPoint(mouseX);
+			break;
+		}
+	}
 }
 
 public void mouseReleased() {
-	setAllStates(false);
+	switch (mode) {
+		case TAP_INTERACTION: {
+			setAllStates(false);
+			break;
+		}
+		case WAVE_AND_CONF: {
+			tapConf.sendConf();
+			break;
+		}
+	}
 }
 
 public boolean isInterstitial() {
@@ -286,6 +348,77 @@ class TapConf {
 
 		writeArduinoMaster((byte)(pauseLen & 0xFF));
 		writeArduinoMaster((byte)((pauseLen & 0xFF00) >> 8));
+	}
+
+	public int period() {
+		return upPulseLen+interPulseDelay+downPulseLen+pauseLen;
+	}
+
+	public int upEndPixel() {
+		return int(map(tapConf.upPulseLen, 0, tapConf.period(), 0, width));
+	}
+
+	public int downStartPixel() {
+		return int(map(tapConf.upPulseLen+tapConf.interPulseDelay, 0, tapConf.period(), 0, width));
+	}
+
+	public int downEndPixel() {
+		return int(map(tapConf.upPulseLen+tapConf.interPulseDelay+tapConf.downPulseLen, 0, tapConf.period(), 0, width));
+	}
+
+	public void setPoint(PulseDragPoint point, int pixelX) {
+		switch (point) {
+			case UP_END: {
+				int period = tapConf.period(); // will fluctuate during calculation
+
+				upPulseLen = int(constrain(
+					map(pixelX, 0, width, 0, period),
+					0,
+					period - downPulseLen - pauseLen
+				));
+
+				interPulseDelay = period - upPulseLen - downPulseLen - pauseLen;
+				break;
+			}
+			case DOWN_START: {
+				int period = tapConf.period(); // will fluctuate during calculation
+
+				interPulseDelay = int(constrain(
+					map(pixelX, 0, width, 0, period) - upPulseLen,
+					0,
+					period - upPulseLen - pauseLen
+				));
+
+				downPulseLen = period - upPulseLen - interPulseDelay - pauseLen;
+				break;
+			}
+			case DOWN_END: {
+				int period = tapConf.period(); // will fluctuate during calculation
+
+				downPulseLen = int(constrain(
+					map(pixelX, 0, width, 0, period) - upPulseLen - interPulseDelay,
+					0,
+					period - upPulseLen - interPulseDelay
+				));
+
+				pauseLen = period - upPulseLen - interPulseDelay - downPulseLen;
+				break;
+			}
+		}
+	}
+
+	public PulseDragPoint closesDragPoint(int pixelX) {
+		int upEndDist = abs(upEndPixel()-pixelX);
+		int downStartDist = abs(downStartPixel()-pixelX);
+		int downEndDist = abs(downEndPixel()-pixelX);
+
+		if (upEndDist < downStartDist && upEndDist < downEndDist) {
+			return PulseDragPoint.UP_END;
+		} else if (downStartDist < downEndDist) {
+			return PulseDragPoint.DOWN_START;
+		} else {
+			return PulseDragPoint.DOWN_END;
+		}
 	}
 
 }
