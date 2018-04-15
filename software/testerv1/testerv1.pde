@@ -13,7 +13,7 @@ boolean[][] states = new boolean[tapDimX][tapDimY];
 
 Serial arduinoMaster;
 
-boolean draggable = true;
+boolean draggable = false;
 
 public enum PulseDragPoint {
 	UP_END, DOWN_START, DOWN_END
@@ -49,7 +49,7 @@ public void setup() {
 	arduinoMaster = new Serial(this, Serial.list()[targetIndex], 115200);
 	arduinoMaster.bufferUntil(10);
 
-	tapConf = new TapConf(arduinoMaster, 10, 10, 10, 10);
+	tapConf = new TapConf(arduinoMaster, 100, 100, 100, 100);
 }
 
 public void draw() {
@@ -65,6 +65,13 @@ public void draw() {
 			break;
 		}
 	}
+
+
+	fill(255);
+	stroke(255);
+
+	text("'z' toggle wave conf --- 'x' toggle drag sustain --- 'SHIFT' tmp drag sustain", 20, 20);
+	text("'q/a w/s e/d r/f' incr wave values +/- 1 (with 'SHIFT' +/- 10)", 20, height-10);
 }
 
 public void drawTapInteraction() {
@@ -82,24 +89,30 @@ public void drawWaveAndConf() {
 	stroke(255);
 	strokeWeight(5);
 	
-	line(0, 2*height/4, 0, height/4);
-	line(0, height/4, tapConf.upEndPixel(), height/4);
-	line(tapConf.upEndPixel(), height/4, tapConf.upEndPixel(), 2*height/4);
+	if (tapConf.upEndPixel() != 0) {
+		line(0, 2*height/4, 0, height/4);
+		line(0, height/4, tapConf.upEndPixel(), height/4);
+		line(tapConf.upEndPixel(), height/4, tapConf.upEndPixel(), 2*height/4);
+	}
 	line(tapConf.upEndPixel(), 2*height/4, tapConf.downStartPixel(), 2*height/4);
-	line(tapConf.downStartPixel(), 2*height/4, tapConf.downStartPixel(), 3*height/4);
-	line(tapConf.downStartPixel(), 3*height/4, tapConf.downEndPixel(), 3*height/4);
-	line(tapConf.downEndPixel(), 3*height/4, tapConf.downEndPixel(), 2*height/4);
+	if (tapConf.downStartPixel() != tapConf.downEndPixel()) {
+		line(tapConf.downStartPixel(), 2*height/4, tapConf.downStartPixel(), 3*height/4);
+		line(tapConf.downStartPixel(), 3*height/4, tapConf.downEndPixel(), 3*height/4);
+		line(tapConf.downEndPixel(), 3*height/4, tapConf.downEndPixel(), 2*height/4);
+	}
 	line(tapConf.downEndPixel(), 2*height/4, width, 2*height/4);
 
 	fill(255);
 	stroke(255);
 
 	int spacing = 15;
+	int count = 0;
 
-	text(String.format("upPulseLen : %d", tapConf.upPulseLen), 20, 20+spacing*0);
-	text(String.format("interPulseDelay : %d", tapConf.interPulseDelay), 20, 20+spacing*1);
-	text(String.format("downPulseLen : %d", tapConf.downPulseLen), 20, 20+spacing*2);
-	text(String.format("pauseLen : %d", tapConf.pauseLen), 20, 20+spacing*3);
+	text(String.format("upPulseLen : %d * 10 µs", tapConf.upPulseLen), 20, 40+spacing*count++);
+	text(String.format("interPulseDelay : %d * 10 µs", tapConf.interPulseDelay), 20, 40+spacing*count++);
+	text(String.format("downPulseLen : %d * 10 µs", tapConf.downPulseLen), 20, 40+spacing*count++);
+	text(String.format("pauseLen : %d * 10 µs", tapConf.pauseLen), 20, 40+spacing*count++);
+	text(String.format("period/freq : %.2f * ms / %.2f * Hz", tapConf.period() / 10f, 100000f / tapConf.period()), 20, 40+spacing*count++);
 }
 
 // keypress
@@ -115,6 +128,7 @@ public void keyPressed() {
 		}
 		case 'a': {
 			tapConf.upPulseLen -= incr;
+			if (tapConf.upPulseLen < 0) tapConf.upPulseLen = 0;
 			tapConf.sendConf();
 			break;
 		}
@@ -126,6 +140,7 @@ public void keyPressed() {
 		}
 		case 's': {
 			tapConf.interPulseDelay -= incr;
+			if (tapConf.interPulseDelay < 0) tapConf.interPulseDelay = 0;
 			tapConf.sendConf();
 			break;
 		}
@@ -137,6 +152,7 @@ public void keyPressed() {
 		}
 		case 'd': {
 			tapConf.downPulseLen -= incr;
+			if (tapConf.downPulseLen < 0) tapConf.downPulseLen = 0;
 			tapConf.sendConf();
 			break;
 		}
@@ -148,6 +164,7 @@ public void keyPressed() {
 		}
 		case 'f': {
 			tapConf.pauseLen -= incr;
+			if (tapConf.pauseLen < 0) tapConf.pauseLen = 0;
 			tapConf.sendConf();
 			break;
 		}
@@ -169,7 +186,7 @@ public void keyPressed() {
 public void mouseDraggedTapInteraction() {
 	if (isInterstitial()) return;
 
-	if (draggable) {
+	if (draggable || keyCode == SHIFT) {
 		setState(mouseXToX(mouseX), mouseYToY(mouseY), true);
 	} else {
 		setSingleEnabled(mouseXToX(mouseX), mouseYToY(mouseY));

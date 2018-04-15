@@ -52,7 +52,7 @@ int serial_byte_count = 0;
 // Pulse configuration variables
 
 uint16_t tmpUpPulseLen = 0, tmpInterPulseDelay = 0, tmpDownPulseLen = 0, tmpPauseLen = 0;
-uint16_t upPulseLen = 10, interPulseDelay = 10, downPulseLen = 10, pauseLen = 10;
+uint16_t upPulseLen = 100, interPulseDelay = 100, downPulseLen = 100, pauseLen = 100;
 
 void setup() {
 	// Clear the states array
@@ -223,7 +223,7 @@ void loop() {
 }
 
 void drive(const bool* bstates) {
-	unsigned long cur_time = micros()/100;
+	unsigned long cur_time = micros()/10;
 	unsigned long period = upPulseLen+interPulseDelay+downPulseLen+pauseLen;
 	unsigned long cur_period = cur_time % period;
 
