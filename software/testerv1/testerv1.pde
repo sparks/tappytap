@@ -200,6 +200,7 @@ public void mouseDragged() {
 			break;
 		}
 		case WAVE_AND_CONF: {
+			pdp = tapConf.closesDragPoint(mouseX);
 			tapConf.setPoint(pdp, mouseX);
 			break;
 		}
@@ -214,6 +215,7 @@ public void mousePressed() {
 		}
 		case WAVE_AND_CONF: {
 			pdp = tapConf.closesDragPoint(mouseX);
+			tapConf.setPoint(pdp, mouseX);
 			break;
 		}
 	}
@@ -431,7 +433,7 @@ class TapConf {
 
 		if (upEndDist < downStartDist && upEndDist < downEndDist) {
 			return PulseDragPoint.UP_END;
-		} else if (downStartDist < downEndDist) {
+		} else if (downStartDist <= downEndDist) {
 			return PulseDragPoint.DOWN_START;
 		} else {
 			return PulseDragPoint.DOWN_END;
