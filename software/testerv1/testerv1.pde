@@ -413,13 +413,10 @@ class TapConf {
 		int downEndDist = abs(downEndPixel()-pixelX);
 
 		if (upEndDist <= downStartDist && upEndDist <= downEndDist) {
-			println("UP_END");
 			return PulseDragPoint.UP_END;
 		} else if (downStartDist <= downEndDist) {
-			println("DOWN_START");
 			return PulseDragPoint.DOWN_START;
 		} else {
-			println("DOWN_END");
 			return PulseDragPoint.DOWN_END;
 		}
 	}
