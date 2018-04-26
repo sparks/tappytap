@@ -51,8 +51,8 @@ int serial_byte_count = 0;
 
 // Pulse configuration variables
 
-uint16_t tmpUpPulseLen = 0, tmpInterPulseDelay = 0, tmpDownPulseLen = 0, tmpPauseLen = 0;
-uint16_t upPulseLen = 100, interPulseDelay = 100, downPulseLen = 100, pauseLen = 100;
+uint16_t tmpUpPulseLen = 0, tmpInterPulseLen = 0, tmpDownPulseLen = 0, tmpPauseLen = 0;
+uint16_t upPulseLen = 1000, interPulseLen = 0, downPulseLen = 1000, pauseLen = 0;
 
 void setup() {
 	// Clear the states array
@@ -73,7 +73,7 @@ void setup() {
 
 	// Configure SPI
 	SPI.begin();
-	SPI.setDataMode(SPI_MODE1);
+	SPI.beginTransaction(SPISettings(5e6, MSBFIRST, SPI_MODE1));
 
 	Serial.begin(115200);
 }
@@ -102,11 +102,11 @@ void loop() {
 						break;
 					}
 					case 2: {
-						tmpInterPulseDelay |= incomingByte;
+						tmpInterPulseLen |= incomingByte;
 						break;
 					}
 					case 3: {
-						tmpInterPulseDelay |= incomingByte << 8;
+						tmpInterPulseLen |= incomingByte << 8;
 						break;
 					}
 					case 4: {
@@ -128,15 +128,15 @@ void loop() {
 					default: {
 						// latches
 						upPulseLen = tmpUpPulseLen;
-						interPulseDelay = tmpInterPulseDelay;
+						interPulseLen = tmpInterPulseLen;
 						downPulseLen = tmpDownPulseLen;
 						pauseLen = tmpPauseLen;
 						if (SERIAL_DEBUG) {
 							Serial.println("Conf done");
 							Serial.print("  >upPulseLen: ");
 							Serial.println(upPulseLen);
-							Serial.print("  >interPulseDelay: ");
-							Serial.println(interPulseDelay);
+							Serial.print("  >interPulseLen: ");
+							Serial.println(interPulseLen);
 							Serial.print("  >downPulseLen: ");
 							Serial.println(downPulseLen);
 							Serial.print("  >pauseLen: ");
@@ -198,7 +198,7 @@ void loop() {
 						mode = MODE_CONF;
 
 						tmpUpPulseLen = 0;
-						tmpInterPulseDelay = 0;
+						tmpInterPulseLen = 0;
 						tmpDownPulseLen = 0;
 						tmpPauseLen = 0;
 						break;
@@ -224,34 +224,32 @@ void loop() {
 
 void drive(const bool* bstates) {
 	unsigned long cur_time = micros()/10;
-	unsigned long period = upPulseLen+interPulseDelay+downPulseLen+pauseLen;
+	unsigned long period = upPulseLen+interPulseLen+downPulseLen+pauseLen;
 	unsigned long cur_period = cur_time % period;
 
-	for (int i = 0; i < TOTAL_BRIDGES; i++) {
-		if (cur_period < upPulseLen && phase == 0) {
-			// pulse fwd
-			set(states, NCV_CHIPS, i, bstates[i], false);
-			write(states, NCV_CHIPS);
-			phase++;
-		} else if (cur_period < upPulseLen+interPulseDelay && phase == 1) {
-			// idle
-			set(states, NCV_CHIPS, i, false, false);
-			write(states, NCV_CHIPS);
-			phase++;
-		} else if (cur_period < upPulseLen+interPulseDelay+downPulseLen && phase == 2) {
-			// pulse back
-			set(states, NCV_CHIPS, i, bstates[i], true);
-			write(states, NCV_CHIPS);
-			phase++;
-		} else if (phase == 3) {
-			// idle
-			set(states, NCV_CHIPS, i, false, false);
-			write(states, NCV_CHIPS);
-			phase++;
-		}
-
-		phase = phase % 4;
+	if (cur_period < upPulseLen && (phase == 0 || phase == 3)) {
+		// pulse fwd
+		for (int i = 0; i < TOTAL_BRIDGES; i++) set(states, NCV_CHIPS, i, bstates[i], false);
+		if (upPulseLen > MIN_PHASE_TIME) write(states, NCV_CHIPS);
+		phase = 1;
+	} else if (cur_period >= upPulseLen && phase <= 1) {
+		// idle
+		for (int i = 0; i < TOTAL_BRIDGES; i++) set(states, NCV_CHIPS, i, false, false);
+		write(states, NCV_CHIPS);
+		phase = 2;
+	} else if (cur_period >= upPulseLen+interPulseLen && phase <= 2) {
+		// pulse back
+		for (int i = 0; i < TOTAL_BRIDGES; i++) set(states, NCV_CHIPS, i, bstates[i], true);
+		if (downPulseLen > MIN_PHASE_TIME) write(states, NCV_CHIPS);
+		phase = 3;
+	} else if (cur_period >= upPulseLen+interPulseLen+downPulseLen && phase <= 3) {
+		// idle
+		for (int i = 0; i < TOTAL_BRIDGES; i++) set(states, NCV_CHIPS, i, false, false);
+		write(states, NCV_CHIPS);
+		phase = 0;
 	}
+
+	phase = phase % 4;
 }
 
 // Helper function if you want to set the en and dir for a particular hbridge manually
@@ -294,8 +292,8 @@ void write(const state_t* states, uint8_t num_states) {
 		}
 
 		// Send 16 bits over SPI as per NCV7718 docs (we're ignoring the extra features and return values for now)
-		SPI.transfer(0 << 7 | 0 << 6 | 0 << 5 | (ncvEn >> 1) & 0x1F);
-		SPI.transfer((ncvEn & 0x01) << 7 | (ncvCC & 0x3F) << 1 | 0);
+		SPI.transfer(0 << 7 | 0 << 6 | 0 << 5 | ((ncvEn >> 1) & 0x1F));
+		SPI.transfer(((ncvEn & 0x01) << 7) | ((ncvCC & 0x3F) << 1) | 0);
 	}
 
 	// deassert the slave select

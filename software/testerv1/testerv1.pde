@@ -49,7 +49,7 @@ public void setup() {
 	arduinoMaster = new Serial(this, Serial.list()[targetIndex], 115200);
 	arduinoMaster.bufferUntil(10);
 
-	tapConf = new TapConf(arduinoMaster, 1000, 1000, 1000, 1000);
+	tapConf = new TapConf(arduinoMaster, 2000, 2000, 2000, 2000);
 }
 
 public void draw() {
@@ -162,11 +162,6 @@ public void keyPressed() {
 			break;
 		}
 
-		case 'z': {
-			mode = Mode.values()[(mode.ordinal() + 1) % Mode.values().length];
-			break;
-		}
-
 		case 'x': {
 			draggable = !draggable;
 			break;
@@ -187,18 +182,27 @@ public void mouseDraggedTapInteraction() {
 }
 
 public void mouseDragged() {
-	if (mouseX < 500) {
-		mouseDraggedTapInteraction();
-	} else {
-		pdp = tapConf.closestDragPoint(mouseX-500);
-		tapConf.setPoint(pdp, mouseX-500);
+	switch (mode) {
+		case TAP_INTERACTION: {
+			mouseDraggedTapInteraction();
+			break;
+		}
+		case WAVE_AND_CONF: {
+			pdp = tapConf.closestDragPoint(mouseX-500);
+			tapConf.setPoint(pdp, mouseX-500);
+			break;
+		}
 	}
 }
 
 public void mousePressed() {
 	if (mouseX < 500) {
+		mode = Mode.TAP_INTERACTION;
+
 		mouseDragged();
 	} else {
+		mode = Mode.WAVE_AND_CONF;
+
 		pdp = tapConf.closestDragPoint(mouseX-500);
 		tapConf.setPoint(pdp, mouseX-500);
 	}
