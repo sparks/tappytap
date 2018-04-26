@@ -49,7 +49,7 @@ public void setup() {
 	arduinoMaster = new Serial(this, Serial.list()[targetIndex], 115200);
 	arduinoMaster.bufferUntil(10);
 
-	tapConf = new TapConf(arduinoMaster, 100, 100, 100, 100);
+	tapConf = new TapConf(arduinoMaster, 1000, 1000, 1000, 1000);
 }
 
 public void draw() {
@@ -105,7 +105,7 @@ public void drawWaveAndConf() {
 	text(String.format("interPulseDelay : %d * 10 µs", tapConf.interPulseDelay), 20, 40+spacing*count++);
 	text(String.format("downPulseLen : %d * 10 µs", tapConf.downPulseLen), 20, 40+spacing*count++);
 	text(String.format("pauseLen : %d * 10 µs", tapConf.pauseLen), 20, 40+spacing*count++);
-	text(String.format("period/freq : %.2f * ms / %.2f * Hz", tapConf.period() / 10f, 10000f / tapConf.period()), 20, 40+spacing*count++);
+	text(String.format("period/freq : %.2f * ms / %.2f * Hz", tapConf.period() / 100f, 100000f / tapConf.period()), 20, 40+spacing*count++);
 }
 
 // keypress
