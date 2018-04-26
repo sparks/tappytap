@@ -105,7 +105,7 @@ public void drawWaveAndConf() {
 	text(String.format("interPulseDelay : %d * 10 µs", tapConf.interPulseDelay), 20, 40+spacing*count++);
 	text(String.format("downPulseLen : %d * 10 µs", tapConf.downPulseLen), 20, 40+spacing*count++);
 	text(String.format("pauseLen : %d * 10 µs", tapConf.pauseLen), 20, 40+spacing*count++);
-	text(String.format("period/freq : %.2f * ms / %.2f * Hz", tapConf.period() / 10f, 100000f / tapConf.period()), 20, 40+spacing*count++);
+	text(String.format("period/freq : %.2f * ms / %.2f * Hz", tapConf.period() / 10f, 10000f / tapConf.period()), 20, 40+spacing*count++);
 }
 
 // keypress
