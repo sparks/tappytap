@@ -6,6 +6,7 @@ boolean debugSerial = false;
 
 int tapDimX = 3;
 int tapDimY = 3;
+int period = 8000;
 
 TapConf tapConf;
 
@@ -14,6 +15,7 @@ boolean[][] states = new boolean[tapDimX][tapDimY];
 Serial arduinoMaster;
 
 boolean draggable = false;
+boolean shifted = false;
 
 public enum PulseDragPoint {
 	UP_END, DOWN_START, DOWN_END
@@ -49,7 +51,7 @@ public void setup() {
 	arduinoMaster = new Serial(this, Serial.list()[targetIndex], 115200);
 	arduinoMaster.bufferUntil(10);
 
-	tapConf = new TapConf(arduinoMaster, 2000, 2000, 2000, 2000);
+	tapConf = new TapConf(arduinoMaster, period/4, period/4, period/4, period/4);
 }
 
 public void draw() {
@@ -106,11 +108,24 @@ public void drawWaveAndConf() {
 	text(String.format("downPulseLen : %d * 10 µs", tapConf.downPulseLen), 20, 40+spacing*count++);
 	text(String.format("pauseLen : %d * 10 µs", tapConf.pauseLen), 20, 40+spacing*count++);
 	text(String.format("period/freq : %.2f * ms / %.2f * Hz", tapConf.period() / 100f, 100000f / tapConf.period()), 20, 40+spacing*count++);
+
+	// fill(255);
+	// noStroke();
+
+	// float freq = 100000f / tapConf.period();
+
+	// rect(0, height-60, constrain(map(freq, 5, 500, 0, 500), 0, 500), 20);
 }
 
 // keypress
 
+public void keyReleased() {
+	if (key == CODED && keyCode == SHIFT) shifted = false;
+}
+
 public void keyPressed() {
+	if (key == CODED && keyCode == SHIFT) shifted = true;
+
 	int incr = Character.isUpperCase(key) ? 10 : 1;
 
 	switch (Character.toLowerCase(key)) {
@@ -174,7 +189,7 @@ public void keyPressed() {
 public void mouseDraggedTapInteraction() {
 	if (isInterstitial()) return;
 
-	if (draggable || keyCode == SHIFT) {
+	if (draggable || shifted) {
 		setState(mouseXToX(mouseX), mouseYToY(mouseY), true);
 	} else {
 		setSingleEnabled(mouseXToX(mouseX), mouseYToY(mouseY));
