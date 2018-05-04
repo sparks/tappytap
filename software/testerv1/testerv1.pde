@@ -1,12 +1,16 @@
 import processing.serial.*;
 
-float borderPct = 0.2;
+final float startFreq = 12.5; //Hz
+
+final int tapDimX = 3;
+final int tapDimY = 3;
+
+final float minFreq = 5;
+final float maxFreq = 1000;
+
+final float borderPct = 0.2;
 
 boolean debugSerial = false;
-
-int tapDimX = 3;
-int tapDimY = 3;
-int period = 8000;
 
 TapConf tapConf;
 
@@ -14,7 +18,6 @@ boolean[][] states = new boolean[tapDimX][tapDimY];
 
 Serial arduinoMaster;
 
-boolean draggable = false;
 boolean shifted = false;
 
 public enum PulseDragPoint {
@@ -51,22 +54,16 @@ public void setup() {
 	arduinoMaster = new Serial(this, Serial.list()[targetIndex], 115200);
 	arduinoMaster.bufferUntil(10);
 
-	tapConf = new TapConf(arduinoMaster, period/4, period/4, period/4, period/4);
+	tapConf = new TapConf(arduinoMaster, (int) (100000f/startFreq/4), (int) (100000f/startFreq/4), (int) (100000f/startFreq/4), (int) (100000f/startFreq/4));
 }
 
 public void draw() {
 	background(0);
 
-	drawTapInteraction();
-	
-	translate(500, 0);
+	drawTapInteraction();	
+
+	translate(width/2, 0);
 	drawWaveAndConf();
-
-	fill(255);
-	stroke(255);
-
-	text("'z' toggle wave conf --- 'x' toggle drag sustain --- 'SHIFT' tmp drag sustain", 20, 20);
-	text("'q/a w/s e/d r/f' incr wave values +/- 1 (with 'SHIFT' +/- 10)", 20, height-10);
 }
 
 public void drawTapInteraction() {
@@ -75,9 +72,13 @@ public void drawTapInteraction() {
 			strokeWeight(4);
 			fill(states[i][j] ? 200 : 0);
 			stroke(255);
-			rect((i+borderPct) * 500 / tapDimX, (j+borderPct) * height / tapDimY, (500 / tapDimX) * (1.0 - borderPct * 2), (height / tapDimY) * (1.0 - borderPct * 2));
+			rect((i+borderPct) * width / 2 / tapDimX, (j+borderPct) * height / tapDimY, (width / 2 / tapDimX) * (1.0 - borderPct * 2), (height / tapDimY) * (1.0 - borderPct * 2));
 		}
 	}
+
+	fill(255);
+	stroke(255);
+	text("'SHIFT' to sustain", 20, 20);
 }
 
 public void drawWaveAndConf() {
@@ -95,7 +96,7 @@ public void drawWaveAndConf() {
 		line(tapConf.downStartPixel(), 3*height/4, tapConf.downEndPixel(), 3*height/4);
 		line(tapConf.downEndPixel(), 3*height/4, tapConf.downEndPixel(), 2*height/4);
 	}
-	line(tapConf.downEndPixel(), 2*height/4, 500, 2*height/4);
+	line(tapConf.downEndPixel(), 2*height/4, width/2, 2*height/4);
 
 	fill(255);
 	stroke(255);
@@ -103,18 +104,21 @@ public void drawWaveAndConf() {
 	int spacing = 15;
 	int count = 0;
 
-	text(String.format("upPulseLen : %d * 10 µs", tapConf.upPulseLen), 20, 40+spacing*count++);
-	text(String.format("interPulseDelay : %d * 10 µs", tapConf.interPulseDelay), 20, 40+spacing*count++);
-	text(String.format("downPulseLen : %d * 10 µs", tapConf.downPulseLen), 20, 40+spacing*count++);
-	text(String.format("pauseLen : %d * 10 µs", tapConf.pauseLen), 20, 40+spacing*count++);
-	text(String.format("period/freq : %.2f * ms / %.2f * Hz", tapConf.period() / 100f, 100000f / tapConf.period()), 20, 40+spacing*count++);
+	text(String.format("upPulseLen : %.2f ms", (float)tapConf.upPulseLen / 100), 20, 20+spacing*count++);
+	text(String.format("interPulseDelay : %.2f ms", (float)tapConf.interPulseDelay / 100), 20, 20+spacing*count++);
+	text(String.format("downPulseLen : %.2f ms", (float)tapConf.downPulseLen / 100), 20, 20+spacing*count++);
+	text(String.format("pauseLen : %.2f ms", (float)tapConf.pauseLen / 100), 20, 20+spacing*count++);
+	count++;
+	text(String.format("period/freq : %.2f * ms / %.2f * Hz", tapConf.period() / 100f, 100000f / tapConf.period()), 20, 20+spacing*count++);
 
-	// fill(255);
-	// noStroke();
+	fill(255);
+	noStroke();
 
-	// float freq = 100000f / tapConf.period();
+	float freq = 100000f / tapConf.period();
+	// int freqWidth = constrain(map(freq, minFreq, maxFreq, 0, width/2), 0, width/2);
+	int freqWidth = int(constrain(map(log(constrain(freq, 1, 20e3)), log(minFreq), log(maxFreq), 0, width/2), 0, width/2));
 
-	// rect(0, height-60, constrain(map(freq, 5, 500, 0, 500), 0, 500), 20);
+	rect(0, height - 60, freqWidth, 20);
 }
 
 // keypress
@@ -125,71 +129,13 @@ public void keyReleased() {
 
 public void keyPressed() {
 	if (key == CODED && keyCode == SHIFT) shifted = true;
-
-	int incr = Character.isUpperCase(key) ? 10 : 1;
-
-	switch (Character.toLowerCase(key)) {
-		case 'q': {
-			tapConf.upPulseLen += incr;
-			tapConf.sendConf();
-			break;
-		}
-		case 'a': {
-			tapConf.upPulseLen -= incr;
-			if (tapConf.upPulseLen < 0) tapConf.upPulseLen = 0;
-			tapConf.sendConf();
-			break;
-		}
-
-		case 'w': {
-			tapConf.interPulseDelay += incr;
-			tapConf.sendConf();
-			break;
-		}
-		case 's': {
-			tapConf.interPulseDelay -= incr;
-			if (tapConf.interPulseDelay < 0) tapConf.interPulseDelay = 0;
-			tapConf.sendConf();
-			break;
-		}
-
-		case 'e': {
-			tapConf.downPulseLen += incr;
-			tapConf.sendConf();
-			break;
-		}
-		case 'd': {
-			tapConf.downPulseLen -= incr;
-			if (tapConf.downPulseLen < 0) tapConf.downPulseLen = 0;
-			tapConf.sendConf();
-			break;
-		}
-
-		case 'r': {
-			tapConf.pauseLen += incr;
-			tapConf.sendConf();
-			break;
-		}
-		case 'f': {
-			tapConf.pauseLen -= incr;
-			if (tapConf.pauseLen < 0) tapConf.pauseLen = 0;
-			tapConf.sendConf();
-			break;
-		}
-
-		case 'x': {
-			draggable = !draggable;
-			break;
-		}
-	}
 }
 
 // Mouse
 
 public void mouseDraggedTapInteraction() {
-	if (isInterstitial()) return;
-
-	if (draggable || shifted) {
+	if (shifted) {
+		if (isInterstitial()) return;
 		setState(mouseXToX(mouseX), mouseYToY(mouseY), true);
 	} else {
 		setSingleEnabled(mouseXToX(mouseX), mouseYToY(mouseY));
@@ -203,23 +149,34 @@ public void mouseDragged() {
 			break;
 		}
 		case WAVE_AND_CONF: {
-			pdp = tapConf.closestDragPoint(mouseX-500);
-			tapConf.setPoint(pdp, mouseX-500);
+			if (mouseY > height - 80) {
+				// float freq = constrain(map(mouseX - width/2, 0, width/2, minFreq, maxFreq), minFreq, maxFreq);
+				float freq = constrain(exp(map(mouseX - width/2, 0, width/2, log(minFreq), log(maxFreq))), minFreq, maxFreq);
+				int period = int(100000f / freq);
+				tapConf.setPeriod(period);
+			} else {
+				pdp = tapConf.closestDragPoint(mouseX-width/2);
+				tapConf.setPoint(pdp, mouseX-width/2);
+			}
 			break;
 		}
 	}
 }
 
 public void mousePressed() {
-	if (mouseX < 500) {
+	if (mouseX < width/2) {
 		mode = Mode.TAP_INTERACTION;
 
 		mouseDragged();
 	} else {
 		mode = Mode.WAVE_AND_CONF;
 
-		pdp = tapConf.closestDragPoint(mouseX-500);
-		tapConf.setPoint(pdp, mouseX-500);
+		if (mouseY > height - 80) {
+
+		} else {
+			pdp = tapConf.closestDragPoint(mouseX-width/2);
+			tapConf.setPoint(pdp, mouseX-width/2);
+		}
 	}
 }
 
@@ -230,14 +187,14 @@ public void mouseReleased() {
 }
 
 public boolean isInterstitial() {
-	float x = (mouseX / ((float)500 / tapDimX)) % 1;
+	float x = (mouseX / ((float)width/2 / tapDimX)) % 1;
 	float y = (mouseY / ((float)height / tapDimY)) % 1;
 
 	return (x < borderPct || y < borderPct || x > 1 - borderPct || y > 1 - borderPct);
 }
 
 public int mouseXToX(int mouseX) {
-	return constrain(floor(mouseX / (500 / tapDimX)), 0, tapDimX - 1);
+	return constrain(floor(mouseX / (width/2 / tapDimX)), 0, tapDimX - 1);
 }
 
 public int mouseYToY(int mouseY) {
@@ -287,6 +244,7 @@ public void pushStates() {
 			for (int k = 0; k < 3; k++) {
 				int baseX = (i * 3) % tapDimX;
 				int baseY = floor((i * 3) / tapDimX) * 3;
+				if ((baseY/3) % 2 == 1) baseX = tapDimX-baseX-3;
 
 				int bitIndex = (j*3 + k) % 7;
 				int outIndex = j*3 + k < 7 ? 0 : 1;
@@ -371,16 +329,29 @@ class TapConf {
 		return upPulseLen+interPulseDelay+downPulseLen+pauseLen;
 	}
 
+	public void setPeriod(int period) {
+		float upPulseLenRatio = (float)upPulseLen / period();
+		float interPulseDelayRatio = (float)interPulseDelay / period();
+		float downPulseLenRatio = (float)downPulseLen / period();
+		float pauseLenRatio = (float)pauseLen  / period();
+
+		upPulseLen = (int)(upPulseLenRatio * period);
+		interPulseDelay = (int)(interPulseDelayRatio * period);
+		downPulseLen = (int)(downPulseLenRatio * period);
+		pauseLen = (int)(pauseLenRatio * period);
+		dirty = true;
+	}
+
 	public int upEndPixel() {
-		return int(map(tapConf.upPulseLen, 0, tapConf.period(), 0, 500));
+		return int(map(tapConf.upPulseLen, 0, tapConf.period(), 0, width/2));
 	}
 
 	public int downStartPixel() {
-		return int(map(tapConf.upPulseLen+tapConf.interPulseDelay, 0, tapConf.period(), 0, 500));
+		return int(map(tapConf.upPulseLen+tapConf.interPulseDelay, 0, tapConf.period(), 0, width/2));
 	}
 
 	public int downEndPixel() {
-		return int(map(tapConf.upPulseLen+tapConf.interPulseDelay+tapConf.downPulseLen, 0, tapConf.period(), 0, 500));
+		return int(map(tapConf.upPulseLen+tapConf.interPulseDelay+tapConf.downPulseLen, 0, tapConf.period(), 0, width/2));
 	}
 
 	public void setPoint(PulseDragPoint point, int pixelX) {
@@ -391,7 +362,7 @@ class TapConf {
 				int period = tapConf.period(); // will fluctuate during calculation
 
 				upPulseLen = int(constrain(
-					map(pixelX, 0, 500, 0, period),
+					map(pixelX, 0, width/2, 0, period),
 					0,
 					period - downPulseLen - pauseLen
 				));
@@ -403,7 +374,7 @@ class TapConf {
 				int period = tapConf.period(); // will fluctuate during calculation
 
 				interPulseDelay = int(constrain(
-					map(pixelX, 0, 500, 0, period) - upPulseLen,
+					map(pixelX, 0, width/2, 0, period) - upPulseLen,
 					0,
 					period - upPulseLen - pauseLen
 				));
@@ -415,7 +386,7 @@ class TapConf {
 				int period = tapConf.period(); // will fluctuate during calculation
 
 				downPulseLen = int(constrain(
-					map(pixelX, 0, 500, 0, period) - upPulseLen - interPulseDelay,
+					map(pixelX, 0, width/2, 0, period) - upPulseLen - interPulseDelay,
 					0,
 					period - upPulseLen - interPulseDelay
 				));
