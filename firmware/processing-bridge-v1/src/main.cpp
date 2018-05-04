@@ -2,7 +2,7 @@
 #include <Arduino.h>
 #include <SPI.h>
 
-#define NUM_BOARDS 1
+#define NUM_BOARDS 9
 #define NCV_CHIPS NUM_BOARDS*3
 #define BRIDGE_PER_BOARD 9
 #define TOTAL_BRIDGES NUM_BOARDS*9
@@ -230,7 +230,7 @@ void drive(const bool* bstates) {
 	if (cur_period < upPulseLen && (phase == 0 || phase == 3)) {
 		// pulse fwd
 		for (int i = 0; i < TOTAL_BRIDGES; i++) set(states, NCV_CHIPS, i, bstates[i], false);
-		if (upPulseLen > MIN_PHASE_TIME) write(states, NCV_CHIPS);
+		write(states, NCV_CHIPS);
 		phase = 1;
 	} else if (cur_period >= upPulseLen && phase <= 1) {
 		// idle
@@ -240,7 +240,7 @@ void drive(const bool* bstates) {
 	} else if (cur_period >= upPulseLen+interPulseLen && phase <= 2) {
 		// pulse back
 		for (int i = 0; i < TOTAL_BRIDGES; i++) set(states, NCV_CHIPS, i, bstates[i], true);
-		if (downPulseLen > MIN_PHASE_TIME) write(states, NCV_CHIPS);
+		write(states, NCV_CHIPS);
 		phase = 3;
 	} else if (cur_period >= upPulseLen+interPulseLen+downPulseLen && phase <= 3) {
 		// idle
