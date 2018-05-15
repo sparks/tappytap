@@ -40,6 +40,7 @@ public void setup() {
 
 	println("Serial ports:");
 	for (int i = 0; i < ports.length; i++) {
+		print(i);
 		print(" >");
 		println(ports[i]);
 
@@ -49,6 +50,8 @@ public void setup() {
 	}
 
 	print("Using: ");
+	print(targetIndex);
+	print(" ");
 	println(ports[targetIndex]);
 
 	arduinoMaster = new Serial(this, Serial.list()[targetIndex], 115200);
