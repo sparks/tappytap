@@ -76,6 +76,8 @@ void setup() {
 	SPI.beginTransaction(SPISettings(5e6, MSBFIRST, SPI_MODE1));
 
 	Serial.begin(115200);
+
+	Serial.println("All setup");
 }
 
 void loop() {
@@ -227,22 +229,22 @@ void drive(const bool* bstates) {
 	unsigned long period = upPulseLen+interPulseLen+downPulseLen+pauseLen;
 	unsigned long cur_period = cur_time % period;
 
-	if (cur_period < upPulseLen && (phase == 0 || phase == 3)) {
+	if (cur_period >= 0 && cur_period < upPulseLen && phase != 1) {
 		// pulse fwd
 		for (int i = 0; i < TOTAL_BRIDGES; i++) set(states, NCV_CHIPS, i, bstates[i], false);
 		write(states, NCV_CHIPS);
 		phase = 1;
-	} else if (cur_period >= upPulseLen && phase <= 1) {
+	} else if (cur_period >= upPulseLen && cur_period < upPulseLen+interPulseLen && phase != 2) {
 		// idle
 		for (int i = 0; i < TOTAL_BRIDGES; i++) set(states, NCV_CHIPS, i, false, false);
 		write(states, NCV_CHIPS);
 		phase = 2;
-	} else if (cur_period >= upPulseLen+interPulseLen && phase <= 2) {
+	} else if (cur_period >= upPulseLen+interPulseLen && cur_period < upPulseLen+interPulseLen+downPulseLen && phase != 3) {
 		// pulse back
 		for (int i = 0; i < TOTAL_BRIDGES; i++) set(states, NCV_CHIPS, i, bstates[i], true);
 		write(states, NCV_CHIPS);
 		phase = 3;
-	} else if (cur_period >= upPulseLen+interPulseLen+downPulseLen && phase <= 3) {
+	} else if (cur_period >= upPulseLen+interPulseLen+downPulseLen && cur_period < period && phase != 0) {
 		// idle
 		for (int i = 0; i < TOTAL_BRIDGES; i++) set(states, NCV_CHIPS, i, false, false);
 		write(states, NCV_CHIPS);
