@@ -1,16 +1,20 @@
 import processing.serial.*;
 
-final float startFreq = 12.5; //Hz
+final float intialUpPulseLen = 20; //ms
+final float initialInterPulseDelay = 20; //ms
+final float initialDownPulseLen = 20; //ms
+final float initialPauseLen = 20; //ms
 
 final int tapDimX = 3;
 final int tapDimY = 3;
 
-final float minFreq = 5;
-final float maxFreq = 1000;
+final float minFreq = 1;
+final float maxFreq = 50;
 
 final float borderPct = 0.2;
 
 boolean debugSerial = false;
+boolean confd = false;
 
 TapConf tapConf;
 
@@ -57,7 +61,7 @@ public void setup() {
 	arduinoMaster = new Serial(this, Serial.list()[targetIndex], 115200);
 	arduinoMaster.bufferUntil(10);
 
-	tapConf = new TapConf(arduinoMaster, (int) (100000f/startFreq/4), (int) (100000f/startFreq/4), (int) (100000f/startFreq/4), (int) (100000f/startFreq/4));
+	tapConf = new TapConf(arduinoMaster, (int) (intialUpPulseLen*100), (int) (initialInterPulseDelay*100), (int) (initialDownPulseLen*100), (int) (initialPauseLen*100));
 }
 
 public void draw() {
@@ -122,6 +126,11 @@ public void drawWaveAndConf() {
 	int freqWidth = int(constrain(map(log(constrain(freq, 1, 20e3)), log(minFreq), log(maxFreq), 0, width/2), 0, width/2));
 
 	rect(0, height - 60, freqWidth, 20);
+
+	fill(0);
+	stroke(0);
+	text("freq slider (log)", 20, height-48);
+
 }
 
 // keypress
@@ -131,7 +140,10 @@ public void keyReleased() {
 }
 
 public void keyPressed() {
-	if (key == CODED && keyCode == SHIFT) shifted = true;
+	if (key == CODED && keyCode == SHIFT) {
+		clearAllTaps();
+		shifted = true;
+	}
 }
 
 // Mouse
@@ -183,8 +195,14 @@ public void mousePressed() {
 	}
 }
 
-public void mouseReleased() {
+public void clearAllTaps() {
 	setAllStates(false);
+}
+
+public void mouseReleased() {
+	if (!shifted && mode == Mode.TAP_INTERACTION) {
+		clearAllTaps();
+	}
 
 	if (tapConf.dirty) tapConf.sendConf();
 }
@@ -288,11 +306,16 @@ public void writeArduinoMaster(byte[] bytes) {
 }
 
 void serialEvent(Serial port) {
-	if (!debugSerial) return;
+	if (!confd) {
+		String in = port.readString();
+		if (trim(in).equals("ready")) tapConf.sendConf();
+		confd = true;
+		return;
+	}
 
+	if (!debugSerial) return;
 	print(port.readString());
 }
-
 
 // Conf
 
