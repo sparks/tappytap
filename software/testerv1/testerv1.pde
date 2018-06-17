@@ -23,6 +23,8 @@ boolean[][] states = new boolean[tapDimX][tapDimY];
 Serial arduinoMaster;
 
 boolean shifted = false;
+boolean lockMode = true;
+boolean lockModeInitial = false;
 
 public enum PulseDragPoint {
 	UP_END, DOWN_START, DOWN_END
@@ -83,9 +85,20 @@ public void drawTapInteraction() {
 		}
 	}
 
+	strokeWeight(2);
+	stroke(100);
+
+	for (int i = 1; i < floor(tapDimX / 3.0); i++) {
+		line(i * 3 * width / 2 / tapDimX, 0, i * 3 * width / 2 / tapDimX, height);
+	}
+
+	for (int i = 1; i < floor(tapDimY / 3.0); i++) {
+		line(0, i * 3 * height / tapDimY , width/2, i * 3 * height / tapDimY);
+	}
+
 	fill(255);
 	stroke(255);
-	text("'SHIFT' to sustain", 20, 20);
+	text("'SHIFT' to sustain    'm' to toggle locking mode", 20, 20);
 }
 
 public void drawWaveAndConf() {
@@ -141,26 +154,28 @@ public void keyReleased() {
 
 public void keyPressed() {
 	if (key == CODED && keyCode == SHIFT) {
-		clearAllTaps();
 		shifted = true;
+	}
+
+	if (key == 'm') {
+		lockMode = !lockMode;
 	}
 }
 
 // Mouse
 
-public void mouseDraggedTapInteraction() {
-	if (shifted) {
-		if (isInterstitial()) return;
-		setState(mouseXToX(mouseX), mouseYToY(mouseY), true);
-	} else {
-		setSingleEnabled(mouseXToX(mouseX), mouseYToY(mouseY));
-	}
-}
-
 public void mouseDragged() {
 	switch (mode) {
 		case TAP_INTERACTION: {
-			mouseDraggedTapInteraction();
+			if (isInterstitial()) return;
+
+			if (lockMode) {
+				setState(mouseXToX(mouseX), mouseYToY(mouseY), !lockModeInitial);
+			} else if (shifted) {
+				setState(mouseXToX(mouseX), mouseYToY(mouseY), true);
+			} else {
+				setSingleEnabled(mouseXToX(mouseX), mouseYToY(mouseY));
+			}
 			break;
 		}
 		case WAVE_AND_CONF: {
@@ -182,6 +197,8 @@ public void mousePressed() {
 	if (mouseX < width/2) {
 		mode = Mode.TAP_INTERACTION;
 
+		lockModeInitial = getState(mouseXToX(mouseX), mouseYToY(mouseY));
+
 		mouseDragged();
 	} else {
 		mode = Mode.WAVE_AND_CONF;
@@ -200,7 +217,7 @@ public void clearAllTaps() {
 }
 
 public void mouseReleased() {
-	if (!shifted && mode == Mode.TAP_INTERACTION) {
+	if ((!shifted && !lockMode) && mode == Mode.TAP_INTERACTION) {
 		clearAllTaps();
 	}
 
@@ -244,6 +261,10 @@ public void setState(int x, int y, boolean state) {
 	boolean changed = states[x][y] != state;
 	states[x][y] = state;
 	if (changed) pushStates();
+}
+
+public boolean getState(int x, int y) {
+	return states[x][y];
 }
 
 public void setAllStates(boolean state) {
@@ -308,6 +329,7 @@ public void writeArduinoMaster(byte[] bytes) {
 void serialEvent(Serial port) {
 	if (!confd) {
 		String in = port.readString();
+		if (in == null) return;
 		if (trim(in).equals("ready")) tapConf.sendConf();
 		confd = true;
 		return;
