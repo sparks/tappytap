@@ -51,8 +51,8 @@ int serial_byte_count = 0;
 
 // Pulse configuration variables
 
-uint16_t tmpUpPulseLen = 0, tmpInterPulseLen = 0, tmpDownPulseLen = 0, tmpPauseLen = 0;
-uint16_t upPulseLen = 1000, interPulseLen = 0, downPulseLen = 1000, pauseLen = 0;
+uint32_t tmpUpPulseLen = 0, tmpInterPulseLen = 0, tmpDownPulseLen = 0, tmpPauseLen = 0;
+uint32_t upPulseLen = 500, interPulseLen = 500, downPulseLen = 500, pauseLen = 500;
 
 void setup() {
 	// Clear the states array
@@ -77,7 +77,7 @@ void setup() {
 
 	Serial.begin(115200);
 
-	Serial.println("All setup");
+	Serial.println("ready");
 }
 
 void loop() {
