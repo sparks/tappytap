@@ -167,18 +167,18 @@ void loop() {
 			case MODE_STATE: {
 				if (SERIAL_DEBUG) Serial.println("State started");
 				if (incomingByte == 0x82) {
-					// if (SERIAL_DEBUG) {
-					// 	if (SERIAL_DEBUG) {
-					// 		Serial.println("State done");
-					// 		for (int i = 0; i < TOTAL_BRIDGES; i++) {
-					// 			if (i % 3 == 0) Serial.print("  >");
-					// 			Serial.print(bstates[(i / BRIDGE_PER_BOARD) * BRIDGE_PER_BOARD + (i % BRIDGE_PER_BOARD) / 3 + (i%3)*3]);
-					// 			Serial.print(" ");
-					// 			if (i % 3 == 2) Serial.println();
-					// 			if (i % 9 == 8) Serial.println();
-					// 		}
-					// 	}
-					// }
+					if (SERIAL_DEBUG) {
+						if (SERIAL_DEBUG) {
+							Serial.println("State done");
+							for (int i = 0; i < TOTAL_BRIDGES; i++) {
+								if (i % 3 == 0) Serial.print("  >");
+								Serial.print(bstates[(i / BRIDGE_PER_BOARD) * BRIDGE_PER_BOARD + (i % BRIDGE_PER_BOARD) / 3 + (i%3)*3]);
+								Serial.print(" ");
+								if (i % 3 == 2) Serial.println();
+								if (i % 9 == 8) Serial.println();
+							}
+						}
+					}
 
 					// We just latch as we go, there's not really risk to that
 					mode = MODE_NONE;
