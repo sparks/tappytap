@@ -285,41 +285,52 @@ void write(const state_t* states, uint8_t num_states) {
 	// assert the slave select, start SPI frame
 	digitalWrite(SS_PIN, LOW);
 
-	// for(int i = 0; i < NCV_CHIPS; i++) {
-	// 	Serial.println(states[i].en);
-	// 	Serial.print(states[i].dir);
-	// }
 
 	for(int i = 0; i < NUM_REGISTERS; i++) {
 		//send TOTAL_BRIDGES write commands for one HB_ACT_CTRL_i register at a time
 		Serial.println("\nregister ");
 		Serial.print(HB_REG_ADDRESSES[i]);
 		Serial.print("~");
-		for (int j = 0; j < TOTAL_REGISTERS-1; j++) {
-					Serial.print(0b10000011 | HB_REG_ADDRESSES[i] << 2);
-					Serial.print("-");
-			}
+
+		for (int j = 0; j < NCV_CHIPS-1; j++) {
+			Serial.print(0b10000011 | HB_REG_ADDRESSES[i] << 2);
+			Serial.print("-");
+		}
 		Serial.print(0b10000001 | HB_REG_ADDRESSES[i] << 2); 
-		Serial.println("");
+		Serial.print("-");
+
 		//set the states of each HB_ACT_CTRL_i register according to the states variable
-		for (int j = 0; j < TOTAL_REGISTERS; j++) {
-			//for 
-			for( int k = 0; k < 2; k++) {
-				if( !(states[j].en & ( (0b00100000 >> k) >> i)) ) {
+		for (int j = 0; j < NCV_CHIPS; j++) {
+			uint8_t dataByte = 0;
+
+			//for two nibbles in this register: 
+			for(int k = 0; k < 2; k++) {
+				if(!(states[j].en & (1 << (i*2+k)))) {
 					//Serial.print("NOT enabled");
-
+					dataByte &= ~(0b1111 << k*4);
+				} else {
+					switch(states[j].dir & (1 << (i*2+k))) {
+						case 0:
+							dataByte |= 0b1001 << k*4;
+							break;
+						case 1:
+							dataByte |= 0b0110 << k*4;
+							break;
+					}
 				}
-
-				Serial.print(states[j].en);
-				Serial.print("*");
-
-				Serial.print(states[j].dir);
-				Serial.print("|");
 			}
+
+			Serial.print("dataByte: ");
+			Serial.print(dataByte); 
+
+
+			Serial.print(states[j].en);
+			Serial.print("*");
+
+			Serial.print(states[j].dir);
+			Serial.print("|");
 		}
 	}
-
-
 
 	// deassert the slave select, end SPI frame
 	digitalWrite(SS_PIN, HIGH);
