@@ -2,12 +2,18 @@
 #include <Arduino.h>
 #include <SPI.h>
 
-#define NUM_BOARDS 9
-#define NCV_CHIPS NUM_BOARDS*3
-#define BRIDGE_PER_BOARD 9
-#define TOTAL_BRIDGES NUM_BOARDS*9
+#define NUM_BOARDS 1
+#define NCV_CHIPS NUM_BOARDS*6
+#define BRIDGES_PER_CHIP 6
+#define BRIDGE_PER_BOARD 36
+#define TOTAL_BRIDGES NUM_BOARDS*36
+#define NUM_REGISTERS 3	
+#define TOTAL_REGISTERS 3*NCV_CHIPS
+#define HB_ACT_1_CTRL_ADDR 0b00000
+#define HB_ACT_2_CTRL_ADDR 0b10000
+#define HB_ACT_3_CTRL_ADDR 0b01000
 
-#define SERIAL_DEBUG false
+#define SERIAL_DEBUG true
 
 // Slave select PIN for SPI (attached to all the NCV7718 chips) (active low)
 #define SS_PIN 10
@@ -38,6 +44,8 @@ void drive(const bool*);
 // There are three NCV7718 chips on each board, hence we have three state_t structs
 // We init them off by setting en = 0 and dir = 0 for each
 state_t states[NCV_CHIPS];
+
+uint8_t HB_REG_ADDRESSES[NUM_REGISTERS] = {HB_ACT_1_CTRL_ADDR, HB_ACT_2_CTRL_ADDR, HB_ACT_3_CTRL_ADDR};
 
 int phase = 0;
 
@@ -73,7 +81,8 @@ void setup() {
 
 	// Configure SPI
 	SPI.begin();
-	SPI.beginTransaction(SPISettings(5e6, MSBFIRST, SPI_MODE1));
+	SPI.beginTransaction(SPISettings(5e6, LSBFIRST, SPI_MODE1));
+	SPI.setClockDivider(SPI_CLOCK_DIV16);
 
 	Serial.begin(115200);
 
@@ -257,10 +266,10 @@ void drive(const bool* bstates) {
 // Helper function if you want to set the en and dir for a particular hbridge manually
 // e.g set(states, num_states, 3, 1, 1); would set the 3rd hbridge to en=1 dir=1
 void set(state_t* states, uint8_t num_states, uint8_t position, bool en, bool dir) {
-	uint8_t state_index = position / 3;
+	uint8_t state_index = position / 6;
 	if (state_index >= num_states) return;
 
-	uint8_t offset = position % 3;
+	uint8_t offset = position % 6;
 
 	states[state_index].en &= ~(1 << offset);
 	states[state_index].en |= (en << offset);
@@ -269,35 +278,57 @@ void set(state_t* states, uint8_t num_states, uint8_t position, bool en, bool di
 	states[state_index].dir |= (dir << offset);
 }
 
+
+
 // Write a state array out over SPI
 void write(const state_t* states, uint8_t num_states) {
-	// assert the slave select
+	// assert the slave select, start SPI frame
 	digitalWrite(SS_PIN, LOW);
 
-	// For each NCV7718
-	for (int i = num_states-1; i >= 0; i--) {
-		// tmp variable to compute the actual SPI data to send. See datasheet for protocol details
-		uint8_t ncvEn = 0;
-		uint8_t ncvCC = 0;
+	// for(int i = 0; i < NCV_CHIPS; i++) {
+	// 	Serial.println(states[i].en);
+	// 	Serial.print(states[i].dir);
+	// }
 
-		for (int j = 0; j < 3; j++) {
-			// We bit shift our state struct into the target format
-			if ((states[i].en & (1 << j)) != 0) {
-				ncvEn |= (1 << j*2) | (1 << (j*2 +1));
+	for(int i = 0; i < NUM_REGISTERS; i++) {
+		//send TOTAL_BRIDGES write commands for one HB_ACT_CTRL_i register at a time
+		Serial.println("\nregister ");
+		Serial.print(HB_REG_ADDRESSES[i]);
+		Serial.print("~");
+		for (int j = 0; j < TOTAL_REGISTERS-1; j++) {
+					Serial.print(0b10000011 | HB_REG_ADDRESSES[i] << 2);
+					Serial.print("-");
 			}
+		Serial.print(0b10000001 | HB_REG_ADDRESSES[i] << 2); 
+		//set the states of each HB_ACT_CTRL_i register according to the states variable
+		for (int j = 0; j < TOTAL_REGISTERS; j++) {
+			uint8_t dataByte = 0;
+			//for two nibbles in this register: 
+			for( int k = 0; k < 2; k++) {
+				if( !(states[j].en & ((0b00100000 >> k) >> i*2)) ) {
+					//Serial.print("NOT enabled");
+					dataByte &= 0x00001111 << k*4;
+				} else {
+					switch(states[j].dir & ((0b00100000 >> k) >> i*2) ) {
+						case 0:
+							dataByte |= 0b10010000 >> k*4;
+						case 1:
+							dataByte |= 0b01100000 >> k*4;
+					}
+				} Serial.print("dataByte: "); Serial.print(dataByte); 
 
-			if ((states[i].dir & (1 << j)) != 0) {
-				ncvCC |= (1 << j*2) | (0 << (j*2 +1));
-			} else {
-				ncvCC |= (0 << j*2) | (1 << (j*2 +1));
+
+				Serial.print(states[j].en);
+				Serial.print("*");
+
+				Serial.print(states[j].dir);
+				Serial.print("|");
 			}
 		}
-
-		// Send 16 bits over SPI as per NCV7718 docs (we're ignoring the extra features and return values for now)
-		SPI.transfer(0 << 7 | 0 << 6 | 0 << 5 | ((ncvEn >> 1) & 0x1F));
-		SPI.transfer(((ncvEn & 0x01) << 7) | ((ncvCC & 0x3F) << 1) | 0);
 	}
 
-	// deassert the slave select
+
+
+	// deassert the slave select, end SPI frame
 	digitalWrite(SS_PIN, HIGH);
 }
