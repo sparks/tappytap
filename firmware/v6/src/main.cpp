@@ -167,18 +167,18 @@ void loop() {
 			case MODE_STATE: {
 				if (SERIAL_DEBUG) Serial.println("State started");
 				if (incomingByte == 0x82) {
-					if (SERIAL_DEBUG) {
-						if (SERIAL_DEBUG) {
-							Serial.println("State done");
-							for (int i = 0; i < TOTAL_BRIDGES; i++) {
-								if (i % 3 == 0) Serial.print("  >");
-								Serial.print(bstates[(i / BRIDGE_PER_BOARD) * BRIDGE_PER_BOARD + (i % BRIDGE_PER_BOARD) / 3 + (i%3)*3]);
-								Serial.print(" ");
-								if (i % 3 == 2) Serial.println();
-								if (i % 9 == 8) Serial.println();
-							}
-						}
-					}
+					// if (SERIAL_DEBUG) {
+					// 	if (SERIAL_DEBUG) {
+					// 		Serial.println("State done");
+					// 		for (int i = 0; i < TOTAL_BRIDGES; i++) {
+					// 			if (i % 3 == 0) Serial.print("  >");
+					// 			Serial.print(bstates[(i / BRIDGE_PER_BOARD) * BRIDGE_PER_BOARD + (i % BRIDGE_PER_BOARD) / 3 + (i%3)*3]);
+					// 			Serial.print(" ");
+					// 			if (i % 3 == 2) Serial.println();
+					// 			if (i % 9 == 8) Serial.println();
+					// 		}
+					// 	}
+					// }
 
 					// We just latch as we go, there's not really risk to that
 					mode = MODE_NONE;
@@ -266,10 +266,10 @@ void drive(const bool* bstates) {
 // Helper function if you want to set the en and dir for a particular hbridge manually
 // e.g set(states, num_states, 3, 1, 1); would set the 3rd hbridge to en=1 dir=1
 void set(state_t* states, uint8_t num_states, uint8_t position, bool en, bool dir) {
-	uint8_t state_index = position / 6;
+	uint8_t state_index = position / BRIDGES_PER_CHIP;
 	if (state_index >= num_states) return;
 
-	uint8_t offset = position % 6;
+	uint8_t offset = position % BRIDGES_PER_CHIP;
 
 	states[state_index].en &= ~(1 << offset);
 	states[state_index].en |= (en << offset);
