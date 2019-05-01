@@ -122,21 +122,21 @@ void loop() {
 	uint8_t count = 8;
 
 	for (uint8_t i = 0; i < 20; i++) {
-		metapush(HB_ACT_1_CTRL_ADDR, 0b10011001, count);
-		metapush(HB_ACT_2_CTRL_ADDR, 0b10011001, count);
-		metapush(HB_ACT_3_CTRL_ADDR, 0b10011001, count);
+		push(HB_ACT_1_CTRL_ADDR, 0b10011001, count);
+		push(HB_ACT_2_CTRL_ADDR, 0b10011001, count);
+		push(HB_ACT_3_CTRL_ADDR, 0b10011001, count);
 		delay(500);
 
-		metapush(HB_ACT_1_CTRL_ADDR, 0b01100110, count);
-		metapush(HB_ACT_2_CTRL_ADDR, 0b01100110, count);
-		metapush(HB_ACT_3_CTRL_ADDR, 0b01100110, count);
+		push(HB_ACT_1_CTRL_ADDR, 0b01100110, count);
+		push(HB_ACT_2_CTRL_ADDR, 0b01100110, count);
+		push(HB_ACT_3_CTRL_ADDR, 0b01100110, count);
 		delay(500);
 	}
 
 	while (true) {
-		metapush(HB_ACT_1_CTRL_ADDR, 0, count);
-		metapush(HB_ACT_2_CTRL_ADDR, 0, count);
-		metapush(HB_ACT_3_CTRL_ADDR, 0, count);
+		push(HB_ACT_1_CTRL_ADDR, 0, count);
+		push(HB_ACT_2_CTRL_ADDR, 0, count);
+		push(HB_ACT_3_CTRL_ADDR, 0, count);
 	}
 
 	// for (int i = 0; i < 36*2; i++) {
