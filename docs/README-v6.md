@@ -11,10 +11,10 @@
 
 # Change the number of boards
 
-* Connect your boards
+Not working right now
 
-
-3) To change number of boards
-4) Change processing line 14/15 and look at comments above for connection
-5) Change arduino line 5
-6) Rerun 1/2
+* Connect your boards as per diagram ![](./flex-v6-wiring.png)
+* Change processing line 14/15
+* Change arduino line 5
+* Rerun `pio run -t upload` in `cd tappytap/firmware/v6`
+* Rerun processing
