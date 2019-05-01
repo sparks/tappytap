@@ -34,7 +34,7 @@ final float maxFreq = 50;
 
 final float borderPct = 0.2;
 
-boolean debugSerial = true;
+boolean debugSerial = false;
 boolean confd = false;
 
 TapConf tapConf;
@@ -312,7 +312,7 @@ public void pushStates() {
 		int boardBaseX = boardRowX*boardTappersX;
 
 		for (int chipIx = 0; chipIx < chipsPerBoard; chipIx++) {
-			if (boardRowX % 2 == 0 | true) {
+			if (boardRowX % 2 == 0) {
 				int chipBaseX = (chipIx % 2) * 3;
 				int chipBaseY = (chipIx / 2) * 2;
 
@@ -324,7 +324,7 @@ public void pushStates() {
 							int bitIndex = chipX+chipY*3;
 							out[outIndex] = setBit(out[outIndex], bitIndex);
 
-							// println(boardIx + ":o-b" + outIndex + " - " + bitIndex + " .... x-y" + (boardBaseX+chipBaseX+chipX) + " - " + (boardBaseY+chipBaseY+chipY));
+							println(boardIx + ":o-b" + outIndex + " - " + bitIndex + " .... x-y" + (boardBaseX+chipBaseX+chipX) + " - " + (boardBaseY+chipBaseY+chipY));
 						}
 					}
 				}
@@ -340,7 +340,7 @@ public void pushStates() {
 							int bitIndex = chipX*3+chipY;
 							out[outIndex] = setBit(out[outIndex], bitIndex);
 
-							// println(boardIx + ":o-b" + outIndex + " - " + bitIndex + " .... x-y" + (boardBaseX+chipBaseX-chipX) + " - " + (boardBaseY+chipBaseY+chipY));
+							println(boardIx + ":o-b" + outIndex + " - " + bitIndex + " .... x-y" + (boardBaseX+chipBaseX-chipX) + " - " + (boardBaseY+chipBaseY+chipY));
 						}
 					}
 				}

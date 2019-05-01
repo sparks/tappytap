@@ -288,39 +288,44 @@ void set(state_t* states, uint8_t num_states, uint8_t position, bool en, bool di
 void write(const state_t* states, uint8_t num_states) {
 	// assert the slave select, start SPI frame
 
-	for(int i = 0; i < NUM_REGISTERS; i++) {
-		//send TOTAL_BRIDGES write commands for one HB_ACT_CTRL_i register at a time
+	for (int cap = 1; cap <= NCV_CHIPS; cap++) { // hack
+		for(int i = 0; i < NUM_REGISTERS; i++) {
+			//send TOTAL_BRIDGES write commands for one HB_ACT_CTRL_i register at a time
 
-		//begin new SPI frame to transfer data for each chip's HB_ACT_CTRL_i reg
-		digitalWrite(SS_PIN, LOW);
+			//begin new SPI frame to transfer data for each chip's HB_ACT_CTRL_i reg
+			digitalWrite(SS_PIN, LOW);
+			delayMicroseconds(1);
 
-		for (int j = 0; j < NCV_CHIPS; j++) {
-			uint8_t addr = 0b10000001;
-			if (j == NCV_CHIPS-1) addr = 0b10000011;
-			addr |= HB_REG_ADDRESSES[i] << 2;
+			for (int j = 0; j < cap; j++) {
+				// uint8_t addr = 0b10000001;
+				uint8_t addr = 0b00000001; // hack
+				if (j == cap-1) addr = 0b10000011;
+				addr |= HB_REG_ADDRESSES[i] << 2;
 
-			SPI.transfer(addr);
-		}
-		
-		//set the states of each HB_ACT_CTRL_i register according to the states variable
-		for (int j = 0; j < NCV_CHIPS; j++) {
-			uint8_t dataByte = 0;
+				SPI.transfer(addr);
+			}
 
-			//for two nibbles in this register: 
-			for(int k = 0; k < 2; k++) {
-				if ((states[j].en & (1 << (i*2+k))) == 0) {
-					dataByte &= ~(0b1111 << (k*4));
-				} else {
-					if ((states[j].dir & (1 << (i*2+k))) != 0) {
-						dataByte |= 0b1001 << (k*4);
+			//set the states of each HB_ACT_CTRL_i register according to the states variable
+			for (int j = 0; j < cap; j++) {
+				uint8_t dataByte = 0;
+
+				//for two nibbles in this register:
+				for(int k = 0; k < 2; k++) {
+					if ((states[j].en & (1 << (i*2+k))) == 0) {
+						dataByte &= ~(0b1111 << (k*4));
 					} else {
-						dataByte |= 0b0110 << (k*4);
+						if ((states[j].dir & (1 << (i*2+k))) != 0) {
+							dataByte |= 0b1001 << (k*4);
+						} else {
+							dataByte |= 0b0110 << (k*4);
+						}
 					}
 				}
+				SPI.transfer(dataByte);
 			}
-			SPI.transfer(dataByte);
-		}
 
-		digitalWrite(SS_PIN, HIGH);
-	}	
+			delayMicroseconds(1);
+			digitalWrite(SS_PIN, HIGH);
+		}
+	}
 }
