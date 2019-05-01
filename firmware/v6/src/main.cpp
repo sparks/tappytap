@@ -2,15 +2,11 @@
 #include <Arduino.h>
 #include <SPI.h>
 
-#define NUM_BOARDS 1 // Should equal numXBoards*numYBoards in processing
-
+#define NUM_BOARDS 2
+#define NCV_CHIPS NUM_BOARDS*6
 #define BRIDGES_PER_CHIP 6
-#define CHIPS_PER_BOARD 6
-#define NCV_CHIPS NUM_BOARDS * CHIPS_PER_BOARD
-#define TOTAL_BRIDGES NCV_CHIPS * BRIDGES_PER_CHIP
-
-#define NUM_REGISTERS 3
-
+#define TOTAL_BRIDGES NUM_BOARDS*36
+#define NUM_REGISTERS 3	
 #define HB_ACT_1_CTRL_ADDR 0b00000
 #define HB_ACT_2_CTRL_ADDR 0b10000
 #define HB_ACT_3_CTRL_ADDR 0b01000
