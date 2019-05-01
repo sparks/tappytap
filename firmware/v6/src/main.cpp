@@ -3,6 +3,7 @@
 #include <SPI.h>
 
 #define NUM_BOARDS 2
+
 #define BRIDGES_PER_CHIP 6
 #define CHIPS_PER_BOARD 6
 #define NCV_CHIPS NUM_BOARDS * CHIPS_PER_BOARD
