@@ -90,6 +90,29 @@ void setup() {
 }
 
 void loop() {
+
+	// set(states, NCV_CHIPS,0,1,0);
+	// set(states, NCV_CHIPS,1,1,0);
+	// set(states, NCV_CHIPS,2,1,0);
+	// set(states, NCV_CHIPS,3,1,0);
+	// set(states, NCV_CHIPS,6,1,0);
+	// set(states, NCV_CHIPS,8,1,0);
+	// set(states, NCV_CHIPS,18,1,0);
+
+	// write(states, NCV_CHIPS);
+	// delay(500);
+
+	// set(states, NCV_CHIPS,0,1,1);
+	// set(states, NCV_CHIPS,1,1,1);
+	// set(states, NCV_CHIPS,2,1,1);
+	// set(states, NCV_CHIPS,3,1,1);
+	// set(states, NCV_CHIPS,6,1,1);
+	// set(states, NCV_CHIPS,8,1,1);
+	// set(states, NCV_CHIPS,18,1,1);
+
+	// write(states, NCV_CHIPS);
+	// delay(500);
+
 	if (Serial.available() > 0) {
 		// Read uart 
 		uint8_t incomingByte = Serial.read();
@@ -267,15 +290,33 @@ void drive(const bool* bstates) {
 // e.g set(states, num_states, 3, 1, 1); would set the 3rd hbridge to en=1 dir=1
 void set(state_t* states, uint8_t num_states, uint8_t position, bool en, bool dir) {
 	uint8_t state_index = position / BRIDGES_PER_CHIP;
+	// Serial.println("SET");
+	//Serial.println(position);
+	// Serial.println(state_index);
 	if (state_index >= num_states) return;
 
 	uint8_t offset = position % BRIDGES_PER_CHIP;
+	//Serial.println(offset);
 
+
+	//Serial.println(states[state_index].en, BIN);
 	states[state_index].en &= ~(1 << offset);
+		//Serial.println(states[state_index].en, BIN);
+
 	states[state_index].en |= (en << offset);
+	// Serial.println("en offset");
+	// Serial.println(en<<offset, BIN);
+	// Serial.println(en, BIN);
+	// Serial.println(offset, BIN);
+
+	// Serial.println("en");
+	// Serial.println(states[state_index].en, BIN);
 
 	states[state_index].dir &= ~(1 << offset);
 	states[state_index].dir |= (dir << offset);
+
+	// Serial.println("dir");
+//Serial.println(states[state_index].dir, BIN);
 }
 
 
@@ -283,55 +324,63 @@ void set(state_t* states, uint8_t num_states, uint8_t position, bool en, bool di
 // Write a state array out over SPI
 void write(const state_t* states, uint8_t num_states) {
 	// assert the slave select, start SPI frame
-	digitalWrite(SS_PIN, LOW);
-
+	
+	Serial.println("-------------------------------------------------");
 
 	for(int i = 0; i < NUM_REGISTERS; i++) {
 		//send TOTAL_BRIDGES write commands for one HB_ACT_CTRL_i register at a time
-		Serial.println("\nregister ");
-		Serial.print(HB_REG_ADDRESSES[i]);
-		Serial.print("~");
+
+
+		//begin new SPI frame to transfer data for each chip's HB_ACT_CTRL_i reg
+		digitalWrite(SS_PIN, LOW);
+		delay(1);
 
 		for (int j = 0; j < NCV_CHIPS-1; j++) {
-			Serial.print(0b10000011 | HB_REG_ADDRESSES[i] << 2);
+			Serial.print(0b10000001 | HB_REG_ADDRESSES[i] << 2, BIN);
 			Serial.print("-");
+			SPI.transfer(0b10000001 | HB_REG_ADDRESSES[i] << 2);
 		}
-		Serial.print(0b10000001 | HB_REG_ADDRESSES[i] << 2); 
-		Serial.print("-");
-
+		Serial.print(0b10000011 | HB_REG_ADDRESSES[i] << 2, BIN); 
+		SPI.transfer(0b10000011 | HB_REG_ADDRESSES[i] << 2);
+		Serial.print("-\n");
+		//Serial.println();
 		//set the states of each HB_ACT_CTRL_i register according to the states variable
 		for (int j = 0; j < NCV_CHIPS; j++) {
 			uint8_t dataByte = 0;
+			if (j == 0) {
+				// Serial.println("WRITE EN/DIR");
+				// Serial.println(states[j].en);
+				// Serial.println(states[j].dir);
+			}
 
 			//for two nibbles in this register: 
 			for(int k = 0; k < 2; k++) {
-				if(!(states[j].en & (1 << (i*2+k)))) {
-					//Serial.print("NOT enabled");
+				//if (j == 0) Serial.println((1 << (i*2+k)));
+				if((states[j].en & (1 << (i*2+k))) == 0) {
 					dataByte &= ~(0b1111 << k*4);
 				} else {
-					switch(states[j].dir & (1 << (i*2+k))) {
-						case 0:
+					//Serial.println("ENABLED");
+					//Serial.println(states[j].dir & (1 << (i*2+k)));
+					if ((states[j].dir & (1 << (i*2+k))) != 0)  {
+						//	Serial.println("setting to 1001");
 							dataByte |= 0b1001 << k*4;
-							break;
-						case 1:
+						} else {
+							//Serial.println("setting to 0110");
 							dataByte |= 0b0110 << k*4;
-							break;
-					}
+						}
+					
+				
 				}
 			}
-
-			Serial.print("dataByte: ");
-			Serial.print(dataByte); 
-
-
-			Serial.print(states[j].en);
-			Serial.print("*");
-
-			Serial.print(states[j].dir);
-			Serial.print("|");
+			Serial.print("chip "); Serial.print(j);
+			Serial.print(" register "); Serial.print(i);
+			Serial.print(" dataByte: ");
+			Serial.println(dataByte, BIN); 
+			SPI.transfer(dataByte);
 		}
+		//end SPI frame
+		digitalWrite(SS_PIN, HIGH);
 	}
 
-	// deassert the slave select, end SPI frame
-	digitalWrite(SS_PIN, HIGH);
+	
 }

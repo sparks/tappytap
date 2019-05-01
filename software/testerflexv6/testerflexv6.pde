@@ -10,8 +10,8 @@ final int boardTappersY = 6;
 final int bridgesPerChip = 6;
 final int chipsPerBoard = boardTappersX*boardTappersY/bridgesPerChip;
 
-final int tapDimX = 6*2;
-final int tapDimY = 6*2;
+final int tapDimX = 6;
+final int tapDimY = 6;
 
 final float minFreq = 1;
 final float maxFreq = 50;
