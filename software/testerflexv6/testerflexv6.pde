@@ -11,8 +11,8 @@ With the first tapper located in the upper left corner
 of board zero (next to board one on the outside edge)
 */
 
-final int numXBoards = 1;
-final int numYBoards = 2;
+final int numXBoards = 2;
+final int numYBoards = 1;
 
 // The product of numXBoards*numYBoards should equal NUM_BOARDS in arduino
 
@@ -324,12 +324,11 @@ public void pushStates() {
 							int bitIndex = chipX+chipY*3;
 							out[outIndex] = setBit(out[outIndex], bitIndex);
 
-							println(boardIx + ":o-b" + outIndex + " - " + bitIndex + " .... x-y" + (boardBaseX+chipBaseX+chipX) + " - " + (boardBaseY+chipBaseY+chipY));
+							// println(boardIx + ":o-b" + outIndex + " - " + bitIndex + " .... x-y" + (boardBaseX+chipBaseX+chipX) + " - " + (boardBaseY+chipBaseY+chipY));
 						}
 					}
 				}
 			} else {
-				println("done");
 				int chipBaseX = 5-(chipIx / 2) * 2;
 				int chipBaseY = (chipIx % 2) * 3;
 
@@ -341,7 +340,7 @@ public void pushStates() {
 							int bitIndex = chipX*3+chipY;
 							out[outIndex] = setBit(out[outIndex], bitIndex);
 
-							println(boardIx + ":o-b" + outIndex + " - " + bitIndex + " .... x-y" + (boardBaseX+chipBaseX-chipX) + " - " + (boardBaseY+chipBaseY+chipY));
+							// println(boardIx + ":o-b" + outIndex + " - " + bitIndex + " .... x-y" + (boardBaseX+chipBaseX-chipX) + " - " + (boardBaseY+chipBaseY+chipY));
 						}
 					}
 				}
