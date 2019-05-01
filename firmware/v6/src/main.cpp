@@ -288,44 +288,47 @@ void set(state_t* states, uint8_t num_states, uint8_t position, bool en, bool di
 void write(const state_t* states, uint8_t num_states) {
 	// assert the slave select, start SPI frame
 
-	for (int cap = 1; cap <= NCV_CHIPS; cap++) { // hack
-		for(int i = 0; i < NUM_REGISTERS; i++) {
-			//send TOTAL_BRIDGES write commands for one HB_ACT_CTRL_i register at a time
+	for(int reg = 0; reg < NUM_REGISTERS; reg++) {
+		//begin new SPI frame to transfer data for each chip's HB_ACT_CTRL_i reg
+		delayMicroseconds(10);
+		digitalWrite(11, LOW);
+		digitalWrite(SS_PIN, LOW);
+		delayMicroseconds(10);
 
-			//begin new SPI frame to transfer data for each chip's HB_ACT_CTRL_i reg
-			digitalWrite(SS_PIN, LOW);
-			delayMicroseconds(1);
+		for (int addr_count = 0; addr_count < NCV_CHIPS; addr_count++) {
+			bool write = true; // HACK: true normally
+			bool labt = false;
+			uint8_t addr = HB_REG_ADDRESSES[reg];
 
-			for (int j = 0; j < cap; j++) {
-				// uint8_t addr = 0b10000001;
-				uint8_t addr = 0b00000001; // hack
-				if (j == cap-1) addr = 0b10000011;
-				addr |= HB_REG_ADDRESSES[i] << 2;
-
-				SPI.transfer(addr);
+			if (addr_count == NCV_CHIPS-1) {
+				labt = true;
 			}
+	
+			SPI.transfer(1 | labt << 1 | addr << 2 | write << 7);
+		}
 
-			//set the states of each HB_ACT_CTRL_i register according to the states variable
-			for (int j = 0; j < cap; j++) {
-				uint8_t dataByte = 0;
+		//set the states of each HB_ACT_CTRL_i register according to the states variable
+		for (int dataIx = 0; dataIx < NCV_CHIPS; dataIx++) {
+			uint8_t dataByte = 0;
 
-				//for two nibbles in this register:
-				for(int k = 0; k < 2; k++) {
-					if ((states[j].en & (1 << (i*2+k))) == 0) {
-						dataByte &= ~(0b1111 << (k*4));
+			//for two nibbles in this register:
+			for(int nibIx = 0; nibIx < 2; nibIx++) {
+				if ((states[dataIx].en & (1 << (reg*2+nibIx))) == 0) {
+					dataByte &= ~(0b1111 << (nibIx*4));
+				} else {
+					if ((states[dataIx].dir & (1 << (reg*2+nibIx))) != 0) {
+						dataByte |= 0b1001 << (nibIx*4);
 					} else {
-						if ((states[j].dir & (1 << (i*2+k))) != 0) {
-							dataByte |= 0b1001 << (k*4);
-						} else {
-							dataByte |= 0b0110 << (k*4);
-						}
+						dataByte |= 0b0110 << (nibIx*4);
 					}
 				}
-				SPI.transfer(dataByte);
 			}
 
-			delayMicroseconds(1);
-			digitalWrite(SS_PIN, HIGH);
+			SPI.transfer(dataByte);
 		}
+
+		delayMicroseconds(10);
+		digitalWrite(SS_PIN, HIGH);
+		delayMicroseconds(10);
 	}
 }
