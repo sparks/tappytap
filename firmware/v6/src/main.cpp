@@ -110,25 +110,33 @@ void push(uint8_t addr, uint8_t data, uint8_t count) {
 	delayMicroseconds(10);
 }
 
-void loop() {
-	int count = 9;
+void metapush(uint8_t addr, uint8_t data, uint8_t count) {
+	for (int i = 8; i <= count; i++) {
+		// Serial.println(i);
+		push(addr, data, i);
+		delayMicroseconds(100);
+	}
+}
 
-	for (uint8_t i = 0; i < 8; i++) {
-		push(HB_ACT_1_CTRL_ADDR, 0b10011001, count);
-		push(HB_ACT_2_CTRL_ADDR, 0b10011001, count);
-		push(HB_ACT_3_CTRL_ADDR, 0b10011001, count);
+void loop() {
+	uint8_t count = 8;
+
+	for (uint8_t i = 0; i < 20; i++) {
+		metapush(HB_ACT_1_CTRL_ADDR, 0b10011001, count);
+		metapush(HB_ACT_2_CTRL_ADDR, 0b10011001, count);
+		metapush(HB_ACT_3_CTRL_ADDR, 0b10011001, count);
 		delay(500);
 
-		push(HB_ACT_1_CTRL_ADDR, 0b01100110, count);
-		push(HB_ACT_2_CTRL_ADDR, 0b01100110, count);
-		push(HB_ACT_3_CTRL_ADDR, 0b01100110, count);
+		metapush(HB_ACT_1_CTRL_ADDR, 0b01100110, count);
+		metapush(HB_ACT_2_CTRL_ADDR, 0b01100110, count);
+		metapush(HB_ACT_3_CTRL_ADDR, 0b01100110, count);
 		delay(500);
 	}
 
 	while (true) {
-		push(HB_ACT_1_CTRL_ADDR, 0, count);
-		push(HB_ACT_2_CTRL_ADDR, 0, count);
-		push(HB_ACT_3_CTRL_ADDR, 0, count);
+		metapush(HB_ACT_1_CTRL_ADDR, 0, count);
+		metapush(HB_ACT_2_CTRL_ADDR, 0, count);
+		metapush(HB_ACT_3_CTRL_ADDR, 0, count);
 	}
 
 	// for (int i = 0; i < 36*2; i++) {
