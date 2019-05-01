@@ -97,7 +97,7 @@ void push(uint8_t addr, uint8_t data, uint8_t count) {
 		if (i == count-1) {
 			SPI.transfer((addr << 2) | 0b10000011);
 		} else {
-			SPI.transfer((addr << 2) | 0b10000001);
+			SPI.transfer((addr << 2) | 0b00000001);
 		}
 	}
 
@@ -111,7 +111,7 @@ void push(uint8_t addr, uint8_t data, uint8_t count) {
 }
 
 void metapush(uint8_t addr, uint8_t data, uint8_t count) {
-	for (int i = 8; i <= count; i++) {
+	for (int i = 1; i <= count; i++) {
 		// Serial.println(i);
 		push(addr, data, i);
 		delayMicroseconds(100);
@@ -119,25 +119,18 @@ void metapush(uint8_t addr, uint8_t data, uint8_t count) {
 }
 
 void loop() {
-	uint8_t count = 8;
+	uint8_t count = 12;
 
-	for (uint8_t i = 0; i < 20; i++) {
-		push(HB_ACT_1_CTRL_ADDR, 0b10011001, count);
-		push(HB_ACT_2_CTRL_ADDR, 0b10011001, count);
-		push(HB_ACT_3_CTRL_ADDR, 0b10011001, count);
-		delay(500);
+	metapush(HB_ACT_1_CTRL_ADDR, 0b10011001, count);
+	metapush(HB_ACT_2_CTRL_ADDR, 0b10011001, count);
+	metapush(HB_ACT_3_CTRL_ADDR, 0b10011001, count);
+	delay(500);
 
-		push(HB_ACT_1_CTRL_ADDR, 0b01100110, count);
-		push(HB_ACT_2_CTRL_ADDR, 0b01100110, count);
-		push(HB_ACT_3_CTRL_ADDR, 0b01100110, count);
-		delay(500);
-	}
+	metapush(HB_ACT_1_CTRL_ADDR, 0b01100110, count);
+	metapush(HB_ACT_2_CTRL_ADDR, 0b01100110, count);
+	metapush(HB_ACT_3_CTRL_ADDR, 0b01100110, count);
+	delay(500);
 
-	while (true) {
-		push(HB_ACT_1_CTRL_ADDR, 0, count);
-		push(HB_ACT_2_CTRL_ADDR, 0, count);
-		push(HB_ACT_3_CTRL_ADDR, 0, count);
-	}
 
 	// for (int i = 0; i < 36*2; i++) {
 	// 	set(states, NCV_CHIPS, i, 1, 0);
