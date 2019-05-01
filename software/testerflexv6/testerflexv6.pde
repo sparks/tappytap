@@ -10,8 +10,8 @@ final int boardTappersY = 6;
 final int bridgesPerChip = 6;
 final int chipsPerBoard = boardTappersX*boardTappersY/bridgesPerChip;
 
-final int tapDimX = 6;
-final int tapDimY = 6;
+final int tapDimX = 6*1;
+final int tapDimY = 6*2;
 
 final float minFreq = 1;
 final float maxFreq = 50;
@@ -292,7 +292,7 @@ public void pushStates() {
 
 		int boardBaseX = floor(boardIx * boardTappersY / tapDimY);
 		int boardBaseY = (boardIx * boardTappersY) % tapDimY;
-		if (boardBaseX % 2 == 1) boardBaseY = tapDimY-boardBaseY-boardTappersY;
+		if (boardBaseX % 2 == 0) boardBaseY = tapDimY - boardBaseY - boardTappersY;
 		boardBaseX *= boardTappersX;
 
 		for (int chipIx = 0; chipIx < chipsPerBoard; chipIx++) {
@@ -306,10 +306,6 @@ public void pushStates() {
 					if (states[boardBaseX+chipBaseX+chipX][boardBaseY+chipBaseY+chipY]) {
 						int bitIndex = chipX+chipY*3;
 						out[outIndex] = setBit(out[outIndex], bitIndex);
-						print(boardIx+":  ");
-						print(boardBaseX+chipBaseX+chipX+", "+(boardBaseY+chipBaseY+chipY));
-						print("   ->   ");
-						println(outIndex+", "+bitIndex);
 					}
 				}
 			}

@@ -2,18 +2,16 @@
 #include <Arduino.h>
 #include <SPI.h>
 
-#define NUM_BOARDS 1
+#define NUM_BOARDS 2
 #define NCV_CHIPS NUM_BOARDS*6
 #define BRIDGES_PER_CHIP 6
-#define BRIDGE_PER_BOARD 36
 #define TOTAL_BRIDGES NUM_BOARDS*36
 #define NUM_REGISTERS 3	
-#define TOTAL_REGISTERS 3*NCV_CHIPS
 #define HB_ACT_1_CTRL_ADDR 0b00000
 #define HB_ACT_2_CTRL_ADDR 0b10000
 #define HB_ACT_3_CTRL_ADDR 0b01000
 
-#define SERIAL_DEBUG true
+#define SERIAL_DEBUG false
 
 // Slave select PIN for SPI (attached to all the NCV7718 chips) (active low)
 #define SS_PIN 10
@@ -189,38 +187,20 @@ void loop() {
 			case MODE_STATE: {
 				if (SERIAL_DEBUG) Serial.println("State started");
 				if (incomingByte == 0x82) {
-					if (SERIAL_DEBUG) {
-						if (SERIAL_DEBUG) {
-							Serial.println("State done");
-							for (int i = 0; i < TOTAL_BRIDGES; i++) {
-								if (i % 3 == 0) Serial.print("  >");
-								Serial.print(bstates[(i / BRIDGE_PER_BOARD) * BRIDGE_PER_BOARD + (i % BRIDGE_PER_BOARD) / 3 + (i%3)*3]);
-								Serial.print(" ");
-								if (i % 3 == 2) Serial.println();
-								if (i % 9 == 8) Serial.println();
-							}
-						}
-					}
-
 					// We just latch as we go, there's not really risk to that
 					mode = MODE_NONE;
 					break;
 				}
 
-				int base_offset = serial_byte_count/2*BRIDGE_PER_BOARD;
-
-				if (serial_byte_count % 2 == 0) {
-					for (int i = 0; i < 7; i++) {
-						bstates[base_offset+i] = (incomingByte & (1 << i)) > 0;
-					}
-				} else {
-					for (int i = 0; i < 2; i++) {
-						bstates[base_offset+7+i] = (incomingByte & (1 << i)) > 0;
-					}
+				int base_offset = serial_byte_count*BRIDGES_PER_CHIP;
+				for (int i = 0; i < BRIDGES_PER_CHIP; i++) {
+					bstates[base_offset+i] = (incomingByte & (1 << i)) > 0;
 				}
+
 				serial_byte_count++;
 				break;
 			}
+
 			default:
 			case MODE_NONE: {
 				if (SERIAL_DEBUG) Serial.println("None start");
