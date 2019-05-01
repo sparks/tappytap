@@ -88,155 +88,155 @@ void setup() {
 }
 
 void loop() {
-	set(states, NCV_CHIPS, 0, 1, 0);
-	set(states, NCV_CHIPS, 37, 1, 0);
-	set(states, NCV_CHIPS, 38, 1, 0);
-	set(states, NCV_CHIPS, 45, 1, 0);
-
-	// Serial.println("NCV_CHIPS");
-	// Serial.println(NCV_CHIPS, DEC);
-	// Serial.println(states[7].en);
-	// Serial.println(states[7].dir);
-
-	write(states, NCV_CHIPS);
-	delay(500);
-
-	set(states, NCV_CHIPS, 0, 1, 1);
-	set(states, NCV_CHIPS, 37, 1, 1);
-	set(states, NCV_CHIPS, 38, 1, 1);
-	set(states, NCV_CHIPS, 45, 1, 1);
-
-	// Serial.println("NCV_CHIPS");
-	// Serial.println(NCV_CHIPS, DEC);
-	// Serial.println(states[7].en);
-	// Serial.println(states[7].dir);
-
-	write(states, NCV_CHIPS);
-	delay(500);
-
-	// if (Serial.available() > 0) {
-	// 	// Read uart 
-	// 	uint8_t incomingByte = Serial.read();
-		
-	// 	if (SERIAL_DEBUG) {
-	// 		Serial.print("serial_byte_count: ");
-	// 		Serial.println(serial_byte_count);
-	// 	}
-
-	// 	switch(mode) {
-	// 		case MODE_CONF: {
-	// 			if (SERIAL_DEBUG) Serial.println("Conf started");
-
-	// 			switch(serial_byte_count) {
-	// 				case 0: {
-	// 					tmpUpPulseLen |= incomingByte;
-	// 					break;
-	// 				}
-	// 				case 1: {
-	// 					tmpUpPulseLen |= incomingByte << 8;
-	// 					break;
-	// 				}
-	// 				case 2: {
-	// 					tmpInterPulseLen |= incomingByte;
-	// 					break;
-	// 				}
-	// 				case 3: {
-	// 					tmpInterPulseLen |= incomingByte << 8;
-	// 					break;
-	// 				}
-	// 				case 4: {
-	// 					tmpDownPulseLen |= incomingByte;
-	// 					break;
-	// 				}
-	// 				case 5: {
-	// 					tmpDownPulseLen |= incomingByte << 8;
-	// 					break;
-	// 				}
-	// 				case 6: {
-	// 					tmpPauseLen |= incomingByte;
-	// 					break;
-	// 				}
-	// 				case 7: {
-	// 					tmpPauseLen |= incomingByte << 8;
-	// 					// falls through to default now
-	// 				}
-	// 				default: {
-	// 					// latches
-	// 					upPulseLen = tmpUpPulseLen;
-	// 					interPulseLen = tmpInterPulseLen;
-	// 					downPulseLen = tmpDownPulseLen;
-	// 					pauseLen = tmpPauseLen;
-	// 					if (SERIAL_DEBUG) {
-	// 						Serial.println("Conf done");
-	// 						Serial.print("  >upPulseLen: ");
-	// 						Serial.println(upPulseLen);
-	// 						Serial.print("  >interPulseLen: ");
-	// 						Serial.println(interPulseLen);
-	// 						Serial.print("  >downPulseLen: ");
-	// 						Serial.println(downPulseLen);
-	// 						Serial.print("  >pauseLen: ");
-	// 						Serial.println(pauseLen);
-	// 						Serial.println();
-	// 					}
-
-	// 					mode = MODE_NONE;
-	// 					break;
-	// 				}
-	// 			}
-
-	// 			serial_byte_count++;
-	// 			break;
-	// 		}
-
-	// 		case MODE_STATE: {
-	// 			if (SERIAL_DEBUG) Serial.println("State started");
-	// 			if (incomingByte == 0x82) {
-	// 				// We just latch as we go, there's not really risk to that
-	// 				mode = MODE_NONE;
-	// 				break;
-	// 			}
-
-	// 			int base_offset = serial_byte_count*BRIDGES_PER_CHIP;
-	// 			for (int i = 0; i < BRIDGES_PER_CHIP; i++) {
-	// 				bstates[base_offset+i] = (incomingByte & (1 << i)) > 0;
-	// 			}
-
-	// 			serial_byte_count++;
-	// 			break;
-	// 		}
-
-	// 		default:
-	// 		case MODE_NONE: {
-	// 			if (SERIAL_DEBUG) Serial.println("None start");
-	// 			serial_byte_count = 0;
-	// 			switch(incomingByte) {
-	// 				case 0x80: {
-	// 					if (SERIAL_DEBUG) Serial.println("  >Conf");
-	// 					mode = MODE_CONF;
-
-	// 					tmpUpPulseLen = 0;
-	// 					tmpInterPulseLen = 0;
-	// 					tmpDownPulseLen = 0;
-	// 					tmpPauseLen = 0;
-	// 					break;
-	// 				}
-	// 				case 0x81: {
-	// 					if (SERIAL_DEBUG) Serial.println("  >State");
-	// 					mode = MODE_STATE;
-	// 					break;
-	// 				}
-	// 				default: {
-	// 					if (SERIAL_DEBUG) Serial.println("  >?");
-	// 					mode = MODE_NONE;
-	// 					break;
-	// 				}
-	// 			}
-	// 			break;
-	// 		}
-	// 	}		
+	// for (int i = 0; i < 36*2; i++) {
+	// 	set(states, NCV_CHIPS, i, 1, 0);
 	// }
+	// // Serial.println("NCV_CHIPS");
+	// // Serial.println(NCV_CHIPS, DEC);
+	// // Serial.println(states[7].en);
+	// // Serial.println(states[7].dir);
 
-	// drive(bstates);
+	// write(states, NCV_CHIPS);
+	// delay(500);
+
+	// for (int i = 0; i < 36*2; i++) {
+	// 	set(states, NCV_CHIPS, i, 1, 1);
+	// }
+	// // set(states, NCV_CHIPS, 37, 1, 1);
+	// // set(states, NCV_CHIPS, 38, 1, 1);
+	// // set(states, NCV_CHIPS, 44, 1, 1);
+
+	// // Serial.println("NCV_CHIPS");
+	// // Serial.println(NCV_CHIPS, DEC);
+	// // Serial.println(states[7].en);
+	// // Serial.println(states[7].dir);
+
+	// write(states, NCV_CHIPS);
+	// delay(500);
+
+	if (Serial.available() > 0) {
+		// Read uart 
+		uint8_t incomingByte = Serial.read();
+		
+		if (SERIAL_DEBUG) {
+			Serial.print("serial_byte_count: ");
+			Serial.println(serial_byte_count);
+		}
+
+		switch(mode) {
+			case MODE_CONF: {
+				if (SERIAL_DEBUG) Serial.println("Conf started");
+
+				switch(serial_byte_count) {
+					case 0: {
+						tmpUpPulseLen |= incomingByte;
+						break;
+					}
+					case 1: {
+						tmpUpPulseLen |= incomingByte << 8;
+						break;
+					}
+					case 2: {
+						tmpInterPulseLen |= incomingByte;
+						break;
+					}
+					case 3: {
+						tmpInterPulseLen |= incomingByte << 8;
+						break;
+					}
+					case 4: {
+						tmpDownPulseLen |= incomingByte;
+						break;
+					}
+					case 5: {
+						tmpDownPulseLen |= incomingByte << 8;
+						break;
+					}
+					case 6: {
+						tmpPauseLen |= incomingByte;
+						break;
+					}
+					case 7: {
+						tmpPauseLen |= incomingByte << 8;
+						// falls through to default now
+					}
+					default: {
+						// latches
+						upPulseLen = tmpUpPulseLen;
+						interPulseLen = tmpInterPulseLen;
+						downPulseLen = tmpDownPulseLen;
+						pauseLen = tmpPauseLen;
+						if (SERIAL_DEBUG) {
+							Serial.println("Conf done");
+							Serial.print("  >upPulseLen: ");
+							Serial.println(upPulseLen);
+							Serial.print("  >interPulseLen: ");
+							Serial.println(interPulseLen);
+							Serial.print("  >downPulseLen: ");
+							Serial.println(downPulseLen);
+							Serial.print("  >pauseLen: ");
+							Serial.println(pauseLen);
+							Serial.println();
+						}
+
+						mode = MODE_NONE;
+						break;
+					}
+				}
+
+				serial_byte_count++;
+				break;
+			}
+
+			case MODE_STATE: {
+				if (SERIAL_DEBUG) Serial.println("State started");
+				if (incomingByte == 0x82) {
+					// We just latch as we go, there's not really risk to that
+					mode = MODE_NONE;
+					break;
+				}
+
+				int base_offset = serial_byte_count*BRIDGES_PER_CHIP;
+				for (int i = 0; i < BRIDGES_PER_CHIP; i++) {
+					bstates[base_offset+i] = (incomingByte & (1 << i)) > 0;
+				}
+
+				serial_byte_count++;
+				break;
+			}
+
+			default:
+			case MODE_NONE: {
+				if (SERIAL_DEBUG) Serial.println("None start");
+				serial_byte_count = 0;
+				switch(incomingByte) {
+					case 0x80: {
+						if (SERIAL_DEBUG) Serial.println("  >Conf");
+						mode = MODE_CONF;
+
+						tmpUpPulseLen = 0;
+						tmpInterPulseLen = 0;
+						tmpDownPulseLen = 0;
+						tmpPauseLen = 0;
+						break;
+					}
+					case 0x81: {
+						if (SERIAL_DEBUG) Serial.println("  >State");
+						mode = MODE_STATE;
+						break;
+					}
+					default: {
+						if (SERIAL_DEBUG) Serial.println("  >?");
+						mode = MODE_NONE;
+						break;
+					}
+				}
+				break;
+			}
+		}		
+	}
+
+	drive(bstates);
 }
 
 void drive(const bool* bstates) {
@@ -301,6 +301,7 @@ void write(const state_t* states, uint8_t num_states) {
 
 			SPI.transfer(addr);
 		}
+		
 		//set the states of each HB_ACT_CTRL_i register according to the states variable
 		for (int j = 0; j < NCV_CHIPS; j++) {
 			uint8_t dataByte = 0;

@@ -34,7 +34,7 @@ final float maxFreq = 50;
 
 final float borderPct = 0.2;
 
-boolean debugSerial = false;
+boolean debugSerial = true;
 boolean confd = false;
 
 TapConf tapConf;
