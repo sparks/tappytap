@@ -2,7 +2,7 @@
 #include <Arduino.h>
 #include <SPI.h>
 
-#define NUM_BOARDS 2
+#define NUM_BOARDS 1 // Should equal numXBoards*numYBoards in processing
 
 #define BRIDGES_PER_CHIP 6
 #define CHIPS_PER_BOARD 6

@@ -1,5 +1,24 @@
 import processing.serial.*;
 
+/*
+Pattern of board connections would be like so
+
+2 3 8
+1 4 7
+0 5 6
+
+With the first tapper located in the upper left corner
+of board zero (next to board one on the outside edge)
+*/
+
+final int numXBoards = 1;
+final int numYBoards = 1;
+
+// The product of numXBoards*numYBoards should equal NUM_BOARDS in arduino
+
+final int tapDimX = 6*numXBoards;
+final int tapDimY = 6*numYBoards;
+
 final float intialUpPulseLen = 20; //ms
 final float initialInterPulseDelay = 20; //ms
 final float initialDownPulseLen = 20; //ms
@@ -9,9 +28,6 @@ final int boardTappersX = 6;
 final int boardTappersY = 6;
 final int bridgesPerChip = 6;
 final int chipsPerBoard = boardTappersX*boardTappersY/bridgesPerChip;
-
-final int tapDimX = 6*1;
-final int tapDimY = 6*2;
 
 final float minFreq = 1;
 final float maxFreq = 50;
