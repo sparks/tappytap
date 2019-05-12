@@ -3,6 +3,7 @@
 #include <SPI.h>
 
 #define NUM_BOARDS 2
+#define CHIPS_PER_BOARD 6
 #define NCV_CHIPS NUM_BOARDS*6
 #define BRIDGES_PER_CHIP 6
 #define TOTAL_BRIDGES NUM_BOARDS*36
@@ -10,6 +11,7 @@
 #define HB_ACT_1_CTRL_ADDR 0b00000
 #define HB_ACT_2_CTRL_ADDR 0b10000
 #define HB_ACT_3_CTRL_ADDR 0b01000
+#define DOUT_PIN 11
 
 #define SERIAL_DEBUG false
 
@@ -17,6 +19,9 @@
 #define SS_PIN 10
 // Enable PIN for all the NCV7718 chips (active high)
 #define NCV_EN_PIN 9
+
+int CS_PINS[NUM_BOARDS] = {2,3};
+
 
 // Struct representing the state of one NCV7718 chip which contains 3 hbridges:
 //  * bits 0,1,2 of en represent if hbridges 0,1,2 are enabled
@@ -70,12 +75,10 @@ void setup() {
 		bstates[i] = false;
 	}
 
-	// Set relevant pin modes
-	pinMode(SS_PIN, OUTPUT);
-	pinMode(NCV_EN_PIN, OUTPUT);
-
-	digitalWrite(NCV_EN_PIN, HIGH); // enabled (active high)
-	digitalWrite(SS_PIN, HIGH); // not selected (active low)
+	for(int i = 0; i < NUM_BOARDS; i++ ) {
+		pinMode(CS_PINS[i], OUTPUT);
+		digitalWrite(CS_PINS[i], HIGH);
+	}
 
 	// Configure SPI
 	SPI.begin();
@@ -286,49 +289,45 @@ void set(state_t* states, uint8_t num_states, uint8_t position, bool en, bool di
 
 // Write a state array out over SPI
 void write(const state_t* states, uint8_t num_states) {
-	// assert the slave select, start SPI frame
 
-	for(int reg = 0; reg < NUM_REGISTERS; reg++) {
-		//begin new SPI frame to transfer data for each chip's HB_ACT_CTRL_i reg
-		delayMicroseconds(10);
-		digitalWrite(11, LOW);
-		digitalWrite(SS_PIN, LOW);
-		delayMicroseconds(10);
+	for(int boardIx = 0; boardIx < NUM_BOARDS; boardIx++) {
+		
+		for(int reg = 0; reg < NUM_REGISTERS; reg++) {
+			//begin new SPI frame to transfer data for each chip's HB_ACT_CTRL_i reg
+			delayMicroseconds(10);
+			digitalWrite(DOUT_PIN, LOW);
+			digitalWrite(CS_PINS[boardIx], LOW);
+			delayMicroseconds(10);
+			for (int addr_count = 0; addr_count < CHIPS_PER_BOARD; addr_count++) {
+				bool write = true; // HACK: true normally
+				bool labt = false;
+				uint8_t addr = HB_REG_ADDRESSES[reg];
 
-		for (int addr_count = 0; addr_count < NCV_CHIPS; addr_count++) {
-			bool write = true; // HACK: true normally
-			bool labt = false;
-			uint8_t addr = HB_REG_ADDRESSES[reg];
-
-			if (addr_count == NCV_CHIPS-1) {
-				labt = true;
+				if (addr_count == CHIPS_PER_BOARD-1) {
+					labt = true;
+				}
+				SPI.transfer(1 | labt << 1 | addr << 2 | write << 7);
 			}
-	
-			SPI.transfer(1 | labt << 1 | addr << 2 | write << 7);
-		}
-
-		//set the states of each HB_ACT_CTRL_i register according to the states variable
-		for (int dataIx = 0; dataIx < NCV_CHIPS; dataIx++) {
-			uint8_t dataByte = 0;
-
-			//for two nibbles in this register:
-			for(int nibIx = 0; nibIx < 2; nibIx++) {
-				if ((states[dataIx].en & (1 << (reg*2+nibIx))) == 0) {
-					dataByte &= ~(0b1111 << (nibIx*4));
-				} else {
-					if ((states[dataIx].dir & (1 << (reg*2+nibIx))) != 0) {
-						dataByte |= 0b1001 << (nibIx*4);
+			//set the states of each HB_ACT_CTRL_i register according to the states variable
+			for (int dataIx = 0; dataIx < CHIPS_PER_BOARD; dataIx++) {
+				uint8_t dataByte = 0;
+				for(int nibIx = 0; nibIx < 2; nibIx++) {
+					if ((states[dataIx + boardIx * CHIPS_PER_BOARD].en & (1 << (reg*2+nibIx))) == 0) {
+						dataByte &= ~(0b1111 << (nibIx*4));
 					} else {
-						dataByte |= 0b0110 << (nibIx*4);
+						if ((states[dataIx + boardIx * CHIPS_PER_BOARD].dir & (1 << (reg*2+nibIx))) != 0) {
+							dataByte |= 0b1001 << (nibIx*4);
+						} else {
+							dataByte |= 0b0110 << (nibIx*4);
+						}
 					}
 				}
+				SPI.transfer(dataByte);
 			}
-
-			SPI.transfer(dataByte);
+		delayMicroseconds(10);
+		digitalWrite(CS_PINS[boardIx], HIGH);
+		delayMicroseconds(10);			
 		}
-
-		delayMicroseconds(10);
-		digitalWrite(SS_PIN, HIGH);
-		delayMicroseconds(10);
+		
 	}
 }
