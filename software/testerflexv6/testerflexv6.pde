@@ -12,7 +12,7 @@ of board zero (next to board one on the outside edge)
 */
 
 final int numXBoards = 2;
-final int numYBoards = 1;
+final int numYBoards = 2;
 
 // The product of numXBoards*numYBoards should equal NUM_BOARDS in arduino
 
@@ -312,39 +312,19 @@ public void pushStates() {
 		int boardBaseX = boardRowX*boardTappersX;
 
 		for (int chipIx = 0; chipIx < chipsPerBoard; chipIx++) {
-			if (boardRowX % 2 == 0) {
 				int chipBaseX = (chipIx % 2) * 3;
 				int chipBaseY = (chipIx / 2) * 2;
-
 				int outIndex = chipIx;
-
+  
 				for (int chipY = 0; chipY < 2; chipY++) {
 					for (int chipX = 0; chipX < 3; chipX++) {
 						if (states[boardBaseX+chipBaseX+chipX][boardBaseY+chipBaseY+chipY]) {
 							int bitIndex = chipX+chipY*3;
 							out[outIndex] = setBit(out[outIndex], bitIndex);
-
-							// println(boardIx + ":o-b" + outIndex + " - " + bitIndex + " .... x-y" + (boardBaseX+chipBaseX+chipX) + " - " + (boardBaseY+chipBaseY+chipY));
+							//println(boardIx + ":o-b" + outIndex + " - " + bitIndex + " .... x-y" + (boardBaseX+chipBaseX+chipX) + " - " + (boardBaseY+chipBaseY+chipY));
 						}
 					}
-				}
-			} else {
-				int chipBaseX = 5-(chipIx / 2) * 2;
-				int chipBaseY = (chipIx % 2) * 3;
-
-				int outIndex = chipIx;
-
-				for (int chipX = 0; chipX < 2; chipX++) {
-					for (int chipY = 0; chipY < 3; chipY++) {
-						if (states[boardBaseX+chipBaseX-chipX][boardBaseY+chipBaseY+chipY]) {
-							int bitIndex = chipX*3+chipY;
-							out[outIndex] = setBit(out[outIndex], bitIndex);
-
-							// println(boardIx + ":o-b" + outIndex + " - " + bitIndex + " .... x-y" + (boardBaseX+chipBaseX-chipX) + " - " + (boardBaseY+chipBaseY+chipY));
-						}
-					}
-				}
-			}
+				}	 
 		}
 		writeArduinoMaster(out);
 	}
