@@ -2,7 +2,7 @@
 #include <Arduino.h>
 #include <SPI.h>
 
-#define NUM_BOARDS 2
+#define NUM_BOARDS 4
 #define CHIPS_PER_BOARD 6
 #define NCV_CHIPS NUM_BOARDS*6
 #define BRIDGES_PER_CHIP 6
@@ -12,6 +12,7 @@
 #define HB_ACT_2_CTRL_ADDR 0b10000
 #define HB_ACT_3_CTRL_ADDR 0b01000
 #define DOUT_PIN 11
+#define FIRST_CS_PIN 2
 
 #define SERIAL_DEBUG false
 
@@ -20,7 +21,7 @@
 // Enable PIN for all the NCV7718 chips (active high)
 #define NCV_EN_PIN 9
 
-int CS_PINS[NUM_BOARDS] = {2,3};
+int CS_PINS[NUM_BOARDS];
 
 
 // Struct representing the state of one NCV7718 chip which contains 3 hbridges:
@@ -76,6 +77,9 @@ void setup() {
 	}
 
 	for(int i = 0; i < NUM_BOARDS; i++ ) {
+
+		CS_PINS[i] = FIRST_CS_PIN + i;
+
 		pinMode(CS_PINS[i], OUTPUT);
 		digitalWrite(CS_PINS[i], HIGH);
 	}
