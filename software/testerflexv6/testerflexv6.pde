@@ -2,11 +2,9 @@ import processing.serial.*;
 
 /*
 Pattern of board connections would be like so
-
 2 3 8
 1 4 7
 0 5 6
-
 With the first tapper located in the upper left corner
 of board zero (next to board one on the outside edge)
 */
@@ -34,6 +32,35 @@ final float maxFreq = 50;
 
 final float borderPct = 0.2;
 
+final int minPlaybackRate = 10;
+final int maxPlaybackRate = 1000;
+
+// if the serial connection should be enabled
+final boolean enableConnection = false;
+
+// Pattern time per frame (in ms).
+int patternPlaybackSpeed = 100;
+int playbackWidth = 100;
+
+boolean shouldBePlaying = false;
+boolean isPlaying = false;
+
+public void animate() {
+	if(isPlaying){return;}
+	isPlaying = true;
+	// ------------------
+	// ------------------
+	// Insert generated code from pattern editor (Copy v5 Full)
+	
+	delay(patternPlaybackSpeed);
+	
+	// ------------------
+	// ------------------
+	isPlaying = false;
+	if(shouldBePlaying){animate();}
+}
+
+
 boolean debugSerial = false;
 boolean confd = false;
 
@@ -52,7 +79,7 @@ public enum PulseDragPoint {
 }
 
 public enum Mode {
-	TAP_INTERACTION, WAVE_AND_CONF
+	TAP_INTERACTION, WAVE, CONF_FREQ, CONF_PLAYBACKRATE
 }
 
 Mode mode = Mode.TAP_INTERACTION;
@@ -63,6 +90,7 @@ public void setup() {
 
 	int targetIndex = 0;
 
+	if(enableConnection){
 	String[] ports = Serial.list();
 
 	println("Serial ports:");
@@ -83,6 +111,7 @@ public void setup() {
 
 	arduinoMaster = new Serial(this, Serial.list()[targetIndex], 115200);
 	arduinoMaster.bufferUntil(10);
+	}
 
 	tapConf = new TapConf(arduinoMaster, (int) (intialUpPulseLen*100), (int) (initialInterPulseDelay*100), (int) (initialDownPulseLen*100), (int) (initialPauseLen*100));
 }
@@ -119,10 +148,11 @@ public void drawTapInteraction() {
 
 	fill(255);
 	stroke(255);
-	text("'SHIFT' to sustain    'm' to toggle locking mode", 20, 20);
+	text("'SHIFT' to sustain		'm' to toggle locking mode		'p' to play pattern", 20, 20);
 }
 
 public void drawWaveAndConf() {
+	textAlign(LEFT, CENTER);
 	stroke(255);
 	strokeWeight(5);
 	
@@ -144,6 +174,9 @@ public void drawWaveAndConf() {
 
 	int spacing = 15;
 	int count = 0;
+	
+	String freqSliderText = String.format("freq slider (log): %.2f * ms / %.2f * Hz", tapConf.period() / 100f, 100000f / tapConf.period());
+	String playbackRateText = String.format("playback rate: %d ms/frame", patternPlaybackSpeed);
 
 	text(String.format("upPulseLen : %.2f ms", (float)tapConf.upPulseLen / 100), 20, 20+spacing*count++);
 	text(String.format("interPulseDelay : %.2f ms", (float)tapConf.interPulseDelay / 100), 20, 20+spacing*count++);
@@ -153,6 +186,11 @@ public void drawWaveAndConf() {
 	text(String.format("period/freq : %.2f * ms / %.2f * Hz", tapConf.period() / 100f, 100000f / tapConf.period()), 20, 20+spacing*count++);
 
 	fill(255);
+	stroke(255);
+	text(freqSliderText, 20, height-60, width / 2, 20);
+	text(playbackRateText, 20, height-30, width / 2, 20);
+
+	fill(255);
 	noStroke();
 
 	float freq = 100000f / tapConf.period();
@@ -160,17 +198,22 @@ public void drawWaveAndConf() {
 	int freqWidth = int(constrain(map(log(constrain(freq, 1, 20e3)), log(minFreq), log(maxFreq), 0, width/2), 0, width/2));
 
 	rect(0, height - 60, freqWidth, 20);
+	rect(0, height - 30, playbackWidth, 20);
 
 	fill(0);
 	stroke(0);
-	text("freq slider (log)", 20, height-48);
-
+	text(freqSliderText, 20, height-60, freqWidth, 20);
+	text(playbackRateText, 20, height-30, playbackWidth, 20);
 }
 
 // keypress
 
 public void keyReleased() {
 	if (key == CODED && keyCode == SHIFT) shifted = false;
+	
+	if (key == 'p') {
+		shouldBePlaying = false;
+	}
 }
 
 public void keyPressed() {
@@ -180,6 +223,11 @@ public void keyPressed() {
 
 	if (key == 'm') {
 		lockMode = !lockMode;
+	}
+	
+	if (key == 'p') {
+		shouldBePlaying = true;
+		thread("animate");
 	}
 }
 
@@ -199,16 +247,23 @@ public void mouseDragged() {
 			}
 			break;
 		}
-		case WAVE_AND_CONF: {
-			if (mouseY > height - 80) {
-				// float freq = constrain(map(mouseX - width/2, 0, width/2, minFreq, maxFreq), minFreq, maxFreq);
-				float freq = constrain(exp(map(mouseX - width/2, 0, width/2, log(minFreq), log(maxFreq))), minFreq, maxFreq);
-				int period = int(100000f / freq);
-				tapConf.setPeriod(period);
-			} else {
-				pdp = tapConf.closestDragPoint(mouseX-width/2);
-				tapConf.setPoint(pdp, mouseX-width/2);
-			}
+		case WAVE: {
+			pdp = tapConf.closestDragPoint(mouseX-width/2);
+			tapConf.setPoint(pdp, mouseX-width/2);
+			break;
+		}
+		case CONF_PLAYBACKRATE: {
+			// float freq = constrain(map(mouseX - width/2, 0, width/2, minFreq, maxFreq), minFreq, maxFreq);
+			int playbackRate = (int)(((float)(mouseX - (width / 2)) / (float)(width / 2)) * maxPlaybackRate);
+			playbackWidth = ((mouseX - (width / 2)));
+			patternPlaybackSpeed = constrain(playbackRate, minPlaybackRate, maxPlaybackRate);
+			break;
+		}
+		case CONF_FREQ: {
+			// float freq = constrain(map(mouseX - width/2, 0, width/2, minFreq, maxFreq), minFreq, maxFreq);
+			float freq = constrain(exp(map(mouseX - width/2, 0, width/2, log(minFreq), log(maxFreq))), minFreq, maxFreq);
+			int period = int(100000f / freq);
+			tapConf.setPeriod(period);
 			break;
 		}
 	}
@@ -222,11 +277,12 @@ public void mousePressed() {
 
 		mouseDragged();
 	} else {
-		mode = Mode.WAVE_AND_CONF;
-
-		if (mouseY > height - 80) {
-
+		if(mouseY > height - 40){
+			mode = Mode.CONF_PLAYBACKRATE;
+		}else if (mouseY > height - 80) {
+			mode = Mode.CONF_FREQ;
 		} else {
+			mode = Mode.WAVE;
 			pdp = tapConf.closestDragPoint(mouseX-width/2);
 			tapConf.setPoint(pdp, mouseX-width/2);
 		}
@@ -315,7 +371,7 @@ public void pushStates() {
 				int chipBaseX = (chipIx % 2) * 3;
 				int chipBaseY = (chipIx / 2) * 2;
 				int outIndex = chipIx;
-  
+	
 				for (int chipY = 0; chipY < 2; chipY++) {
 					for (int chipX = 0; chipX < 3; chipX++) {
 						if (states[boardBaseX+chipBaseX+chipX][boardBaseY+chipBaseY+chipY]) {
@@ -343,7 +399,9 @@ public void writeArduinoMaster(int val) {
 	if (debugSerial) {
 		println(String.format("Write: %x", (byte)val));
 	}
-	arduinoMaster.write(val);
+	if(arduinoMaster != null){
+		arduinoMaster.write(val);
+	}
 }
 
 public void writeArduinoMaster(byte[] bytes) {
@@ -354,7 +412,9 @@ public void writeArduinoMaster(byte[] bytes) {
 		}
 		println();
 	}
-	arduinoMaster.write(bytes);
+	if(arduinoMaster != null){
+		arduinoMaster.write(bytes);
+	}
 }
 
 void serialEvent(Serial port) {
@@ -412,7 +472,7 @@ class TapConf {
 		float upPulseLenRatio = (float)upPulseLen / period();
 		float interPulseDelayRatio = (float)interPulseDelay / period();
 		float downPulseLenRatio = (float)downPulseLen / period();
-		float pauseLenRatio = (float)pauseLen  / period();
+		float pauseLenRatio = (float)pauseLen	/ period();
 
 		upPulseLen = (int)(upPulseLenRatio * period);
 		interPulseDelay = (int)(interPulseDelayRatio * period);
