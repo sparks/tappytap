@@ -36,7 +36,7 @@ final int minPlaybackRate = 10;
 final int maxPlaybackRate = 1000;
 
 // if the serial connection should be enabled
-final boolean enableConnection = false;
+final boolean enableConnection = true;
 
 // Pattern time per frame (in ms).
 int patternPlaybackSpeed = 100;
