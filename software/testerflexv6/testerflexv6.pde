@@ -58,6 +58,7 @@ public void animate() {
 	// ------------------
 	isPlaying = false;
 	if(shouldBePlaying){animate();}
+	else{states = new boolean[tapDimX][tapDimY]; pushStates();}
 }
 
 
