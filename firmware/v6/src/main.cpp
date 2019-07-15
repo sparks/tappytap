@@ -41,7 +41,7 @@ typedef enum _serial_mode_t {
 	MODE_CONF
 } serial_mode_t;
 
-void set(state_t*, uint8_t, uint8_t, bool, bool);
+void set(state_t*, uint8_t, uint16_t, bool, bool);
 void write(const state_t*, uint8_t);
 void drive(const bool*);
 
@@ -278,11 +278,11 @@ void drive(const bool* bstates) {
 
 // Helper function if you want to set the en and dir for a particular hbridge manually
 // e.g set(states, num_states, 3, 1, 1); would set the 3rd hbridge to en=1 dir=1
-void set(state_t* states, uint8_t num_states, uint8_t position, bool en, bool dir) {
-	uint8_t state_index = position / BRIDGES_PER_CHIP;
+void set(state_t* states, uint8_t num_states, uint16_t position, bool en, bool dir) {
+	uint16_t state_index = position / BRIDGES_PER_CHIP;
 	if (state_index >= num_states) return;
 
-	uint8_t offset = position % BRIDGES_PER_CHIP;
+	uint16_t offset = position % BRIDGES_PER_CHIP;
 
 	states[state_index].en &= ~(1 << offset);
 	states[state_index].en |= (en << offset);
