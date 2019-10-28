@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -58,7 +58,7 @@
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
@@ -1314,6 +1314,35 @@ http://smallbutdigital.com</description>
 <smd name="3" x="0" y="2.1" dx="1" dy="0.35" layer="1"/>
 <smd name="4" x="0" y="3" dx="1" dy="0.35" layer="1"/>
 </package>
+<package name="SO08">
+<description>&lt;b&gt;Small Outline Package 8&lt;/b&gt;&lt;br&gt;
+NS Package M08A</description>
+<wire x1="2.4" y1="1.9" x2="2.4" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="2.4" y1="-1.4" x2="2.4" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="-2.4" y1="-1.9" x2="-2.4" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="-2.4" y1="-1.4" x2="-2.4" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="-2.4" y1="1.9" x2="2.4" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="2.4" y1="-1.4" x2="-2.4" y2="-1.4" width="0.2032" layer="51"/>
+<rectangle x1="-2.15" y1="-3.1" x2="-1.66" y2="-2" layer="51"/>
+<rectangle x1="-0.88" y1="-3.1" x2="-0.39" y2="-2" layer="51"/>
+<rectangle x1="0.39" y1="-3.1" x2="0.88" y2="-2" layer="51"/>
+<rectangle x1="1.66" y1="-3.1" x2="2.15" y2="-2" layer="51"/>
+<rectangle x1="1.66" y1="2" x2="2.15" y2="3.1" layer="51"/>
+<rectangle x1="0.39" y1="2" x2="0.88" y2="3.1" layer="51"/>
+<rectangle x1="-0.88" y1="2" x2="-0.39" y2="3.1" layer="51"/>
+<rectangle x1="-2.15" y1="2" x2="-1.66" y2="3.1" layer="51"/>
+<smd name="1" x="-1.905" y="-2.6" dx="0.6" dy="2" layer="1"/>
+<smd name="2" x="-0.635" y="-2.6" dx="0.6" dy="2" layer="1"/>
+<smd name="3" x="0.635" y="-2.6" dx="0.6" dy="2" layer="1"/>
+<smd name="4" x="1.905" y="-2.6" dx="0.6" dy="2" layer="1"/>
+<smd name="5" x="1.905" y="2.6" dx="0.6" dy="2" layer="1"/>
+<smd name="6" x="0.635" y="2.6" dx="0.6" dy="2" layer="1"/>
+<smd name="7" x="-0.635" y="2.6" dx="0.6" dy="2" layer="1"/>
+<smd name="8" x="-1.905" y="2.6" dx="0.6" dy="2" layer="1"/>
+<text x="-2.667" y="-1.905" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="3.937" y="-1.905" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+</package>
 </packages>
 </library>
 </libraries>
@@ -1325,7 +1354,7 @@ http://smallbutdigital.com</description>
 <class number="0" name="default" width="0" drill="0">
 </class>
 </classes>
-<designrules name="default *">
+<designrules name="PCBWayMin *">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
 Die Standard-Design-Rules sind so gewählt, dass sie für 
@@ -1354,11 +1383,11 @@ design rules under a new name.</description>
 <param name="mdSmdSmd" value="0mil"/>
 <param name="mdViaViaSameLayer" value="8mil"/>
 <param name="mnLayersViaInSmd" value="2"/>
-<param name="mdCopperDimension" value="40mil"/>
+<param name="mdCopperDimension" value="10mil"/>
 <param name="mdDrill" value="8mil"/>
 <param name="mdSmdStop" value="0mil"/>
 <param name="msWidth" value="6mil"/>
-<param name="msDrill" value="3mil"/>
+<param name="msDrill" value="0.3mm"/>
 <param name="msMicroVia" value="9.99mm"/>
 <param name="msBlindViaRatio" value="0.5"/>
 <param name="rvPadTop" value="0.25"/>
@@ -1374,9 +1403,9 @@ design rules under a new name.</description>
 <param name="rlMaxPadInner" value="20mil"/>
 <param name="rlMinPadBottom" value="10mil"/>
 <param name="rlMaxPadBottom" value="20mil"/>
-<param name="rlMinViaOuter" value="8mil"/>
+<param name="rlMinViaOuter" value="6mil"/>
 <param name="rlMaxViaOuter" value="20mil"/>
-<param name="rlMinViaInner" value="8mil"/>
+<param name="rlMinViaInner" value="6mil"/>
 <param name="rlMaxViaInner" value="20mil"/>
 <param name="rlMinMicroViaOuter" value="4mil"/>
 <param name="rlMaxMicroViaOuter" value="20mil"/>
@@ -1393,7 +1422,7 @@ design rules under a new name.</description>
 <param name="mlMaxStopFrame" value="4mil"/>
 <param name="mlMinCreamFrame" value="0mil"/>
 <param name="mlMaxCreamFrame" value="0mil"/>
-<param name="mlViaStopLimit" value="0mil"/>
+<param name="mlViaStopLimit" value="25mil"/>
 <param name="srRoundness" value="0"/>
 <param name="srMinRoundness" value="0mil"/>
 <param name="srMaxRoundness" value="0mil"/>
@@ -1411,6 +1440,9 @@ design rules under a new name.</description>
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
+<param name="AutoGrid" value="1"/>
+<param name="Efforts" value="0"/>
+<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>
@@ -1504,7 +1536,7 @@ design rules under a new name.</description>
 <elements>
 <element name="C2" library="rcl" package="C0201" value="" x="6.5" y="4.75" rot="R270"/>
 <element name="U$1" library="tom-tappytap-v5-flex" package="TP_4MM_MED_PAD" value="TP_4MM_MED_PAD" x="3.75" y="3.875" rot="MR0"/>
-<element name="U$2" library="adafruit" package="SO08" value="WS2818" x="3.75" y="3.875"/>
+<element name="U$2" library="Sparky" package="SO08" value="WS2818" x="3.75" y="3.875"/>
 <element name="R4" library="rcl" package="R0201" value="" x="6.5" y="7.25"/>
 <element name="R5" library="rcl" package="R0201" value="" x="6.5" y="1.5" rot="R180"/>
 <element name="R6" library="rcl" package="R0201" value="" x="0.875" y="6.25" rot="R180"/>
@@ -4212,6 +4244,84 @@ design rules under a new name.</description>
 <wire x1="154.25" y1="1.5" x2="154.005" y2="1.5" width="0.254" layer="1"/>
 </signal>
 </signals>
+<errors>
+<approved hash="19,1,9a6977577b579669"/>
+<approved hash="19,1,4ed4a5582958c2d4"/>
+<approved hash="19,1,96e27c3070309ae2"/>
+<approved hash="19,1,92e360396c399ee3"/>
+<approved hash="19,1,0280febef2be0e80"/>
+<approved hash="19,1,0e0bf5d9f9d9020b"/>
+<approved hash="19,1,0a0ae9d0e5d0060a"/>
+<approved hash="19,1,d63d2cb1a0b15a3d"/>
+<approved hash="19,1,eb3d46034a03e73d"/>
+<approved hash="19,1,3f80940c180cb380"/>
+<approved hash="19,1,e7b64d644164ebb6"/>
+<approved hash="19,1,e3b7516d5d6defb7"/>
+<approved hash="19,1,c7e71b6b976a4be6"/>
+<approved hash="19,1,1bd0de0ad20b17d1"/>
+<approved hash="19,1,135ac964c5651f5b"/>
+<approved hash="19,1,1fd1c203ce0213d0"/>
+<approved hash="19,1,c4f051ce5dcfc8f1"/>
+<approved hash="19,1,c87b5aa956a8c47a"/>
+<approved hash="19,1,104d83c10fc09c4c"/>
+<approved hash="19,1,cc7a46a04aa1c07b"/>
+<approved hash="19,1,6c2ed810d411602f"/>
+<approved hash="19,1,b8930a1f861e3492"/>
+<approved hash="19,1,64a4cf7ec37f68a5"/>
+<approved hash="19,1,60a5d377df766ca4"/>
+<approved hash="19,1,d444a17aad7ad844"/>
+<approved hash="19,1,d8cfaa1da61dd4cf"/>
+<approved hash="19,1,dcceb614ba14d0ce"/>
+<approved hash="19,1,00f97375ff758cf9"/>
+<approved hash="19,1,706921bb2dba7c68"/>
+<approved hash="19,1,74683db231b37869"/>
+<approved hash="19,1,7ce22adc26dd70e3"/>
+<approved hash="19,1,a85ff8d374d2245e"/>
+<approved hash="19,1,13a56029ec299fa5"/>
+<approved hash="19,1,cf92a548a948c392"/>
+<approved hash="19,1,c718b226be26cb18"/>
+<approved hash="19,1,cb93b941b541c793"/>
+<approved hash="19,1,4fb65b88578843b6"/>
+<approved hash="19,1,473c4ce640e64b3c"/>
+<approved hash="19,1,9b0b89870587170b"/>
+<approved hash="19,1,433d50ef5cef4f3d"/>
+<approved hash="19,1,da58888a84b5d667"/>
+<approved hash="19,1,026e51e2dddd8e51"/>
+<approved hash="19,1,de59948398bcd266"/>
+<approved hash="19,1,d6d383ed8fd2daec"/>
+<approved hash="19,1,8ab7e63b6a3b06b7"/>
+<approved hash="19,1,52813f5333535e81"/>
+<approved hash="19,1,5680235a2f5a5a80"/>
+<approved hash="19,1,5e0a34343834520a"/>
+<approved hash="19,1,f51a4e96c291791d"/>
+<approved hash="19,1,21a79c99909e2da0"/>
+<approved hash="19,1,292d8bf787f0252a"/>
+<approved hash="19,1,2d2c97fe9bf9212b"/>
+<approved hash="19,1,a6560d840187aa55"/>
+<approved hash="19,1,aadd06e30ae0a6de"/>
+<approved hash="19,1,7e60d4ec58eff263"/>
+<approved hash="19,1,a257118d1d8eae54"/>
+<approved hash="19,1,dbf1f92bf52bd7f1"/>
+<approved hash="19,1,dff0e522e922d3f0"/>
+<approved hash="19,1,d37bee45e245df7b"/>
+<approved hash="19,1,07c63c4ab04a8bc6"/>
+<approved hash="19,1,b31b02c10ec1bf1b"/>
+<approved hash="19,1,6f2cc7a04ba0e32c"/>
+<approved hash="19,1,b71a1ec812c8bb1a"/>
+<approved hash="19,1,bb9115af19afb791"/>
+<approved hash="19,1,2c45f697fa972045"/>
+<approved hash="19,1,f4732fffa3ff7873"/>
+<approved hash="19,1,20cefdf0f1f02cce"/>
+<approved hash="19,1,2844ea9ee69e2444"/>
+<approved hash="19,1,8865645b685b8465"/>
+<approved hash="19,1,84ee6f3c633c88ee"/>
+<approved hash="19,1,5cd8b6543a54d0d8"/>
+<approved hash="19,1,80ef73357f358cef"/>
+<approved hash="19,1,3908fbd2f7d33509"/>
+<approved hash="19,1,3182ecbce0bd3d83"/>
+<approved hash="19,1,e53f3eb3b2b2693e"/>
+<approved hash="19,1,3d09e7dbebda3108"/>
+</errors>
 </board>
 </drawing>
 </eagle>
