@@ -6064,11 +6064,11 @@ NS Package M08A</description>
 <part name="U$1" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+3" library="supply1" deviceset="VCC" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
-<part name="U$2" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U1" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="R4" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R5" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R6" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R6" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+4" library="supply1" deviceset="VCC" device=""/>
 <part name="U$3" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$4" library="Sparky" deviceset="4PAD" device=""/>
@@ -6077,11 +6077,11 @@ NS Package M08A</description>
 <part name="U$5" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+5" library="supply1" deviceset="VCC" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
-<part name="U$6" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U2" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="R1" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R2" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R3" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R3" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+6" library="supply1" deviceset="VCC" device=""/>
 <part name="U$7" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$8" library="Sparky" deviceset="4PAD" device=""/>
@@ -6090,11 +6090,11 @@ NS Package M08A</description>
 <part name="U$9" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+8" library="supply1" deviceset="VCC" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="U$10" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U3" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="R7" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R8" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R9" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R9" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+9" library="supply1" deviceset="VCC" device=""/>
 <part name="U$11" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$12" library="Sparky" deviceset="4PAD" device=""/>
@@ -6103,11 +6103,11 @@ NS Package M08A</description>
 <part name="U$13" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+11" library="supply1" deviceset="VCC" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="U$14" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U4" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="R10" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R11" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R12" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R12" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+12" library="supply1" deviceset="VCC" device=""/>
 <part name="U$15" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$16" library="Sparky" deviceset="4PAD" device=""/>
@@ -6116,11 +6116,11 @@ NS Package M08A</description>
 <part name="U$17" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+14" library="supply1" deviceset="VCC" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
-<part name="U$18" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U5" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="R13" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R14" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R15" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R15" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+15" library="supply1" deviceset="VCC" device=""/>
 <part name="U$19" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$20" library="Sparky" deviceset="4PAD" device=""/>
@@ -6129,11 +6129,11 @@ NS Package M08A</description>
 <part name="U$21" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+17" library="supply1" deviceset="VCC" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
-<part name="U$22" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U6" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="R16" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R17" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R18" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R18" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+18" library="supply1" deviceset="VCC" device=""/>
 <part name="U$23" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$24" library="Sparky" deviceset="4PAD" device=""/>
@@ -6142,11 +6142,11 @@ NS Package M08A</description>
 <part name="U$25" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+20" library="supply1" deviceset="VCC" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
-<part name="U$26" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U7" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="R19" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R20" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R21" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R21" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+21" library="supply1" deviceset="VCC" device=""/>
 <part name="U$27" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$28" library="Sparky" deviceset="4PAD" device=""/>
@@ -6155,11 +6155,11 @@ NS Package M08A</description>
 <part name="U$29" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+23" library="supply1" deviceset="VCC" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
-<part name="U$30" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U8" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="R22" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R23" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R24" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R24" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+24" library="supply1" deviceset="VCC" device=""/>
 <part name="U$31" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$32" library="Sparky" deviceset="4PAD" device=""/>
@@ -6168,11 +6168,11 @@ NS Package M08A</description>
 <part name="U$33" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+26" library="supply1" deviceset="VCC" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
-<part name="U$34" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U9" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="R25" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R26" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R27" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R27" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+27" library="supply1" deviceset="VCC" device=""/>
 <part name="U$35" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$36" library="Sparky" deviceset="4PAD" device=""/>
@@ -6181,11 +6181,11 @@ NS Package M08A</description>
 <part name="U$37" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+29" library="supply1" deviceset="VCC" device=""/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
-<part name="U$38" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U10" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="R28" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R29" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R30" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R30" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+30" library="supply1" deviceset="VCC" device=""/>
 <part name="U$39" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$40" library="Sparky" deviceset="4PAD" device=""/>
@@ -6194,11 +6194,11 @@ NS Package M08A</description>
 <part name="U$41" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+32" library="supply1" deviceset="VCC" device=""/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
-<part name="U$42" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U11" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
 <part name="R31" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R32" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R33" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R33" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+33" library="supply1" deviceset="VCC" device=""/>
 <part name="U$43" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$44" library="Sparky" deviceset="4PAD" device=""/>
@@ -6207,11 +6207,11 @@ NS Package M08A</description>
 <part name="U$45" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+35" library="supply1" deviceset="VCC" device=""/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
-<part name="U$46" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U12" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
 <part name="R34" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R35" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R36" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R36" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+36" library="supply1" deviceset="VCC" device=""/>
 <part name="U$47" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$48" library="Sparky" deviceset="4PAD" device=""/>
@@ -6220,11 +6220,11 @@ NS Package M08A</description>
 <part name="U$49" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+38" library="supply1" deviceset="VCC" device=""/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
-<part name="U$50" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U13" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="R37" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R38" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R39" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R39" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+39" library="supply1" deviceset="VCC" device=""/>
 <part name="U$51" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$52" library="Sparky" deviceset="4PAD" device=""/>
@@ -6233,11 +6233,11 @@ NS Package M08A</description>
 <part name="U$53" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+41" library="supply1" deviceset="VCC" device=""/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
-<part name="U$54" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U14" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
 <part name="R40" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R41" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R42" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R42" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+42" library="supply1" deviceset="VCC" device=""/>
 <part name="U$55" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$56" library="Sparky" deviceset="4PAD" device=""/>
@@ -6246,11 +6246,11 @@ NS Package M08A</description>
 <part name="U$57" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+44" library="supply1" deviceset="VCC" device=""/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
-<part name="U$58" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U15" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 <part name="R43" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R44" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R45" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R45" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+45" library="supply1" deviceset="VCC" device=""/>
 <part name="U$59" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$60" library="Sparky" deviceset="4PAD" device=""/>
@@ -6259,11 +6259,11 @@ NS Package M08A</description>
 <part name="U$61" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+47" library="supply1" deviceset="VCC" device=""/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
-<part name="U$62" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U16" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="R46" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R47" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R48" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R48" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+48" library="supply1" deviceset="VCC" device=""/>
 <part name="U$63" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$64" library="Sparky" deviceset="4PAD" device=""/>
@@ -6272,11 +6272,11 @@ NS Package M08A</description>
 <part name="U$65" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+50" library="supply1" deviceset="VCC" device=""/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
-<part name="U$66" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U17" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="R49" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R50" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R51" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R51" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+51" library="supply1" deviceset="VCC" device=""/>
 <part name="U$67" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$68" library="Sparky" deviceset="4PAD" device=""/>
@@ -6285,11 +6285,11 @@ NS Package M08A</description>
 <part name="U$69" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+53" library="supply1" deviceset="VCC" device=""/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
-<part name="U$70" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U18" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
 <part name="R52" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R53" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R54" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R54" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+54" library="supply1" deviceset="VCC" device=""/>
 <part name="U$71" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$72" library="Sparky" deviceset="4PAD" device=""/>
@@ -6298,11 +6298,11 @@ NS Package M08A</description>
 <part name="U$73" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+56" library="supply1" deviceset="VCC" device=""/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>
-<part name="U$74" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U19" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
 <part name="R55" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R56" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R57" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R57" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+57" library="supply1" deviceset="VCC" device=""/>
 <part name="U$75" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$76" library="Sparky" deviceset="4PAD" device=""/>
@@ -6311,11 +6311,11 @@ NS Package M08A</description>
 <part name="U$77" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+59" library="supply1" deviceset="VCC" device=""/>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
-<part name="U$78" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U20" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND40" library="supply1" deviceset="GND" device=""/>
 <part name="R58" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R59" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R60" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R60" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+60" library="supply1" deviceset="VCC" device=""/>
 <part name="U$79" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$80" library="Sparky" deviceset="4PAD" device=""/>
@@ -6324,11 +6324,11 @@ NS Package M08A</description>
 <part name="U$81" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+62" library="supply1" deviceset="VCC" device=""/>
 <part name="GND41" library="supply1" deviceset="GND" device=""/>
-<part name="U$82" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U21" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
 <part name="R61" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R62" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R63" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R63" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+63" library="supply1" deviceset="VCC" device=""/>
 <part name="U$83" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$84" library="Sparky" deviceset="4PAD" device=""/>
@@ -6337,11 +6337,11 @@ NS Package M08A</description>
 <part name="U$85" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+65" library="supply1" deviceset="VCC" device=""/>
 <part name="GND43" library="supply1" deviceset="GND" device=""/>
-<part name="U$86" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U22" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
 <part name="R64" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R65" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R66" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R66" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+66" library="supply1" deviceset="VCC" device=""/>
 <part name="U$87" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$88" library="Sparky" deviceset="4PAD" device=""/>
@@ -6350,11 +6350,11 @@ NS Package M08A</description>
 <part name="U$89" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+68" library="supply1" deviceset="VCC" device=""/>
 <part name="GND45" library="supply1" deviceset="GND" device=""/>
-<part name="U$90" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U23" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND46" library="supply1" deviceset="GND" device=""/>
 <part name="R67" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R68" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R69" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R69" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+69" library="supply1" deviceset="VCC" device=""/>
 <part name="U$91" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$92" library="Sparky" deviceset="4PAD" device=""/>
@@ -6363,11 +6363,11 @@ NS Package M08A</description>
 <part name="U$93" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+71" library="supply1" deviceset="VCC" device=""/>
 <part name="GND47" library="supply1" deviceset="GND" device=""/>
-<part name="U$94" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U24" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND48" library="supply1" deviceset="GND" device=""/>
 <part name="R70" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R71" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R72" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R72" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+72" library="supply1" deviceset="VCC" device=""/>
 <part name="U$95" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$96" library="Sparky" deviceset="4PAD" device=""/>
@@ -6376,11 +6376,11 @@ NS Package M08A</description>
 <part name="U$97" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+74" library="supply1" deviceset="VCC" device=""/>
 <part name="GND49" library="supply1" deviceset="GND" device=""/>
-<part name="U$98" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U25" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND50" library="supply1" deviceset="GND" device=""/>
 <part name="R73" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R74" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R75" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R75" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+75" library="supply1" deviceset="VCC" device=""/>
 <part name="U$99" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$100" library="Sparky" deviceset="4PAD" device=""/>
@@ -6389,11 +6389,11 @@ NS Package M08A</description>
 <part name="U$101" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+77" library="supply1" deviceset="VCC" device=""/>
 <part name="GND51" library="supply1" deviceset="GND" device=""/>
-<part name="U$102" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U26" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND52" library="supply1" deviceset="GND" device=""/>
 <part name="R76" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R77" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R78" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R78" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+78" library="supply1" deviceset="VCC" device=""/>
 <part name="U$103" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$104" library="Sparky" deviceset="4PAD" device=""/>
@@ -6402,11 +6402,11 @@ NS Package M08A</description>
 <part name="U$105" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+80" library="supply1" deviceset="VCC" device=""/>
 <part name="GND53" library="supply1" deviceset="GND" device=""/>
-<part name="U$106" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U27" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND54" library="supply1" deviceset="GND" device=""/>
 <part name="R79" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R80" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R81" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R81" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+81" library="supply1" deviceset="VCC" device=""/>
 <part name="U$107" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$108" library="Sparky" deviceset="4PAD" device=""/>
@@ -6415,11 +6415,11 @@ NS Package M08A</description>
 <part name="U$109" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+83" library="supply1" deviceset="VCC" device=""/>
 <part name="GND55" library="supply1" deviceset="GND" device=""/>
-<part name="U$110" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U28" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND56" library="supply1" deviceset="GND" device=""/>
 <part name="R82" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R83" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R84" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R84" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+84" library="supply1" deviceset="VCC" device=""/>
 <part name="U$111" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$112" library="Sparky" deviceset="4PAD" device=""/>
@@ -6428,11 +6428,11 @@ NS Package M08A</description>
 <part name="U$113" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+86" library="supply1" deviceset="VCC" device=""/>
 <part name="GND57" library="supply1" deviceset="GND" device=""/>
-<part name="U$114" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U29" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND58" library="supply1" deviceset="GND" device=""/>
 <part name="R85" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R86" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R87" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R87" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+87" library="supply1" deviceset="VCC" device=""/>
 <part name="U$115" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$116" library="Sparky" deviceset="4PAD" device=""/>
@@ -6441,11 +6441,11 @@ NS Package M08A</description>
 <part name="U$117" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+89" library="supply1" deviceset="VCC" device=""/>
 <part name="GND59" library="supply1" deviceset="GND" device=""/>
-<part name="U$118" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U30" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND60" library="supply1" deviceset="GND" device=""/>
 <part name="R88" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R89" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R90" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R90" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+90" library="supply1" deviceset="VCC" device=""/>
 <part name="U$119" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$120" library="Sparky" deviceset="4PAD" device=""/>
@@ -6454,11 +6454,11 @@ NS Package M08A</description>
 <part name="U$121" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+92" library="supply1" deviceset="VCC" device=""/>
 <part name="GND61" library="supply1" deviceset="GND" device=""/>
-<part name="U$122" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U31" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND62" library="supply1" deviceset="GND" device=""/>
 <part name="R91" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R92" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R93" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R93" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+93" library="supply1" deviceset="VCC" device=""/>
 <part name="U$123" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$124" library="Sparky" deviceset="4PAD" device=""/>
@@ -6467,11 +6467,11 @@ NS Package M08A</description>
 <part name="U$125" library="tom-tappytap-v5-flex" deviceset="TP_4MM_MED_PAD" device=""/>
 <part name="P+95" library="supply1" deviceset="VCC" device=""/>
 <part name="GND63" library="supply1" deviceset="GND" device=""/>
-<part name="U$126" library="Sparky" deviceset="WS2818" device=""/>
+<part name="U32" library="Sparky" deviceset="WS2818" device=""/>
 <part name="GND64" library="supply1" deviceset="GND" device=""/>
 <part name="R94" library="rcl" deviceset="R-US_" device="R0201"/>
 <part name="R95" library="rcl" deviceset="R-US_" device="R0201"/>
-<part name="R96" library="rcl" deviceset="R-US_" device="R0201"/>
+<part name="R96" library="rcl" deviceset="R-US_" device="R0201" value="100"/>
 <part name="P+96" library="supply1" deviceset="VCC" device=""/>
 <part name="U$127" library="Sparky" deviceset="4PAD" device=""/>
 <part name="U$128" library="Sparky" deviceset="4PAD" device=""/>
@@ -6486,7 +6486,7 @@ NS Package M08A</description>
 <instance part="U$1" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+3" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND1" gate="1" x="2.54" y="106.68"/>
-<instance part="U$2" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U1" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND3" gate="1" x="30.48" y="81.28"/>
 <instance part="R4" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R5" gate="G$1" x="-5.08" y="78.74"/>
@@ -6532,12 +6532,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="G$1" pin="OUTB"/>
+<pinref part="U1" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="OUTG"/>
+<pinref part="U1" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="OUTR"/>
+<pinref part="U1" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -6553,7 +6553,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="G$1" pin="GND"/>
+<pinref part="U1" gate="G$1" pin="GND"/>
 <pinref part="GND3" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -6581,20 +6581,20 @@ NS Package M08A</description>
 </net>
 <net name="N$4" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="DIN"/>
+<pinref part="U1" gate="G$1" pin="DIN"/>
 <pinref part="R4" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$5" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="DO"/>
+<pinref part="U1" gate="G$1" pin="DO"/>
 <pinref part="R5" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$6" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="VDD"/>
+<pinref part="U1" gate="G$1" pin="VDD"/>
 <pinref part="R6" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -6617,7 +6617,7 @@ NS Package M08A</description>
 </net>
 <net name="BIN0" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="BIN"/>
+<pinref part="U1" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6638,7 +6638,7 @@ NS Package M08A</description>
 <instance part="U$5" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+5" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND2" gate="1" x="2.54" y="106.68"/>
-<instance part="U$6" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U2" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND4" gate="1" x="30.48" y="81.28"/>
 <instance part="R1" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R2" gate="G$1" x="-5.08" y="78.74"/>
@@ -6684,12 +6684,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$6" gate="G$1" pin="OUTB"/>
+<pinref part="U2" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="OUTG"/>
+<pinref part="U2" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="OUTR"/>
+<pinref part="U2" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -6705,7 +6705,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$6" gate="G$1" pin="GND"/>
+<pinref part="U2" gate="G$1" pin="GND"/>
 <pinref part="GND4" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -6733,20 +6733,20 @@ NS Package M08A</description>
 </net>
 <net name="N$1" class="0">
 <segment>
-<pinref part="U$6" gate="G$1" pin="DIN"/>
+<pinref part="U2" gate="G$1" pin="DIN"/>
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
 <segment>
-<pinref part="U$6" gate="G$1" pin="DO"/>
+<pinref part="U2" gate="G$1" pin="DO"/>
 <pinref part="R2" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
-<pinref part="U$6" gate="G$1" pin="VDD"/>
+<pinref part="U2" gate="G$1" pin="VDD"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -6769,7 +6769,7 @@ NS Package M08A</description>
 </net>
 <net name="DIN0" class="0">
 <segment>
-<pinref part="U$6" gate="G$1" pin="BIN"/>
+<pinref part="U2" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6790,7 +6790,7 @@ NS Package M08A</description>
 <instance part="U$9" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+8" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND5" gate="1" x="2.54" y="106.68"/>
-<instance part="U$10" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U3" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND6" gate="1" x="30.48" y="81.28"/>
 <instance part="R7" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R8" gate="G$1" x="-5.08" y="78.74"/>
@@ -6836,12 +6836,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$10" gate="G$1" pin="OUTB"/>
+<pinref part="U3" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$10" gate="G$1" pin="OUTG"/>
+<pinref part="U3" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$10" gate="G$1" pin="OUTR"/>
+<pinref part="U3" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -6857,7 +6857,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$10" gate="G$1" pin="GND"/>
+<pinref part="U3" gate="G$1" pin="GND"/>
 <pinref part="GND6" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -6885,20 +6885,20 @@ NS Package M08A</description>
 </net>
 <net name="N$7" class="0">
 <segment>
-<pinref part="U$10" gate="G$1" pin="DIN"/>
+<pinref part="U3" gate="G$1" pin="DIN"/>
 <pinref part="R7" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$8" class="0">
 <segment>
-<pinref part="U$10" gate="G$1" pin="DO"/>
+<pinref part="U3" gate="G$1" pin="DO"/>
 <pinref part="R8" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
-<pinref part="U$10" gate="G$1" pin="VDD"/>
+<pinref part="U3" gate="G$1" pin="VDD"/>
 <pinref part="R9" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -6921,7 +6921,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT0" class="0">
 <segment>
-<pinref part="U$10" gate="G$1" pin="BIN"/>
+<pinref part="U3" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -6942,7 +6942,7 @@ NS Package M08A</description>
 <instance part="U$13" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+11" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND7" gate="1" x="2.54" y="106.68"/>
-<instance part="U$14" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U4" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND8" gate="1" x="30.48" y="81.28"/>
 <instance part="R10" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R11" gate="G$1" x="-5.08" y="78.74"/>
@@ -6988,12 +6988,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$14" gate="G$1" pin="OUTB"/>
+<pinref part="U4" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$14" gate="G$1" pin="OUTG"/>
+<pinref part="U4" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$14" gate="G$1" pin="OUTR"/>
+<pinref part="U4" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -7009,7 +7009,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$14" gate="G$1" pin="GND"/>
+<pinref part="U4" gate="G$1" pin="GND"/>
 <pinref part="GND8" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -7037,20 +7037,20 @@ NS Package M08A</description>
 </net>
 <net name="N$10" class="0">
 <segment>
-<pinref part="U$14" gate="G$1" pin="DIN"/>
+<pinref part="U4" gate="G$1" pin="DIN"/>
 <pinref part="R10" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$11" class="0">
 <segment>
-<pinref part="U$14" gate="G$1" pin="DO"/>
+<pinref part="U4" gate="G$1" pin="DO"/>
 <pinref part="R11" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$12" class="0">
 <segment>
-<pinref part="U$14" gate="G$1" pin="VDD"/>
+<pinref part="U4" gate="G$1" pin="VDD"/>
 <pinref part="R12" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -7073,7 +7073,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT1" class="0">
 <segment>
-<pinref part="U$14" gate="G$1" pin="BIN"/>
+<pinref part="U4" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -7094,7 +7094,7 @@ NS Package M08A</description>
 <instance part="U$17" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+14" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND9" gate="1" x="2.54" y="106.68"/>
-<instance part="U$18" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U5" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND10" gate="1" x="30.48" y="81.28"/>
 <instance part="R13" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R14" gate="G$1" x="-5.08" y="78.74"/>
@@ -7140,12 +7140,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$18" gate="G$1" pin="OUTB"/>
+<pinref part="U5" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$18" gate="G$1" pin="OUTG"/>
+<pinref part="U5" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$18" gate="G$1" pin="OUTR"/>
+<pinref part="U5" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -7161,7 +7161,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$18" gate="G$1" pin="GND"/>
+<pinref part="U5" gate="G$1" pin="GND"/>
 <pinref part="GND10" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -7189,20 +7189,20 @@ NS Package M08A</description>
 </net>
 <net name="N$13" class="0">
 <segment>
-<pinref part="U$18" gate="G$1" pin="DIN"/>
+<pinref part="U5" gate="G$1" pin="DIN"/>
 <pinref part="R13" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$14" class="0">
 <segment>
-<pinref part="U$18" gate="G$1" pin="DO"/>
+<pinref part="U5" gate="G$1" pin="DO"/>
 <pinref part="R14" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$15" class="0">
 <segment>
-<pinref part="U$18" gate="G$1" pin="VDD"/>
+<pinref part="U5" gate="G$1" pin="VDD"/>
 <pinref part="R15" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -7225,7 +7225,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT2" class="0">
 <segment>
-<pinref part="U$18" gate="G$1" pin="BIN"/>
+<pinref part="U5" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -7246,7 +7246,7 @@ NS Package M08A</description>
 <instance part="U$21" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+17" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND11" gate="1" x="2.54" y="106.68"/>
-<instance part="U$22" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U6" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND12" gate="1" x="30.48" y="81.28"/>
 <instance part="R16" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R17" gate="G$1" x="-5.08" y="78.74"/>
@@ -7292,12 +7292,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$22" gate="G$1" pin="OUTB"/>
+<pinref part="U6" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$22" gate="G$1" pin="OUTG"/>
+<pinref part="U6" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$22" gate="G$1" pin="OUTR"/>
+<pinref part="U6" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -7313,7 +7313,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$22" gate="G$1" pin="GND"/>
+<pinref part="U6" gate="G$1" pin="GND"/>
 <pinref part="GND12" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -7341,20 +7341,20 @@ NS Package M08A</description>
 </net>
 <net name="N$16" class="0">
 <segment>
-<pinref part="U$22" gate="G$1" pin="DIN"/>
+<pinref part="U6" gate="G$1" pin="DIN"/>
 <pinref part="R16" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$17" class="0">
 <segment>
-<pinref part="U$22" gate="G$1" pin="DO"/>
+<pinref part="U6" gate="G$1" pin="DO"/>
 <pinref part="R17" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$18" class="0">
 <segment>
-<pinref part="U$22" gate="G$1" pin="VDD"/>
+<pinref part="U6" gate="G$1" pin="VDD"/>
 <pinref part="R18" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -7377,7 +7377,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT3" class="0">
 <segment>
-<pinref part="U$22" gate="G$1" pin="BIN"/>
+<pinref part="U6" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -7398,7 +7398,7 @@ NS Package M08A</description>
 <instance part="U$25" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+20" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND13" gate="1" x="2.54" y="106.68"/>
-<instance part="U$26" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U7" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND14" gate="1" x="30.48" y="81.28"/>
 <instance part="R19" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R20" gate="G$1" x="-5.08" y="78.74"/>
@@ -7444,12 +7444,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$26" gate="G$1" pin="OUTB"/>
+<pinref part="U7" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$26" gate="G$1" pin="OUTG"/>
+<pinref part="U7" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$26" gate="G$1" pin="OUTR"/>
+<pinref part="U7" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -7465,7 +7465,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$26" gate="G$1" pin="GND"/>
+<pinref part="U7" gate="G$1" pin="GND"/>
 <pinref part="GND14" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -7493,20 +7493,20 @@ NS Package M08A</description>
 </net>
 <net name="N$19" class="0">
 <segment>
-<pinref part="U$26" gate="G$1" pin="DIN"/>
+<pinref part="U7" gate="G$1" pin="DIN"/>
 <pinref part="R19" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$20" class="0">
 <segment>
-<pinref part="U$26" gate="G$1" pin="DO"/>
+<pinref part="U7" gate="G$1" pin="DO"/>
 <pinref part="R20" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$21" class="0">
 <segment>
-<pinref part="U$26" gate="G$1" pin="VDD"/>
+<pinref part="U7" gate="G$1" pin="VDD"/>
 <pinref part="R21" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -7529,7 +7529,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT4" class="0">
 <segment>
-<pinref part="U$26" gate="G$1" pin="BIN"/>
+<pinref part="U7" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -7550,7 +7550,7 @@ NS Package M08A</description>
 <instance part="U$29" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+23" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND15" gate="1" x="2.54" y="106.68"/>
-<instance part="U$30" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U8" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND16" gate="1" x="30.48" y="81.28"/>
 <instance part="R22" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R23" gate="G$1" x="-5.08" y="78.74"/>
@@ -7596,12 +7596,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$30" gate="G$1" pin="OUTB"/>
+<pinref part="U8" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$30" gate="G$1" pin="OUTG"/>
+<pinref part="U8" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$30" gate="G$1" pin="OUTR"/>
+<pinref part="U8" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -7617,7 +7617,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$30" gate="G$1" pin="GND"/>
+<pinref part="U8" gate="G$1" pin="GND"/>
 <pinref part="GND16" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -7645,20 +7645,20 @@ NS Package M08A</description>
 </net>
 <net name="N$22" class="0">
 <segment>
-<pinref part="U$30" gate="G$1" pin="DIN"/>
+<pinref part="U8" gate="G$1" pin="DIN"/>
 <pinref part="R22" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$23" class="0">
 <segment>
-<pinref part="U$30" gate="G$1" pin="DO"/>
+<pinref part="U8" gate="G$1" pin="DO"/>
 <pinref part="R23" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$24" class="0">
 <segment>
-<pinref part="U$30" gate="G$1" pin="VDD"/>
+<pinref part="U8" gate="G$1" pin="VDD"/>
 <pinref part="R24" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -7681,7 +7681,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT5" class="0">
 <segment>
-<pinref part="U$30" gate="G$1" pin="BIN"/>
+<pinref part="U8" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -7702,7 +7702,7 @@ NS Package M08A</description>
 <instance part="U$33" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+26" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND17" gate="1" x="2.54" y="106.68"/>
-<instance part="U$34" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U9" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND18" gate="1" x="30.48" y="81.28"/>
 <instance part="R25" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R26" gate="G$1" x="-5.08" y="78.74"/>
@@ -7748,12 +7748,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$34" gate="G$1" pin="OUTB"/>
+<pinref part="U9" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$34" gate="G$1" pin="OUTG"/>
+<pinref part="U9" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$34" gate="G$1" pin="OUTR"/>
+<pinref part="U9" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -7769,7 +7769,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$34" gate="G$1" pin="GND"/>
+<pinref part="U9" gate="G$1" pin="GND"/>
 <pinref part="GND18" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -7797,20 +7797,20 @@ NS Package M08A</description>
 </net>
 <net name="N$25" class="0">
 <segment>
-<pinref part="U$34" gate="G$1" pin="DIN"/>
+<pinref part="U9" gate="G$1" pin="DIN"/>
 <pinref part="R25" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$26" class="0">
 <segment>
-<pinref part="U$34" gate="G$1" pin="DO"/>
+<pinref part="U9" gate="G$1" pin="DO"/>
 <pinref part="R26" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$27" class="0">
 <segment>
-<pinref part="U$34" gate="G$1" pin="VDD"/>
+<pinref part="U9" gate="G$1" pin="VDD"/>
 <pinref part="R27" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -7833,7 +7833,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT6" class="0">
 <segment>
-<pinref part="U$34" gate="G$1" pin="BIN"/>
+<pinref part="U9" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -7854,7 +7854,7 @@ NS Package M08A</description>
 <instance part="U$37" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+29" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND19" gate="1" x="2.54" y="106.68"/>
-<instance part="U$38" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U10" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND20" gate="1" x="30.48" y="81.28"/>
 <instance part="R28" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R29" gate="G$1" x="-5.08" y="78.74"/>
@@ -7900,12 +7900,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$38" gate="G$1" pin="OUTB"/>
+<pinref part="U10" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$38" gate="G$1" pin="OUTG"/>
+<pinref part="U10" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$38" gate="G$1" pin="OUTR"/>
+<pinref part="U10" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -7921,7 +7921,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$38" gate="G$1" pin="GND"/>
+<pinref part="U10" gate="G$1" pin="GND"/>
 <pinref part="GND20" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -7949,20 +7949,20 @@ NS Package M08A</description>
 </net>
 <net name="N$28" class="0">
 <segment>
-<pinref part="U$38" gate="G$1" pin="DIN"/>
+<pinref part="U10" gate="G$1" pin="DIN"/>
 <pinref part="R28" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$29" class="0">
 <segment>
-<pinref part="U$38" gate="G$1" pin="DO"/>
+<pinref part="U10" gate="G$1" pin="DO"/>
 <pinref part="R29" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$30" class="0">
 <segment>
-<pinref part="U$38" gate="G$1" pin="VDD"/>
+<pinref part="U10" gate="G$1" pin="VDD"/>
 <pinref part="R30" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -7985,7 +7985,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT7" class="0">
 <segment>
-<pinref part="U$38" gate="G$1" pin="BIN"/>
+<pinref part="U10" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -8006,7 +8006,7 @@ NS Package M08A</description>
 <instance part="U$41" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+32" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND21" gate="1" x="2.54" y="106.68"/>
-<instance part="U$42" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U11" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND22" gate="1" x="30.48" y="81.28"/>
 <instance part="R31" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R32" gate="G$1" x="-5.08" y="78.74"/>
@@ -8052,12 +8052,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$42" gate="G$1" pin="OUTB"/>
+<pinref part="U11" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$42" gate="G$1" pin="OUTG"/>
+<pinref part="U11" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$42" gate="G$1" pin="OUTR"/>
+<pinref part="U11" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -8073,7 +8073,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$42" gate="G$1" pin="GND"/>
+<pinref part="U11" gate="G$1" pin="GND"/>
 <pinref part="GND22" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -8101,20 +8101,20 @@ NS Package M08A</description>
 </net>
 <net name="N$31" class="0">
 <segment>
-<pinref part="U$42" gate="G$1" pin="DIN"/>
+<pinref part="U11" gate="G$1" pin="DIN"/>
 <pinref part="R31" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$32" class="0">
 <segment>
-<pinref part="U$42" gate="G$1" pin="DO"/>
+<pinref part="U11" gate="G$1" pin="DO"/>
 <pinref part="R32" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$33" class="0">
 <segment>
-<pinref part="U$42" gate="G$1" pin="VDD"/>
+<pinref part="U11" gate="G$1" pin="VDD"/>
 <pinref part="R33" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -8137,7 +8137,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT8" class="0">
 <segment>
-<pinref part="U$42" gate="G$1" pin="BIN"/>
+<pinref part="U11" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -8158,7 +8158,7 @@ NS Package M08A</description>
 <instance part="U$45" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+35" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND23" gate="1" x="2.54" y="106.68"/>
-<instance part="U$46" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U12" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND24" gate="1" x="30.48" y="81.28"/>
 <instance part="R34" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R35" gate="G$1" x="-5.08" y="78.74"/>
@@ -8204,12 +8204,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$46" gate="G$1" pin="OUTB"/>
+<pinref part="U12" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$46" gate="G$1" pin="OUTG"/>
+<pinref part="U12" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$46" gate="G$1" pin="OUTR"/>
+<pinref part="U12" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -8225,7 +8225,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$46" gate="G$1" pin="GND"/>
+<pinref part="U12" gate="G$1" pin="GND"/>
 <pinref part="GND24" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -8253,20 +8253,20 @@ NS Package M08A</description>
 </net>
 <net name="N$34" class="0">
 <segment>
-<pinref part="U$46" gate="G$1" pin="DIN"/>
+<pinref part="U12" gate="G$1" pin="DIN"/>
 <pinref part="R34" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$35" class="0">
 <segment>
-<pinref part="U$46" gate="G$1" pin="DO"/>
+<pinref part="U12" gate="G$1" pin="DO"/>
 <pinref part="R35" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$36" class="0">
 <segment>
-<pinref part="U$46" gate="G$1" pin="VDD"/>
+<pinref part="U12" gate="G$1" pin="VDD"/>
 <pinref part="R36" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -8289,7 +8289,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT9" class="0">
 <segment>
-<pinref part="U$46" gate="G$1" pin="BIN"/>
+<pinref part="U12" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -8310,7 +8310,7 @@ NS Package M08A</description>
 <instance part="U$49" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+38" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND25" gate="1" x="2.54" y="106.68"/>
-<instance part="U$50" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U13" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND26" gate="1" x="30.48" y="81.28"/>
 <instance part="R37" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R38" gate="G$1" x="-5.08" y="78.74"/>
@@ -8356,12 +8356,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$50" gate="G$1" pin="OUTB"/>
+<pinref part="U13" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$50" gate="G$1" pin="OUTG"/>
+<pinref part="U13" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$50" gate="G$1" pin="OUTR"/>
+<pinref part="U13" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -8377,7 +8377,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$50" gate="G$1" pin="GND"/>
+<pinref part="U13" gate="G$1" pin="GND"/>
 <pinref part="GND26" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -8405,20 +8405,20 @@ NS Package M08A</description>
 </net>
 <net name="N$37" class="0">
 <segment>
-<pinref part="U$50" gate="G$1" pin="DIN"/>
+<pinref part="U13" gate="G$1" pin="DIN"/>
 <pinref part="R37" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$38" class="0">
 <segment>
-<pinref part="U$50" gate="G$1" pin="DO"/>
+<pinref part="U13" gate="G$1" pin="DO"/>
 <pinref part="R38" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$39" class="0">
 <segment>
-<pinref part="U$50" gate="G$1" pin="VDD"/>
+<pinref part="U13" gate="G$1" pin="VDD"/>
 <pinref part="R39" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -8441,7 +8441,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT10" class="0">
 <segment>
-<pinref part="U$50" gate="G$1" pin="BIN"/>
+<pinref part="U13" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -8462,7 +8462,7 @@ NS Package M08A</description>
 <instance part="U$53" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+41" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND27" gate="1" x="2.54" y="106.68"/>
-<instance part="U$54" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U14" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND28" gate="1" x="30.48" y="81.28"/>
 <instance part="R40" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R41" gate="G$1" x="-5.08" y="78.74"/>
@@ -8508,12 +8508,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$54" gate="G$1" pin="OUTB"/>
+<pinref part="U14" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$54" gate="G$1" pin="OUTG"/>
+<pinref part="U14" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$54" gate="G$1" pin="OUTR"/>
+<pinref part="U14" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -8529,7 +8529,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$54" gate="G$1" pin="GND"/>
+<pinref part="U14" gate="G$1" pin="GND"/>
 <pinref part="GND28" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -8557,20 +8557,20 @@ NS Package M08A</description>
 </net>
 <net name="N$40" class="0">
 <segment>
-<pinref part="U$54" gate="G$1" pin="DIN"/>
+<pinref part="U14" gate="G$1" pin="DIN"/>
 <pinref part="R40" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$41" class="0">
 <segment>
-<pinref part="U$54" gate="G$1" pin="DO"/>
+<pinref part="U14" gate="G$1" pin="DO"/>
 <pinref part="R41" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$42" class="0">
 <segment>
-<pinref part="U$54" gate="G$1" pin="VDD"/>
+<pinref part="U14" gate="G$1" pin="VDD"/>
 <pinref part="R42" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -8593,7 +8593,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT11" class="0">
 <segment>
-<pinref part="U$54" gate="G$1" pin="BIN"/>
+<pinref part="U14" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -8614,7 +8614,7 @@ NS Package M08A</description>
 <instance part="U$57" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+44" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND29" gate="1" x="2.54" y="106.68"/>
-<instance part="U$58" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U15" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND30" gate="1" x="30.48" y="81.28"/>
 <instance part="R43" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R44" gate="G$1" x="-5.08" y="78.74"/>
@@ -8660,12 +8660,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$58" gate="G$1" pin="OUTB"/>
+<pinref part="U15" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$58" gate="G$1" pin="OUTG"/>
+<pinref part="U15" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$58" gate="G$1" pin="OUTR"/>
+<pinref part="U15" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -8681,7 +8681,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$58" gate="G$1" pin="GND"/>
+<pinref part="U15" gate="G$1" pin="GND"/>
 <pinref part="GND30" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -8709,20 +8709,20 @@ NS Package M08A</description>
 </net>
 <net name="N$43" class="0">
 <segment>
-<pinref part="U$58" gate="G$1" pin="DIN"/>
+<pinref part="U15" gate="G$1" pin="DIN"/>
 <pinref part="R43" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$44" class="0">
 <segment>
-<pinref part="U$58" gate="G$1" pin="DO"/>
+<pinref part="U15" gate="G$1" pin="DO"/>
 <pinref part="R44" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$45" class="0">
 <segment>
-<pinref part="U$58" gate="G$1" pin="VDD"/>
+<pinref part="U15" gate="G$1" pin="VDD"/>
 <pinref part="R45" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -8745,7 +8745,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT12" class="0">
 <segment>
-<pinref part="U$58" gate="G$1" pin="BIN"/>
+<pinref part="U15" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -8766,7 +8766,7 @@ NS Package M08A</description>
 <instance part="U$61" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+47" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND31" gate="1" x="2.54" y="106.68"/>
-<instance part="U$62" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U16" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND32" gate="1" x="30.48" y="81.28"/>
 <instance part="R46" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R47" gate="G$1" x="-5.08" y="78.74"/>
@@ -8812,12 +8812,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$62" gate="G$1" pin="OUTB"/>
+<pinref part="U16" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$62" gate="G$1" pin="OUTG"/>
+<pinref part="U16" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$62" gate="G$1" pin="OUTR"/>
+<pinref part="U16" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -8833,7 +8833,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$62" gate="G$1" pin="GND"/>
+<pinref part="U16" gate="G$1" pin="GND"/>
 <pinref part="GND32" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -8861,20 +8861,20 @@ NS Package M08A</description>
 </net>
 <net name="N$46" class="0">
 <segment>
-<pinref part="U$62" gate="G$1" pin="DIN"/>
+<pinref part="U16" gate="G$1" pin="DIN"/>
 <pinref part="R46" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$47" class="0">
 <segment>
-<pinref part="U$62" gate="G$1" pin="DO"/>
+<pinref part="U16" gate="G$1" pin="DO"/>
 <pinref part="R47" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$48" class="0">
 <segment>
-<pinref part="U$62" gate="G$1" pin="VDD"/>
+<pinref part="U16" gate="G$1" pin="VDD"/>
 <pinref part="R48" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -8897,7 +8897,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT13" class="0">
 <segment>
-<pinref part="U$62" gate="G$1" pin="BIN"/>
+<pinref part="U16" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -8918,7 +8918,7 @@ NS Package M08A</description>
 <instance part="U$65" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+50" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND33" gate="1" x="2.54" y="106.68"/>
-<instance part="U$66" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U17" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND34" gate="1" x="30.48" y="81.28"/>
 <instance part="R49" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R50" gate="G$1" x="-5.08" y="78.74"/>
@@ -8964,12 +8964,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$66" gate="G$1" pin="OUTB"/>
+<pinref part="U17" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$66" gate="G$1" pin="OUTG"/>
+<pinref part="U17" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$66" gate="G$1" pin="OUTR"/>
+<pinref part="U17" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -8985,7 +8985,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$66" gate="G$1" pin="GND"/>
+<pinref part="U17" gate="G$1" pin="GND"/>
 <pinref part="GND34" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -9013,20 +9013,20 @@ NS Package M08A</description>
 </net>
 <net name="N$49" class="0">
 <segment>
-<pinref part="U$66" gate="G$1" pin="DIN"/>
+<pinref part="U17" gate="G$1" pin="DIN"/>
 <pinref part="R49" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$50" class="0">
 <segment>
-<pinref part="U$66" gate="G$1" pin="DO"/>
+<pinref part="U17" gate="G$1" pin="DO"/>
 <pinref part="R50" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$51" class="0">
 <segment>
-<pinref part="U$66" gate="G$1" pin="VDD"/>
+<pinref part="U17" gate="G$1" pin="VDD"/>
 <pinref part="R51" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -9049,7 +9049,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT14" class="0">
 <segment>
-<pinref part="U$66" gate="G$1" pin="BIN"/>
+<pinref part="U17" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -9070,7 +9070,7 @@ NS Package M08A</description>
 <instance part="U$69" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+53" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND35" gate="1" x="2.54" y="106.68"/>
-<instance part="U$70" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U18" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND36" gate="1" x="30.48" y="81.28"/>
 <instance part="R52" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R53" gate="G$1" x="-5.08" y="78.74"/>
@@ -9116,12 +9116,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$70" gate="G$1" pin="OUTB"/>
+<pinref part="U18" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$70" gate="G$1" pin="OUTG"/>
+<pinref part="U18" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$70" gate="G$1" pin="OUTR"/>
+<pinref part="U18" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -9137,7 +9137,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$70" gate="G$1" pin="GND"/>
+<pinref part="U18" gate="G$1" pin="GND"/>
 <pinref part="GND36" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -9165,20 +9165,20 @@ NS Package M08A</description>
 </net>
 <net name="N$52" class="0">
 <segment>
-<pinref part="U$70" gate="G$1" pin="DIN"/>
+<pinref part="U18" gate="G$1" pin="DIN"/>
 <pinref part="R52" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$53" class="0">
 <segment>
-<pinref part="U$70" gate="G$1" pin="DO"/>
+<pinref part="U18" gate="G$1" pin="DO"/>
 <pinref part="R53" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$54" class="0">
 <segment>
-<pinref part="U$70" gate="G$1" pin="VDD"/>
+<pinref part="U18" gate="G$1" pin="VDD"/>
 <pinref part="R54" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -9201,7 +9201,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT15" class="0">
 <segment>
-<pinref part="U$70" gate="G$1" pin="BIN"/>
+<pinref part="U18" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -9222,7 +9222,7 @@ NS Package M08A</description>
 <instance part="U$73" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+56" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND37" gate="1" x="2.54" y="106.68"/>
-<instance part="U$74" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U19" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND38" gate="1" x="30.48" y="81.28"/>
 <instance part="R55" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R56" gate="G$1" x="-5.08" y="78.74"/>
@@ -9268,12 +9268,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$74" gate="G$1" pin="OUTB"/>
+<pinref part="U19" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$74" gate="G$1" pin="OUTG"/>
+<pinref part="U19" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$74" gate="G$1" pin="OUTR"/>
+<pinref part="U19" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -9289,7 +9289,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$74" gate="G$1" pin="GND"/>
+<pinref part="U19" gate="G$1" pin="GND"/>
 <pinref part="GND38" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -9317,20 +9317,20 @@ NS Package M08A</description>
 </net>
 <net name="N$55" class="0">
 <segment>
-<pinref part="U$74" gate="G$1" pin="DIN"/>
+<pinref part="U19" gate="G$1" pin="DIN"/>
 <pinref part="R55" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$56" class="0">
 <segment>
-<pinref part="U$74" gate="G$1" pin="DO"/>
+<pinref part="U19" gate="G$1" pin="DO"/>
 <pinref part="R56" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$57" class="0">
 <segment>
-<pinref part="U$74" gate="G$1" pin="VDD"/>
+<pinref part="U19" gate="G$1" pin="VDD"/>
 <pinref part="R57" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -9353,7 +9353,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT16" class="0">
 <segment>
-<pinref part="U$74" gate="G$1" pin="BIN"/>
+<pinref part="U19" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -9374,7 +9374,7 @@ NS Package M08A</description>
 <instance part="U$77" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+59" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND39" gate="1" x="2.54" y="106.68"/>
-<instance part="U$78" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U20" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND40" gate="1" x="30.48" y="81.28"/>
 <instance part="R58" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R59" gate="G$1" x="-5.08" y="78.74"/>
@@ -9420,12 +9420,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$78" gate="G$1" pin="OUTB"/>
+<pinref part="U20" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$78" gate="G$1" pin="OUTG"/>
+<pinref part="U20" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$78" gate="G$1" pin="OUTR"/>
+<pinref part="U20" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -9441,7 +9441,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$78" gate="G$1" pin="GND"/>
+<pinref part="U20" gate="G$1" pin="GND"/>
 <pinref part="GND40" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -9469,20 +9469,20 @@ NS Package M08A</description>
 </net>
 <net name="N$58" class="0">
 <segment>
-<pinref part="U$78" gate="G$1" pin="DIN"/>
+<pinref part="U20" gate="G$1" pin="DIN"/>
 <pinref part="R58" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$59" class="0">
 <segment>
-<pinref part="U$78" gate="G$1" pin="DO"/>
+<pinref part="U20" gate="G$1" pin="DO"/>
 <pinref part="R59" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$60" class="0">
 <segment>
-<pinref part="U$78" gate="G$1" pin="VDD"/>
+<pinref part="U20" gate="G$1" pin="VDD"/>
 <pinref part="R60" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -9505,7 +9505,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT17" class="0">
 <segment>
-<pinref part="U$78" gate="G$1" pin="BIN"/>
+<pinref part="U20" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -9526,7 +9526,7 @@ NS Package M08A</description>
 <instance part="U$81" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+62" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND41" gate="1" x="2.54" y="106.68"/>
-<instance part="U$82" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U21" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND42" gate="1" x="30.48" y="81.28"/>
 <instance part="R61" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R62" gate="G$1" x="-5.08" y="78.74"/>
@@ -9572,12 +9572,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$82" gate="G$1" pin="OUTB"/>
+<pinref part="U21" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$82" gate="G$1" pin="OUTG"/>
+<pinref part="U21" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$82" gate="G$1" pin="OUTR"/>
+<pinref part="U21" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -9593,7 +9593,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$82" gate="G$1" pin="GND"/>
+<pinref part="U21" gate="G$1" pin="GND"/>
 <pinref part="GND42" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -9621,20 +9621,20 @@ NS Package M08A</description>
 </net>
 <net name="N$61" class="0">
 <segment>
-<pinref part="U$82" gate="G$1" pin="DIN"/>
+<pinref part="U21" gate="G$1" pin="DIN"/>
 <pinref part="R61" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$62" class="0">
 <segment>
-<pinref part="U$82" gate="G$1" pin="DO"/>
+<pinref part="U21" gate="G$1" pin="DO"/>
 <pinref part="R62" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$63" class="0">
 <segment>
-<pinref part="U$82" gate="G$1" pin="VDD"/>
+<pinref part="U21" gate="G$1" pin="VDD"/>
 <pinref part="R63" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -9657,7 +9657,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT18" class="0">
 <segment>
-<pinref part="U$82" gate="G$1" pin="BIN"/>
+<pinref part="U21" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -9678,7 +9678,7 @@ NS Package M08A</description>
 <instance part="U$85" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+65" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND43" gate="1" x="2.54" y="106.68"/>
-<instance part="U$86" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U22" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND44" gate="1" x="30.48" y="81.28"/>
 <instance part="R64" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R65" gate="G$1" x="-5.08" y="78.74"/>
@@ -9724,12 +9724,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$86" gate="G$1" pin="OUTB"/>
+<pinref part="U22" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$86" gate="G$1" pin="OUTG"/>
+<pinref part="U22" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$86" gate="G$1" pin="OUTR"/>
+<pinref part="U22" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -9745,7 +9745,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$86" gate="G$1" pin="GND"/>
+<pinref part="U22" gate="G$1" pin="GND"/>
 <pinref part="GND44" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -9773,20 +9773,20 @@ NS Package M08A</description>
 </net>
 <net name="N$64" class="0">
 <segment>
-<pinref part="U$86" gate="G$1" pin="DIN"/>
+<pinref part="U22" gate="G$1" pin="DIN"/>
 <pinref part="R64" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$65" class="0">
 <segment>
-<pinref part="U$86" gate="G$1" pin="DO"/>
+<pinref part="U22" gate="G$1" pin="DO"/>
 <pinref part="R65" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$66" class="0">
 <segment>
-<pinref part="U$86" gate="G$1" pin="VDD"/>
+<pinref part="U22" gate="G$1" pin="VDD"/>
 <pinref part="R66" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -9809,7 +9809,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT19" class="0">
 <segment>
-<pinref part="U$86" gate="G$1" pin="BIN"/>
+<pinref part="U22" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -9830,7 +9830,7 @@ NS Package M08A</description>
 <instance part="U$89" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+68" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND45" gate="1" x="2.54" y="106.68"/>
-<instance part="U$90" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U23" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND46" gate="1" x="30.48" y="81.28"/>
 <instance part="R67" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R68" gate="G$1" x="-5.08" y="78.74"/>
@@ -9876,12 +9876,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$90" gate="G$1" pin="OUTB"/>
+<pinref part="U23" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$90" gate="G$1" pin="OUTG"/>
+<pinref part="U23" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$90" gate="G$1" pin="OUTR"/>
+<pinref part="U23" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -9897,7 +9897,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$90" gate="G$1" pin="GND"/>
+<pinref part="U23" gate="G$1" pin="GND"/>
 <pinref part="GND46" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -9925,20 +9925,20 @@ NS Package M08A</description>
 </net>
 <net name="N$67" class="0">
 <segment>
-<pinref part="U$90" gate="G$1" pin="DIN"/>
+<pinref part="U23" gate="G$1" pin="DIN"/>
 <pinref part="R67" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$68" class="0">
 <segment>
-<pinref part="U$90" gate="G$1" pin="DO"/>
+<pinref part="U23" gate="G$1" pin="DO"/>
 <pinref part="R68" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$69" class="0">
 <segment>
-<pinref part="U$90" gate="G$1" pin="VDD"/>
+<pinref part="U23" gate="G$1" pin="VDD"/>
 <pinref part="R69" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -9961,7 +9961,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT20" class="0">
 <segment>
-<pinref part="U$90" gate="G$1" pin="BIN"/>
+<pinref part="U23" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -9982,7 +9982,7 @@ NS Package M08A</description>
 <instance part="U$93" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+71" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND47" gate="1" x="2.54" y="106.68"/>
-<instance part="U$94" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U24" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND48" gate="1" x="30.48" y="81.28"/>
 <instance part="R70" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R71" gate="G$1" x="-5.08" y="78.74"/>
@@ -10028,12 +10028,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$94" gate="G$1" pin="OUTB"/>
+<pinref part="U24" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$94" gate="G$1" pin="OUTG"/>
+<pinref part="U24" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$94" gate="G$1" pin="OUTR"/>
+<pinref part="U24" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -10049,7 +10049,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$94" gate="G$1" pin="GND"/>
+<pinref part="U24" gate="G$1" pin="GND"/>
 <pinref part="GND48" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -10077,20 +10077,20 @@ NS Package M08A</description>
 </net>
 <net name="N$70" class="0">
 <segment>
-<pinref part="U$94" gate="G$1" pin="DIN"/>
+<pinref part="U24" gate="G$1" pin="DIN"/>
 <pinref part="R70" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$71" class="0">
 <segment>
-<pinref part="U$94" gate="G$1" pin="DO"/>
+<pinref part="U24" gate="G$1" pin="DO"/>
 <pinref part="R71" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$72" class="0">
 <segment>
-<pinref part="U$94" gate="G$1" pin="VDD"/>
+<pinref part="U24" gate="G$1" pin="VDD"/>
 <pinref part="R72" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -10113,7 +10113,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT21" class="0">
 <segment>
-<pinref part="U$94" gate="G$1" pin="BIN"/>
+<pinref part="U24" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -10134,7 +10134,7 @@ NS Package M08A</description>
 <instance part="U$97" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+74" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND49" gate="1" x="2.54" y="106.68"/>
-<instance part="U$98" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U25" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND50" gate="1" x="30.48" y="81.28"/>
 <instance part="R73" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R74" gate="G$1" x="-5.08" y="78.74"/>
@@ -10180,12 +10180,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$98" gate="G$1" pin="OUTB"/>
+<pinref part="U25" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$98" gate="G$1" pin="OUTG"/>
+<pinref part="U25" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$98" gate="G$1" pin="OUTR"/>
+<pinref part="U25" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -10201,7 +10201,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$98" gate="G$1" pin="GND"/>
+<pinref part="U25" gate="G$1" pin="GND"/>
 <pinref part="GND50" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -10229,20 +10229,20 @@ NS Package M08A</description>
 </net>
 <net name="N$73" class="0">
 <segment>
-<pinref part="U$98" gate="G$1" pin="DIN"/>
+<pinref part="U25" gate="G$1" pin="DIN"/>
 <pinref part="R73" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$74" class="0">
 <segment>
-<pinref part="U$98" gate="G$1" pin="DO"/>
+<pinref part="U25" gate="G$1" pin="DO"/>
 <pinref part="R74" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$75" class="0">
 <segment>
-<pinref part="U$98" gate="G$1" pin="VDD"/>
+<pinref part="U25" gate="G$1" pin="VDD"/>
 <pinref part="R75" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -10265,7 +10265,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT22" class="0">
 <segment>
-<pinref part="U$98" gate="G$1" pin="BIN"/>
+<pinref part="U25" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -10286,7 +10286,7 @@ NS Package M08A</description>
 <instance part="U$101" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+77" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND51" gate="1" x="2.54" y="106.68"/>
-<instance part="U$102" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U26" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND52" gate="1" x="30.48" y="81.28"/>
 <instance part="R76" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R77" gate="G$1" x="-5.08" y="78.74"/>
@@ -10332,12 +10332,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$102" gate="G$1" pin="OUTB"/>
+<pinref part="U26" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$102" gate="G$1" pin="OUTG"/>
+<pinref part="U26" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$102" gate="G$1" pin="OUTR"/>
+<pinref part="U26" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -10353,7 +10353,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$102" gate="G$1" pin="GND"/>
+<pinref part="U26" gate="G$1" pin="GND"/>
 <pinref part="GND52" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -10381,20 +10381,20 @@ NS Package M08A</description>
 </net>
 <net name="N$76" class="0">
 <segment>
-<pinref part="U$102" gate="G$1" pin="DIN"/>
+<pinref part="U26" gate="G$1" pin="DIN"/>
 <pinref part="R76" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$77" class="0">
 <segment>
-<pinref part="U$102" gate="G$1" pin="DO"/>
+<pinref part="U26" gate="G$1" pin="DO"/>
 <pinref part="R77" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$78" class="0">
 <segment>
-<pinref part="U$102" gate="G$1" pin="VDD"/>
+<pinref part="U26" gate="G$1" pin="VDD"/>
 <pinref part="R78" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -10417,7 +10417,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT23" class="0">
 <segment>
-<pinref part="U$102" gate="G$1" pin="BIN"/>
+<pinref part="U26" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -10438,7 +10438,7 @@ NS Package M08A</description>
 <instance part="U$105" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+80" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND53" gate="1" x="2.54" y="106.68"/>
-<instance part="U$106" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U27" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND54" gate="1" x="30.48" y="81.28"/>
 <instance part="R79" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R80" gate="G$1" x="-5.08" y="78.74"/>
@@ -10484,12 +10484,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$106" gate="G$1" pin="OUTB"/>
+<pinref part="U27" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$106" gate="G$1" pin="OUTG"/>
+<pinref part="U27" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$106" gate="G$1" pin="OUTR"/>
+<pinref part="U27" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -10505,7 +10505,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$106" gate="G$1" pin="GND"/>
+<pinref part="U27" gate="G$1" pin="GND"/>
 <pinref part="GND54" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -10533,20 +10533,20 @@ NS Package M08A</description>
 </net>
 <net name="N$79" class="0">
 <segment>
-<pinref part="U$106" gate="G$1" pin="DIN"/>
+<pinref part="U27" gate="G$1" pin="DIN"/>
 <pinref part="R79" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$80" class="0">
 <segment>
-<pinref part="U$106" gate="G$1" pin="DO"/>
+<pinref part="U27" gate="G$1" pin="DO"/>
 <pinref part="R80" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$81" class="0">
 <segment>
-<pinref part="U$106" gate="G$1" pin="VDD"/>
+<pinref part="U27" gate="G$1" pin="VDD"/>
 <pinref part="R81" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -10569,7 +10569,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT24" class="0">
 <segment>
-<pinref part="U$106" gate="G$1" pin="BIN"/>
+<pinref part="U27" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -10590,7 +10590,7 @@ NS Package M08A</description>
 <instance part="U$109" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+83" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND55" gate="1" x="2.54" y="106.68"/>
-<instance part="U$110" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U28" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND56" gate="1" x="30.48" y="81.28"/>
 <instance part="R82" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R83" gate="G$1" x="-5.08" y="78.74"/>
@@ -10636,12 +10636,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$110" gate="G$1" pin="OUTB"/>
+<pinref part="U28" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$110" gate="G$1" pin="OUTG"/>
+<pinref part="U28" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$110" gate="G$1" pin="OUTR"/>
+<pinref part="U28" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -10657,7 +10657,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$110" gate="G$1" pin="GND"/>
+<pinref part="U28" gate="G$1" pin="GND"/>
 <pinref part="GND56" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -10685,20 +10685,20 @@ NS Package M08A</description>
 </net>
 <net name="N$82" class="0">
 <segment>
-<pinref part="U$110" gate="G$1" pin="DIN"/>
+<pinref part="U28" gate="G$1" pin="DIN"/>
 <pinref part="R82" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$83" class="0">
 <segment>
-<pinref part="U$110" gate="G$1" pin="DO"/>
+<pinref part="U28" gate="G$1" pin="DO"/>
 <pinref part="R83" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$84" class="0">
 <segment>
-<pinref part="U$110" gate="G$1" pin="VDD"/>
+<pinref part="U28" gate="G$1" pin="VDD"/>
 <pinref part="R84" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -10721,7 +10721,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT25" class="0">
 <segment>
-<pinref part="U$110" gate="G$1" pin="BIN"/>
+<pinref part="U28" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -10742,7 +10742,7 @@ NS Package M08A</description>
 <instance part="U$113" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+86" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND57" gate="1" x="2.54" y="106.68"/>
-<instance part="U$114" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U29" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND58" gate="1" x="30.48" y="81.28"/>
 <instance part="R85" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R86" gate="G$1" x="-5.08" y="78.74"/>
@@ -10788,12 +10788,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$114" gate="G$1" pin="OUTB"/>
+<pinref part="U29" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$114" gate="G$1" pin="OUTG"/>
+<pinref part="U29" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$114" gate="G$1" pin="OUTR"/>
+<pinref part="U29" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -10809,7 +10809,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$114" gate="G$1" pin="GND"/>
+<pinref part="U29" gate="G$1" pin="GND"/>
 <pinref part="GND58" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -10837,20 +10837,20 @@ NS Package M08A</description>
 </net>
 <net name="N$85" class="0">
 <segment>
-<pinref part="U$114" gate="G$1" pin="DIN"/>
+<pinref part="U29" gate="G$1" pin="DIN"/>
 <pinref part="R85" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$86" class="0">
 <segment>
-<pinref part="U$114" gate="G$1" pin="DO"/>
+<pinref part="U29" gate="G$1" pin="DO"/>
 <pinref part="R86" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$87" class="0">
 <segment>
-<pinref part="U$114" gate="G$1" pin="VDD"/>
+<pinref part="U29" gate="G$1" pin="VDD"/>
 <pinref part="R87" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -10873,7 +10873,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT26" class="0">
 <segment>
-<pinref part="U$114" gate="G$1" pin="BIN"/>
+<pinref part="U29" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -10894,7 +10894,7 @@ NS Package M08A</description>
 <instance part="U$117" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+89" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND59" gate="1" x="2.54" y="106.68"/>
-<instance part="U$118" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U30" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND60" gate="1" x="30.48" y="81.28"/>
 <instance part="R88" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R89" gate="G$1" x="-5.08" y="78.74"/>
@@ -10940,12 +10940,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$118" gate="G$1" pin="OUTB"/>
+<pinref part="U30" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$118" gate="G$1" pin="OUTG"/>
+<pinref part="U30" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$118" gate="G$1" pin="OUTR"/>
+<pinref part="U30" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -10961,7 +10961,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$118" gate="G$1" pin="GND"/>
+<pinref part="U30" gate="G$1" pin="GND"/>
 <pinref part="GND60" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -10989,20 +10989,20 @@ NS Package M08A</description>
 </net>
 <net name="N$88" class="0">
 <segment>
-<pinref part="U$118" gate="G$1" pin="DIN"/>
+<pinref part="U30" gate="G$1" pin="DIN"/>
 <pinref part="R88" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$89" class="0">
 <segment>
-<pinref part="U$118" gate="G$1" pin="DO"/>
+<pinref part="U30" gate="G$1" pin="DO"/>
 <pinref part="R89" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$90" class="0">
 <segment>
-<pinref part="U$118" gate="G$1" pin="VDD"/>
+<pinref part="U30" gate="G$1" pin="VDD"/>
 <pinref part="R90" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -11025,7 +11025,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT27" class="0">
 <segment>
-<pinref part="U$118" gate="G$1" pin="BIN"/>
+<pinref part="U30" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -11046,7 +11046,7 @@ NS Package M08A</description>
 <instance part="U$121" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+92" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND61" gate="1" x="2.54" y="106.68"/>
-<instance part="U$122" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U31" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND62" gate="1" x="30.48" y="81.28"/>
 <instance part="R91" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R92" gate="G$1" x="-5.08" y="78.74"/>
@@ -11092,12 +11092,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$122" gate="G$1" pin="OUTB"/>
+<pinref part="U31" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$122" gate="G$1" pin="OUTG"/>
+<pinref part="U31" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$122" gate="G$1" pin="OUTR"/>
+<pinref part="U31" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -11113,7 +11113,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$122" gate="G$1" pin="GND"/>
+<pinref part="U31" gate="G$1" pin="GND"/>
 <pinref part="GND62" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -11141,20 +11141,20 @@ NS Package M08A</description>
 </net>
 <net name="N$91" class="0">
 <segment>
-<pinref part="U$122" gate="G$1" pin="DIN"/>
+<pinref part="U31" gate="G$1" pin="DIN"/>
 <pinref part="R91" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$92" class="0">
 <segment>
-<pinref part="U$122" gate="G$1" pin="DO"/>
+<pinref part="U31" gate="G$1" pin="DO"/>
 <pinref part="R92" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$93" class="0">
 <segment>
-<pinref part="U$122" gate="G$1" pin="VDD"/>
+<pinref part="U31" gate="G$1" pin="VDD"/>
 <pinref part="R93" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -11177,7 +11177,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT28" class="0">
 <segment>
-<pinref part="U$122" gate="G$1" pin="BIN"/>
+<pinref part="U31" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
@@ -11198,7 +11198,7 @@ NS Package M08A</description>
 <instance part="U$125" gate="G$1" x="25.4" y="106.68" rot="R270"/>
 <instance part="P+95" gate="VCC" x="2.54" y="124.46"/>
 <instance part="GND63" gate="1" x="2.54" y="106.68"/>
-<instance part="U$126" gate="G$1" x="15.24" y="86.36"/>
+<instance part="U32" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND64" gate="1" x="30.48" y="81.28"/>
 <instance part="R94" gate="G$1" x="38.1" y="78.74"/>
 <instance part="R95" gate="G$1" x="-5.08" y="78.74"/>
@@ -11244,12 +11244,12 @@ NS Package M08A</description>
 <label x="27.94" y="116.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$126" gate="G$1" pin="OUTB"/>
+<pinref part="U32" gate="G$1" pin="OUTB"/>
 <wire x1="0" y1="83.82" x2="-5.08" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U$126" gate="G$1" pin="OUTG"/>
+<pinref part="U32" gate="G$1" pin="OUTG"/>
 <wire x1="0" y1="88.9" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="83.82" x2="-5.08" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="U$126" gate="G$1" pin="OUTR"/>
+<pinref part="U32" gate="G$1" pin="OUTR"/>
 <wire x1="0" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="88.9" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
 <label x="-5.08" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -11265,7 +11265,7 @@ NS Package M08A</description>
 <wire x1="2.54" y1="111.76" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$126" gate="G$1" pin="GND"/>
+<pinref part="U32" gate="G$1" pin="GND"/>
 <pinref part="GND64" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -11293,20 +11293,20 @@ NS Package M08A</description>
 </net>
 <net name="N$94" class="0">
 <segment>
-<pinref part="U$126" gate="G$1" pin="DIN"/>
+<pinref part="U32" gate="G$1" pin="DIN"/>
 <pinref part="R94" gate="G$1" pin="1"/>
 <wire x1="33.02" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$95" class="0">
 <segment>
-<pinref part="U$126" gate="G$1" pin="DO"/>
+<pinref part="U32" gate="G$1" pin="DO"/>
 <pinref part="R95" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$96" class="0">
 <segment>
-<pinref part="U$126" gate="G$1" pin="VDD"/>
+<pinref part="U32" gate="G$1" pin="VDD"/>
 <pinref part="R96" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -11329,7 +11329,7 @@ NS Package M08A</description>
 </net>
 <net name="DOUT29" class="0">
 <segment>
-<pinref part="U$126" gate="G$1" pin="BIN"/>
+<pinref part="U32" gate="G$1" pin="BIN"/>
 <wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="35.56" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
