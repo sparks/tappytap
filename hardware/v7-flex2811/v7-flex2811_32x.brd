@@ -222,6 +222,8 @@
 <wire x1="232.5" y1="7.75" x2="232.5" y2="0" width="0" layer="51"/>
 <wire x1="248" y1="7.75" x2="248" y2="0" width="0.254" layer="21"/>
 <wire x1="240.25" y1="7.75" x2="240.25" y2="0" width="0" layer="51"/>
+<wire x1="0" y1="0" x2="0" y2="7.75" width="0" layer="20"/>
+<wire x1="248" y1="0" x2="248" y2="7.75" width="0" layer="20"/>
 </plain>
 <libraries>
 <library name="rcl">
